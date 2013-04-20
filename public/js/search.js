@@ -794,7 +794,10 @@ function showPhoneNumberPopup() {
     ph2l.append(ph2);
     var ph2b = $(document.createElement('a')).addClass('confirmcode').attr('check', '0');
     ph2b.click(function(){
-        if ($(this).attr('check') != '1') return;
+        if ($(this).attr('check') != '1') {
+            showError('Введите номер телефона на который будет выслан код подтверждения.');
+            return;
+        }
         $.ajax({
             type: 'POST',
             url: HTTP_HOST + '/index/sms-check/',
@@ -834,7 +837,11 @@ function showPhoneNumberPopup() {
 
     var button = $(document.createElement('div')).addClass('makerequest1').html('Сделать запрос').attr('req', '0');
         button.click(function(){
-            if ($(this).attr('req') == '0') return;
+            if ($(this).attr('req') == '0')
+            {
+                showError('Введите код подтверждения.');
+                return;
+            }
             var params = {};
             for (var p in searchParams) {
                 if (typeof(searchParams[p]) != 'function') params[p] = searchParams[p];
