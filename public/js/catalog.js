@@ -41,7 +41,7 @@ var secCategories = {"0": []},
             return this.city.country == 9908 ? 100 : 500;
         }
     }
-    requestedPhoneEventor = 0,
+requestedPhoneEventor = 0,
     requestedPhoneService = 0;
 
 function initCatalogForm() {
@@ -97,84 +97,84 @@ function initCatalogForm() {
         'margin-top': '-8px'
     });
     initSlider2($('.search-box .pricesliderh'));
-	
-	function getMinValue(){
-	var pvalues = $('.search-box .pricesliderh .priceslider').slider("option", "values");
-	return pvalues[0];
-	}
-	
-	function getMaxValue(){
-	var pvalues = $('.search-box .pricesliderh .priceslider').slider("option", "values");
-	return pvalues[1];
-	}
-	
-	function getCityValue(){
-	return scatParams.city.id;
-	}
-	
-	function getCategory(){
-	return parseInt($('.search-box .selectsubcategoryh select').val());
-	}
-	
-	function fillForm(){
-	var pvalues = $('.search-box .pricesliderh .priceslider').slider("option", "values");
-	$("#hcity").val(parseInt(scatParams.city.id));
-	$("#hcat").val(parseInt($('.search-box .selectsubcategoryh select').val()));
-	$("#hmin").val(parseInt(pvalues[0]));
-	$("#hmax").val(parseInt(pvalues[1]));
-	
-	}
-	
-    $('.catalog-box a.searchbutton').click(function(){
-	var category = parseInt($('.search-box .selectsubcategoryh select').val());
-	var city = scatParams.city.id;
-	var catname = null;
-	var cityname = null;
-	$.ajax({
-				   url: '/iventor/translitcat',
-        			type: 'post',
-					dataType: 'json',
-					async: false,
-				   data: {
-	
-						catid: category,
-					},
-				   success: function(html, msg){
-				  
-					    catname = html;
-						
-				   },
-				   error: function (xhr, ajaxOptions, thrownError) {
-						
-					  },
-				 });
-				 
-	     $.ajax({
-				   url: '/iventor/translitcity',
-        			type: 'post',
-					dataType: 'json',
-					async: false,
-				   data: {
-	
-						city: city,
-					},
-				   success: function(html, msg){
-						
-					    cityname = html;
-						
-				   },
-				   error: function (xhr, ajaxOptions, thrownError) {
 
-						
-					  },
-				 });
-				 
-	var action = "/catalog/"+catname+"/"+cityname+"/";
-	$("#hcityname").val(cityname);
-	$("#hcatname").val(catname);
-	$('#hform').get(0).setAttribute('action', action); //this works
-	
-	
+    function getMinValue(){
+        var pvalues = $('.search-box .pricesliderh .priceslider').slider("option", "values");
+        return pvalues[0];
+    }
+
+    function getMaxValue(){
+        var pvalues = $('.search-box .pricesliderh .priceslider').slider("option", "values");
+        return pvalues[1];
+    }
+
+    function getCityValue(){
+        return scatParams.city.id;
+    }
+
+    function getCategory(){
+        return parseInt($('.search-box .selectsubcategoryh select').val());
+    }
+
+    function fillForm(){
+        var pvalues = $('.search-box .pricesliderh .priceslider').slider("option", "values");
+        $("#hcity").val(parseInt(scatParams.city.id));
+        $("#hcat").val(parseInt($('.search-box .selectsubcategoryh select').val()));
+        $("#hmin").val(parseInt(pvalues[0]));
+        $("#hmax").val(parseInt(pvalues[1]));
+
+    }
+
+    $('.catalog-box a.searchbutton').click(function(){
+        var category = parseInt($('.search-box .selectsubcategoryh select').val());
+        var city = scatParams.city.id;
+        var catname = null;
+        var cityname = null;
+        $.ajax({
+            url: '/iventor/translitcat',
+            type: 'post',
+            dataType: 'json',
+            async: false,
+            data: {
+
+                catid: category,
+            },
+            success: function(html, msg){
+
+                catname = html;
+
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+
+            },
+        });
+
+        $.ajax({
+            url: '/iventor/translitcity',
+            type: 'post',
+            dataType: 'json',
+            async: false,
+            data: {
+
+                city: city,
+            },
+            success: function(html, msg){
+
+                cityname = html;
+
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+
+
+            },
+        });
+
+        var action = "/catalog/"+catname+"/"+cityname+"/";
+        $("#hcityname").val(cityname);
+        $("#hcatname").val(catname);
+        $('#hform').get(0).setAttribute('action', action); //this works
+
+
 
         if (isNaN(category) || category < 1) {
             showError('Выберите категорию!');
@@ -184,8 +184,8 @@ function initCatalogForm() {
             showError('Выберите город!');
             return;
         }
-		fillForm();
-		$("#hform").submit();
+        fillForm();
+        $("#hform").submit();
     });
 
     $('.iphone').live('mouseover', function(){
@@ -208,14 +208,14 @@ function initCatalogForm() {
             requestedPhoneService = sid;
             $.ajax({
                 type: 'POST',
-				async: false,
+                async: false,
                 url: HTTP_HOST + '/iventor/request-call/',
                 data: {id:eid, sid:sid},
                 success: function(data){
                     if (typeof(data.error) == 'undefined') {
                         $('a.iphone[eid=' + eid + ']').addClass('iphoned');
                         showNotification('Запрос выслан. Вам перезвонят на телефон ' + data.phone);
-						_gaq.push(['_trackEvent', 'Zapros', 'Catalog']);
+                        _gaq.push(['_trackEvent', 'Zapros', 'Catalog']);
                     }
                     else {
                         if (data.error == 'login') {
@@ -251,7 +251,7 @@ function initCatalogForm() {
         if ($(this).hasClass('istard')) {
             $.ajax({
                 type: 'POST',
-				async: false,
+                async: false,
                 url: HTTP_HOST + '/iventor/remove-star/',
                 data: {id:eid},
                 success: function(data){
@@ -269,16 +269,16 @@ function initCatalogForm() {
         else {
             $.ajax({
                 type: 'POST',
-				async: false,
+                async: false,
                 url: HTTP_HOST + '/iventor/add-star/',
                 data: {id:eid, sid:sid},
                 success: function(data){
-					
+
                     if (typeof(data.error) == 'undefined') {
-					
+
                         $('a.istar[eid=' + eid + ']').addClass('istard');
                         showNotification("Ивентор добавлен в избранное");
-						_gaq.push(['_trackEvent', 'Izbrannoe', 'VCataloge']);
+                        _gaq.push(['_trackEvent', 'Izbrannoe', 'VCataloge']);
                     }
                     else {
                         if (data.error == 'login') {
@@ -289,9 +289,9 @@ function initCatalogForm() {
                         }
                     }
                 },
-				error: function (xhr, ajaxOptions, thrownError) {
-					
-					  },
+                error: function (xhr, ajaxOptions, thrownError) {
+
+                },
                 dataType: 'json'
             });
 
@@ -550,7 +550,10 @@ function showPhoneNumberPopupC() {
     ph2l.append(ph2);
     var ph2b = $(document.createElement('a')).addClass('confirmcode').attr('check', '0');
     ph2b.click(function(){
-        if ($(this).attr('check') != '1') return;
+        if ($(this).attr('check') != '1') {
+            showError('Введите номер телефона на который будет выслан код подтверждения.');
+            return;
+        }
         $.ajax({
             type: 'POST',
             url: HTTP_HOST + '/index/sms-check/',
@@ -590,7 +593,12 @@ function showPhoneNumberPopupC() {
 
     var button = $(document.createElement('div')).addClass('makerequest1').html('Сделать запрос').attr('req', '0');
     button.click(function(){
-        if ($(this).attr('req') == '0') return;
+
+        if ($(this).attr('req') == '0')
+        {
+            showError('Введите код подтверждения.');
+            return;
+        }
         var params = {id: requestedPhoneEventor, sid: requestedPhoneService};
         params.saveNumber = remember.hasClass('save_number_on') ? 2 : 1;
         $.ajax({

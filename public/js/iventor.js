@@ -604,7 +604,7 @@ function addEditInfoPopup(info) {
 				   error: function (xhr, ajaxOptions, thrownError) {
 						img.show();
 						photo.removeClass('photoloading');
-					  },
+					  }
 				 }); 
 				}
 				else{
@@ -1622,7 +1622,10 @@ function showPhoneNumberPopupE() {
     ph2l.append(ph2);
     var ph2b = $(document.createElement('a')).addClass('confirmcode').attr('check', '0');
     ph2b.click(function(){
-        if ($(this).attr('check') != '1') return;
+        if ($(this).attr('check') != '1') {
+            showError('Введите номер телефона на который будет выслан код подтверждения.');
+            return;
+        }
         $.ajax({
             type: 'POST',
             url: HTTP_HOST + '/index/sms-check/',
@@ -1662,7 +1665,11 @@ function showPhoneNumberPopupE() {
 
     var button = $(document.createElement('div')).addClass('makerequest1').html('Сделать запрос').attr('req', '0');
     button.click(function(){
-        if ($(this).attr('req') == '0') return;
+        if ($(this).attr('req') == '0')
+        {
+            showError('Введите код подтверждения.');
+            return;
+        }
         var params = {id: requestedPhoneEventor, sid: requestedPhoneService};
         params.saveNumber = remember.hasClass('save_number_on') ? 2 : 1;
         $.ajax({
