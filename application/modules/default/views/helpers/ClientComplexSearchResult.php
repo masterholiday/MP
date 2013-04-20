@@ -76,7 +76,7 @@ class Zend_View_Helper_ClientComplexSearchResult extends Zend_View_Helper_Abstra
         if (trim($evs->Image) != '') {
             $photo = $this->view->baseUrl().'/img/users/'.$evs->UserID."/70x70_".$evs->Image;
         } else {
-            $photo = $this->view->baseUrl().'/70x70.gif';
+            $photo = $this->view->baseUrl().'/70x70.png';
         }
         ?>
         <li style="display: none;">
