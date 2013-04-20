@@ -1,0 +1,10 @@
+<div class="lineForm rightselect">
+<select class="sel802" id="sel<?=$this->name ?>" name="<?=$this->name ?>">
+	<option disabled selected value="error">Подкатегория*</option>
+	<?php 
+		foreach ($this->subcategory as $subcat_row){
+			echo '<option value="'.$subcat_row['Id'].'">'.$subcat_row['CategoryName'].'</option>';
+		}
+	?>
+</select>
+</div>

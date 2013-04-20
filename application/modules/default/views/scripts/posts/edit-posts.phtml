@@ -1,0 +1,35 @@
+
+<div>
+<?=$this->err?>
+</div>
+
+
+<form action="<?=$this->url(array('controller' => 'posts','action' => 'doedit-posts'),NULL,true) ?>" method="post">
+<input type="hidden" name="id" value="<?=$this->post['Id'] ?>" />
+<div>Категория</div>
+<select style="color:#000;" class="colortext" name="categoryid">
+	<?php 
+	$cat = new Obj_DBTable_PostCategories();
+		if($this->post['CategoryId']){
+			$cat_row = $cat->getPostCategories($this->post['CategoryId']);
+		    echo '<option value="'.$cat_row['Id'].'">'.$cat_row['CategoryName'].'</option>';
+		}
+		$cat_row_all = $cat->getAllPostCategories();
+		if($cat_row_all){
+			foreach ($cat_row_all as $post_cat){
+				echo '<option value="'.$post_cat['Id'].'">'.$post_cat['CategoryName'].'</option>';
+			}
+		}
+	
+	?>
+</select>
+<div style="margin-top:10px;">Теги:</div>
+<input style="color:#000;" class="colortext" type="text" name="tags" value="<?=$this->post['Tags'] ?>" />
+<div style="margin-top:10px;">Заголовок:</div>
+<input style="color:#000;" class="colortext" type="text" name="title" value="<?=$this->post['Title'] ?>"/>
+<div style="margin-top:10px;">Введение:</div>
+<textarea cols="50" rows="8" name="introtext"><?=$this->post['IntroText'] ?></textarea>
+<div style="margin-top:10px;">Стаття:</div>
+<textarea id="text" cols="55" rows="20" name="fulltext"><?=$this->post['FullText'] ?></textarea>
+<div><input style="color:#000; width:100px; margin-top:10px;" class="colortext" type="submit" value="Сохранить" /></div>
+</form>

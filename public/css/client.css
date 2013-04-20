@@ -1,0 +1,865 @@
+div.client_search_requests {
+    padding: 35px 0px 0px 0px;
+    margin: 0px auto;
+}
+
+div.noiseb {
+    border: 1px solid #d5d5d5;
+    border-radius: 4px 4px;
+    padding: 0px;
+    margin: 0px;
+    behavior: url(../PIE.php);
+}
+
+div.noisew {
+    border: 1px solid #FFF;
+    border-radius: 4px 4px;
+    padding: 0px;
+    margin: 0px;
+    background: url(../images/user/noise.jpg) top left;
+    behavior: url(../PIE.php);
+}
+
+div.noisew div.bholder {
+    position: relative;
+    width: 743px;
+    margin: 0px auto;
+}
+
+div.noisew div.bholder a{
+    position: absolute;
+    display: block;
+    width: 222px;
+    height: 42px;
+    top: -9px;
+    background: url(../images/user/buttons.png);
+    background-repeat: no-repeat;
+    font-family: 'Trebuchet MS';
+    font-size: 20px;
+    color: #FFF;
+    text-align: center;
+    line-height: 42px;
+    background-position: 0px -42px;
+    cursor: pointer;
+}
+
+div.noisew div.bholder a.active{
+    background-position: 0px 0px;
+}
+
+div.noisew div.bholder a.starred{
+    left: 0px;
+}
+
+div.noisew div.bholder a.requests{
+    left: 261px;
+}
+
+div.noisew div.bholder a.settings{
+    right: 0px;
+}
+
+
+div.noisew div.bholder2 {
+    position: relative;
+    width: 319px;
+    margin: 0px auto;
+}
+
+div.noisew div.bholder2 a{
+    position: absolute;
+    display: block;
+    width: 149px;
+    height: 35px;
+    top: 0px;
+    background: url(../images/user/buttons3.png);
+    background-repeat: no-repeat;
+    font-family: 'Trebuchet MS';
+    font-size: 15px;
+    color: #FFF;
+    text-align: center;
+    line-height: 35px;
+    background-position: 0px 0px;
+    cursor: pointer;
+    text-shadow: 0px 1px 5px #000;
+}
+
+div.noisew div.bholder2 a.active{
+    background-position: 0px -35px;
+}
+
+div.noisew div.bholder2 a.complex {
+    left: 0px;
+}
+
+div.noisew div.bholder2 a.catalog {
+    right: 0px;
+}
+
+
+div.noisew div.topspace {
+    height: 53px;
+}
+
+div.noisew div.topspace2 {
+    height: 43px;
+}
+
+div.noisew div.topspace3 {
+    height: 35px;
+}
+
+div.noisew div.reddi {
+    width: 927px;
+    margin: 11px auto 11px auto;
+    padding: 6px 9px 5px 13px;
+    background: url(../images/user/reddi.png);
+}
+
+div.noisew .reddi3 {
+    background: url(../images/user/reddi2.png);
+}
+
+div.noisew div.reddi2 {
+    width: 951px;
+    margin: 14px auto 14px auto;
+    background: url(../images/user/reddi.png);
+}
+
+div.noisew div.reddi2 div.rfaq {
+    padding: 14px 60px 15px 19px;
+}
+
+div.noisew div.reddi h4{
+    color: #343434;
+    font-size: 20px;
+    font-family: 'Trebuchet MS';
+    font-weight: bold;
+    font-style: italic;
+    padding-bottom: 9px;
+}
+
+div.noisew div.past h4{
+    color: #727171 !important;
+}
+
+div.noisew div.reddi2 div.rfaq h3{
+    color: #343434;
+    font-size: 20px;
+    font-family: 'Trebuchet MS';
+    font-weight: bold;
+    font-style: italic;
+}
+
+div.noisew div.reddi2 div.rfaq ul{
+    padding: 0;
+    margin: 0px 0px 10px 27px;
+    list-style: none;
+}
+
+div.noisew div.reddi2 div.rfaq ul li{
+    display: block;
+    list-style: none;
+    margin: 3px 0px 0px 0px;
+    padding: 0px;
+}
+
+div.noisew div.reddi2 div.rfaq ul li a{
+    display: block;
+    color: #00177a;
+    font-size: 15px;
+    font-family: 'Trebuchet MS';
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+div.noisew div.reddi2 div.rfaq ul li div.ans{
+    display: block;
+    margin: 3px 0px 0px 19px;
+    color: #000;
+    font-size: 13px;
+    font-family: 'Trebuchet MS';
+}
+div.noisew div.reddi2 div.rfaq ul li div.ans a{
+	color: #00177a;
+    font-size: 13px;
+    font-family: 'Trebuchet MS';
+	display: inline-block; 
+}
+div.noisew div.reddi2 div.rfaq ul li.closed div.ans{
+    display: none;
+}
+
+div.noisew div.reddi2 div.rfaq ul li div.ans span.ans2{
+    color: #6d6d6d;
+    font-size: 12px;
+    font-family: 'Trebuchet MS';
+    font-weight: bold;
+}
+
+div.noisew div.reddi .request {
+    margin: 0px 0px 10px 21px;
+}
+
+div.noisew div.reddi .request .headline{
+    display: block;
+    height: 40px;
+}
+
+div.noisew div.reddi .request .headline .categname{
+    display: block;
+    height: 17px;
+    line-height: 17px;
+    color: #232323;
+    font-size: 16px;
+    font-family: 'Trebuchet MS';
+    font-weight: bold;
+    font-style: italic;
+    padding-bottom: 5px;
+}
+
+div.noisew div.past .request .headline .categname{
+    color: #727171 !important;
+}
+
+div.noisew div.reddi .request .headline .specinfo{
+    display: block;
+    height: 17px;
+    line-height: 17px;
+    color: #232323;
+    font-size: 15px;
+    font-family: 'Trebuchet MS';
+}
+div.noisew div.past .request .headline .specinfo{
+    color: #727171 !important;
+}
+
+
+div.noisew div.reddi .request .headline .specinfo .date{
+    float: left;
+    width: 250px;
+    font-size: 14px;
+}
+
+div.noisew div.reddi .request .headline .specinfo .date b{
+    color: #ed1c24;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: italic;
+}
+
+div.noisew div.reddi .request .headline .specinfo span{
+    font-size: 13px;
+    font-weight: bold;
+    font-style: italic;
+    color: #636363;
+}
+
+div.noisew div.reddi .request .headline .specinfo .city{
+    float: left;
+    width: 390px;
+    height: auto;
+    background: none;
+    cursor: default;
+    padding: 0px;
+    margin: 0px;
+}
+
+div.noisew div.reddi .request .headline .specinfo .price{
+    float: right;
+    width: 195px;
+}
+
+div.noisew div.reddi .request .headline .specinfo .ivcount{
+    float: right;
+    width: 103px;
+}
+
+div.noisew div.reddi .request .headline .specinfo .noiv{
+    font-size: 17px;
+    color: #ad0000;
+    width: 123px;
+}
+
+
+div.noisew div.reddi .request .headline .delsearch{
+    padding: 0;
+    float: right;
+    position: relative;
+}
+
+div.noisew div.reddi .request .headline .delsearch a{
+    width: 11px;
+    height: 12px;
+    background: url(../images/user/delsearch.png) 0px 0px no-repeat;
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    right: 0px;
+    top: 3px;
+}
+
+div.noisew div.reddi .request .headline .delsearch div{
+    width: 66px;
+    height: 27px;
+    background: url(../images/user/delsearch2.png) 0px 0px no-repeat;
+    position: absolute;
+    right: -27px;
+    top: -25px;
+    display: none;
+}
+
+div.noisew div.reddi .request .headline .plusminus{
+    padding: 10px 11px 0px 0px;
+    float: left;
+}
+
+div.noisew div.reddi .request .headline .plusminus a{
+    display: block;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background: url(../images/user/pm.png) 0px 0px no-repeat;
+}
+
+div.noisew div.reddi .request .headline .plusminus a.opened{
+    background-position: 0px -20px;
+}
+
+div.noisew div.reddi .request ul {
+    margin: 0px 0px 0px 30px;
+    padding: 0px;
+    list-style: none;
+}
+
+div.noisew div.reddi .request ul li.oneone{
+    border-bottom: 1px solid #fafaf5;
+    margin: 0px 0px 0px 0px;
+}
+
+div.noisew div.reddi .request ul li{
+    /*margin: 6px 0px 0px 0px;
+    border-bottom: 1px solid #fafaf5;*/
+
+    padding: 5px 0px 0px 0px;
+
+}
+
+div.noisew div.reddi .request ul li .grey{
+    /*border-bottom: 1px solid #c8c8c3;*/
+    height: 83px;
+    padding: 0px 0px 0px 0px;
+    background: transparent;
+}
+
+div.noisew div.reddi .request ul li .unvisible{
+    visibility: hidden;
+}
+div.noisew div.reddi .request ul li.empty{
+    padding: 0;
+}
+div.noisew div.reddi .request ul li .gwl{
+    padding: 1px 0px 0px 0px;
+    border-top: 1px solid #c8c8c3;
+}
+div.noisew div.reddi .request ul li .gwl2{
+    padding: 1px 0px 0px 0px;
+    border-top: 1px solid #c8c8c3;
+}
+div.noisew div.reddi .request ul li .gwl div{
+    height: 4px;
+    border-top: 1px solid #fafaf5;
+}
+div.noisew div.reddi .request ul li .gwl2 div{
+    height: 0px;
+    border-top: 1px solid #fafaf5;
+}
+
+div.noisew div.reddi .request ul li .one{
+    border-bottom: 1px solid #c8c8c3;
+    height: 0px;
+    padding: 0px 0px 6px 0px;
+    background: transparent;
+}
+
+div.noisew div.reddi .request ul li .grey .notfound{
+    color: #343434;
+    font-size: 15px;
+    font-family: 'Trebuchet MS';
+    text-align: center;
+    font-style: italic;
+    padding: 5px 45px;
+    line-height: 20px;
+}
+
+div.noisew div.reddi .request ul li .grey .image{
+    float: left;
+    width: 72px;
+    margin-right: 14px;
+}
+
+div.noisew div.reddi .request ul li .grey .image img {
+    border: 1px solid #b2b2b2;
+}
+
+div.noisew div.reddi .request ul li .grey .seebutton{
+    float: right;
+    width: 109px;
+    padding-top: 23px;
+}
+
+div.noisew div.reddi .request ul li .grey .seebutton a {
+    background: url(../images/user/greenbutton.png) top left no-repeat;
+    width: 109px;
+    height: 28px;
+    line-height: 25px;
+    text-align: center;
+    color: #FFF;
+    font-size: 13px;
+    font-family: 'Trebuchet MS';
+    text-shadow: 1px 1px #000;
+    display: block;
+    cursor: pointer;
+}
+
+div.noisew div.reddi .request ul li .grey .description {
+    margin: 0px 155px 0px 86px;
+}
+
+div.noisew div.reddi .request ul li .grey .description .title{
+    height: 16px;
+    line-height: 16px;
+    color: #343434;
+    font-size: 15px;
+    font-family: 'Trebuchet MS';
+    font-style: italic;
+    font-weight: normal;
+    margin: 0px;
+}
+
+div.noisew div.reddi .request ul li .grey .description .title a{
+    height: 16px;
+    line-height: 16px;
+    color: #53007d;
+    font-size: 15px;
+    font-family: 'Trebuchet MS';
+    font-style: italic;
+    font-weight: normal;
+    margin: 0px;
+    text-decoration: none;
+}
+
+div.noisew div.reddi .request ul li .grey .description .phoneaddr{
+    height: 20px;
+    display: block;
+    color: #232323;
+    font-size: 13px;
+    font-family: 'Trebuchet MS';
+    font-weight: normal;
+    padding-top: 5px;
+}
+
+div.noisew div.reddi .request ul li .grey .description .phoneaddr a{
+    font-size: 14px;
+    font-family: 'Trebuchet MS';
+    font-weight: normal;
+    color: #682485;
+}
+
+div.noisew div.reddi .request ul li .grey .description .phoneaddr .phone {
+    float: left;
+    width: 176px;
+}
+
+div.noisew div.reddi .request ul li .grey .description .phoneaddr .addr {
+    float: left;
+}
+
+div.noisew div.reddi .request ul li .grey .description .phoneaddr div span{
+    color: #636363;
+    font-style: italic;
+    font-size: 13px;
+}
+
+div.noisew div.reddi .request ul li .grey .description .descrtext{
+    height: 33px;
+    display: block;
+    color: #000000;
+    font-size: 13px;
+    font-family: 'Trebuchet MS';
+    font-weight: normal;
+    line-height: 17px;
+    overflow: hidden;
+}
+
+div.reddi div.paging {
+    padding: 20px 0px 0px 0px;
+    text-align: center;
+}
+
+div.reddi div.paging a{
+    display: inline-block;
+    width: 38px;
+    height: 38px;
+    background: url(../images/user/paging.png) 0px -38px;
+    background-repeat: no-repeat;
+    color: #555555;
+    font-size: 21px;
+    font-family: 'Trebuchet MS';
+    text-decoration: none;
+    line-height: 38px;
+    margin: 0px;
+}
+
+div.reddi div.paging a:hover, div.reddi div.paging a:visited{
+    text-decoration: none;
+}
+
+div.reddi div.paging a.prev{
+    background-position: 0px 0px;
+    margin-right: 14px;
+}
+
+div.reddi div.paging a.next{
+    background-position: -38px 0px;
+    margin-left: 14px;
+}
+
+div.reddi div.paging a.active{
+    background-position: -38px -38px;
+    color: #FFF;
+}
+
+div.client_search_requests div.noisew div.cntnn .border{
+    padding: 9px 0px 19px 0px;
+    border-bottom: 1px solid #c8c8c3;
+}
+
+div.client_search_requests div.noisew div.cntnn .client-border{
+    border: none;
+}
+
+div.client_search_requests div.noisew div.cntnn {
+    padding: 0px 25px 0px 28px;
+}
+
+div.client_search_requests div.noisew div.cntnn h4{
+    color: #414140;
+    font-size: 24px;
+    font-family: 'Trebuchet MS';
+    font-weight: bold;
+    font-style: italic;
+    height: 50px;
+}
+
+
+div.client_search_requests div.noisew div.cntnn div.namec{
+    font-family: 'Trebuchet MS';
+    font-size: 19px;
+    color: #232323;
+    width: 320px;
+    float: left;
+    overflow: hidden;
+    height: 57px;
+    white-space: nowrap;
+}
+div.client_search_requests div.noisew div.cntnn div.namec span{
+    font-family: 'Trebuchet MS';
+    font-size: 15px;
+    color: #707070;
+    font-style: italic;
+    padding-right: 14px;
+}
+
+
+
+
+
+
+
+div.client_search_requests div.noisew div.cntnn div.phonec{
+	font-family: 'Trebuchet MS';
+	font-size: 19px;
+	color: #232323;
+	width: 320px;
+	float: left;
+	overflow: hidden;
+	height: 57px;
+}
+
+div.client_search_requests div.noisew div.cntnn div.phonec span{
+	font-family: 'Trebuchet MS';
+	font-size: 15px;
+	color: #707070;
+	font-style: italic;
+	padding-right: 14px;
+}
+
+div.client_search_requests div.noisew div.cntnn div.phonec a.del{
+    display: inline-block;
+    width: 11px;
+    height: 12px;
+    background: url(../images/del_cat.png) 0px 0px no-repeat;
+    cursor: pointer;
+    margin: 1px 0px 0px 7px;
+}
+
+div.client_search_requests div.noisew div.cntnn div.phonec a.addph{
+    color: #62217e;
+    cursor: pointer;
+    font-size: 18px;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+div.client_search_requests div.noisew div.cntnn div.emailc{
+	font-family: 'Trebuchet MS';
+	font-size: 17px;
+	color: #232323;
+	float: left;
+	overflow: hidden;
+	height: 57px;
+    width: 320px;
+}
+
+div.client_search_requests div.noisew div.cntnn div.emailc span{
+	font-family: 'Trebuchet MS';
+	font-size: 15px;
+	color: #707070;
+	font-style: italic;
+	padding-right: 14px;
+}
+
+div.client_search_requests div.noisew div.cntnn div.cityc{
+	font-family: 'Trebuchet MS';
+	font-size: 17px;
+	color: #232323;
+	margin-left: 4px;
+	width: 238px;
+	float: left;
+	overflow: hidden;
+	height: 19px;
+}
+div.client_search_requests div.noisew div.cntnn div.cityc span{
+	font-family: 'Trebuchet MS';
+	font-size: 15px;
+	color: #707070;
+	font-style: italic;
+	display: inline-block;
+	margin-right: 14px;
+}
+div.noisew div.cntnn .buttons{
+    height: 59px;
+    line-height: 59px;
+    text-align: center;
+}
+div.noisew div.cntnn .client-buttons{
+    width: 940px;
+    margin: 0px auto;
+    background: url(../images/bw_delim.png) left top repeat-x;
+}
+div.noisew div.cntnn .buttons a{
+    display: inline-block;
+    width: 149px;
+    height: 35px;
+    margin: 0px 14px;
+    background: url(../images/user/greenbutton2.png) top left no-repeat;
+    line-height: 32px;
+    text-align: center;
+    color: #FFF;
+    font-size: 15px;
+    font-family: 'Trebuchet MS';
+    text-shadow: 1px 1px #000;
+    cursor: pointer;
+}
+div.noisew div.shadow{
+	background: url('../images/client_shadow.png') no-repeat;
+	width: 996px;
+	height: 15px;
+	margin-bottom: -16px;
+}
+.make_post{
+	background: url('../images/make_post.png') no-repeat;
+	width: 191px;
+	height: 55px;
+	margin: 20px auto 10px;
+	display: block;
+}
+.make_catalog{
+	background: url('../images/user/make_catalog.png') no-repeat;
+	width: 189px;
+	height: 54px;
+	margin: 20px auto 10px;
+	display: block;
+}
+.reddi div.not_ug{
+	font-family: 'Trebuchet MS';
+	font-size: 15px;
+	font-style: italic;
+	color: #343434;
+	text-align: center;
+	width: 775px;
+	margin: 0px auto;
+}
+
+.complexusr {
+    padding: 6px 0px 4px 0px;
+}
+
+.complexusr .image {
+    display: block;
+    float: left;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #b2b2b2;
+    margin: 2px 9px 0px 0px;
+}
+
+.complexusr .image img{
+    width: 100px;
+    height: 100px;
+}
+
+.complexusr .evinfo {
+    display: block;
+    float: left;
+    width: 820px;
+    font-family: 'Trebuchet MS';
+}
+
+.complexusr .evinfo .evname a{
+    font-size: 17px;
+    color: #53007d;
+    font-style: italic;
+    line-height: 18px;
+    cursor: pointer;
+}
+
+.complexusr .evinfo .evcat{
+    font-size: 13px;
+    color: #232323;
+    font-style: italic;
+    font-weight: bold;
+    line-height: 18px;
+    float: left;
+}
+
+.complexusr .evinfo .evprice{
+    font-size: 14px;
+    color: #232323;
+    font-style: italic;
+    line-height: 18px;
+    float: right;
+}
+
+.complexusr .evinfo .evprice span {
+    font-size: 13px;
+    color: #636363;
+}
+
+.complexusr .evinfo .evphone{
+    font-size: 13px;
+    color: #232323;
+    font-weight: bold;
+    line-height: 18px;
+    float: left;
+    width: 205px;
+}
+
+.complexusr .evinfo .evphone span {
+    color: #636363;
+    font-style: italic;
+    font-weight: normal;
+    padding-right: 18px;
+}
+
+.complexusr .evinfo .evcity{
+    font-size: 13px;
+    color: #232323;
+    font-weight: bold;
+    line-height: 18px;
+    float: left;
+}
+
+.complexusr .evinfo .evcity span {
+    color: #636363;
+    font-style: italic;
+    font-weight: normal;
+    padding-right: 18px;
+}
+
+
+.complexusr .evinfo .evurl{
+    font-size: 13px;
+    color: #232323;
+    font-weight: bold;
+    line-height: 18px;
+    float: left;
+}
+
+.complexusr .evinfo .evurl span {
+    color: #636363;
+    font-style: italic;
+    font-weight: normal;
+    padding-right: 18px;
+}
+
+.complexusr .evinfo .evurl a{
+    font-size: 14px;
+    color: #682485;
+    font-weight: normal;
+    line-height: 18px;
+    font-style: normal;
+}
+.complexusr .evinfo .evtext {
+    font-size: 13px;
+    color: #313130;
+    font-weight: normal;
+    line-height: 18px;
+    font-style: normal;
+    height: 35px;
+    overflow: hidden;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    padding-right: 45px;
+}
+
+.complexusr .delsearch2 {
+    padding: 0;
+    float: right;
+    position: relative;
+}
+
+.complexusr .delsearch2 a{
+    width: 11px;
+    height: 12px;
+    background: url(../images/user/delsearch.png) 0px 0px no-repeat;
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    right: 21px;
+    top: -40px;
+}
+
+.complexusr .delsearch2 div{
+    width: 66px;
+    height: 27px;
+    background: url(../images/user/delsearch2.png) 0px 0px no-repeat;
+    position: absolute;
+    right: -7px;
+    top: -67px;
+    display: none;
+}
+
+.reddi .complexusrd {
+    height: 7px;
+    background: url(../images/bw_delim.png) left bottom repeat-x;
+}
+.reddi .complexusrd div{
+    height: 7px;
+    background: url(../images/bw_delim.png) left top repeat-x;
+}
+
+.reddi .cusrd {
+    background: url(../images/user/ucatlistbb.png);
+}

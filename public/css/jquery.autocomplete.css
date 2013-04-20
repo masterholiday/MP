@@ -1,0 +1,6 @@
+﻿
+.autocomplete-w1 {position:absolute; top:0px; left:0px; margin: 10px 0px 0px -2px; /* IE6 fix: */ _background:none; _margin:0; }
+.autocomplete { border:1px solid #FFF; background:#d3d3d3; cursor:default; text-align:left; max-height:350px; overflow:auto; margin:-6px 6px 6px -6px; /* IE6 specific: */ _height:350px;  _margin:0; _overflow-x:hidden; }
+.autocomplete .selected { background:#509012; color: #FFF;}
+.autocomplete div { padding:7px 10px 2px 16px; white-space:nowrap; font-family: Arial; font-size: 17px; color: #474747;}
+.autocomplete strong { font-weight:bold;  }

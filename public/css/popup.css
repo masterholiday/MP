@@ -1,0 +1,966 @@
+.user_popup_shadow {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 10000;
+    opacity: 0.7;
+    filter: alpha(opacity = 70);
+}
+.bigvideo {
+    z-index: 10000;
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    width: 936px;
+    margin: 0;
+    padding: 0;
+    margin-left: -468px;
+}
+
+#imagepop {
+display:block;
+    margin:auto;
+}
+
+.bigvideo .relpos a{
+    width: 74px;
+    height: 73px;
+    background: url(../images/close_pop.png) 0px 0px no-repeat;
+    display: block;
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    cursor: pointer;
+}
+
+
+.user_popup {
+    z-index: 10000;
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    width: 670px;
+    margin: 0;
+    padding: 0;
+    margin-left: -335px;
+}
+
+.user_popup2 {
+    width: 750px;
+    margin-left: -375px;
+}
+
+.user_popup .user_popup_rel {
+    position: relative;
+}
+
+.user_popup .user_popup_top {
+    width: 100%;
+    height: 119px;
+    background: url(../images/user/popuptb.png) center top no-repeat;
+    display: block;
+}
+
+.user_popup2 .user_popup_top {
+    width: 100%;
+    height: 119px;
+    background: url(../images/user/popuptb2.png) center top no-repeat;
+    display: block;
+}
+
+.user_popup .user_popup_top .changepasstitle{
+    padding: 65px 0px 0px 95px;
+    font-family: 'Trebuchet MS';
+    font-weight: bold;
+    font-style: italic;
+    color: #474747;
+    font-size: 24px;
+    text-shadow: #FFF 1px 1px;
+}
+
+.user_popup .user_popup_top .iventor_add_service{
+    padding: 65px 0px 0px 95px;
+}
+
+.user_popup .user_popup_c {
+    width: 100%;
+    background: url(../images/user/popupc.png) 0px 0px repeat-y;
+    display: block;
+}
+
+.user_popup2 .user_popup_c {
+    width: 100%;
+    background: url(../images/user/popupc2.png) 0px 0px repeat-y;
+    display: block;
+}
+
+.user_popup .user_popup_c .dropdowns{
+    padding: 0px 0px 0px 140px;
+}
+
+.user_popup .user_popup_c .dropdowns .dropdownline{
+    padding-bottom: 8px;
+}
+
+.user_popup .user_popup_c h5{
+    font-family: 'Trebuchet MS';
+    font-style: italic;
+    color: #5e5e5e;
+    font-size: 12px;
+    padding: 0px 0px 0px 160px;
+}
+
+.user_popup .user_popup_c .sepline{
+    height: 1px;
+    width: 426px;
+    background: #c8c8be;
+    border-bottom: 1px solid #faf9f0;
+    margin: 0px 0px 0px 126px;
+}
+
+.user_popup .user_popup_c .bsepline{
+    width: 426px;
+    margin: 0px 0px 0px 126px;
+    font-family: 'Trebuchet MS';
+    font-style: italic;
+    color: #5e5e5e;
+    font-size: 12px;
+    text-align: center;
+}
+
+.user_popup .user_popup_c .budgets{
+    padding: 4px 0px 0px 125px;
+    height: 27px;
+}
+
+.user_popup .user_popup_c .budgets a{
+    height: 27px;
+    display: block;
+    float: left;
+    cursor: pointer;
+    background: url(../images/user/checkbox.png) 0px -27px no-repeat;
+    padding-left: 34px;
+    font-family: 'Trebuchet MS';
+    color: #3e3e3e;
+    font-size: 15px;
+    line-height: 27px;
+    text-decoration: none;
+}
+.user_popup .user_popup_c .budgets a:hover{
+    text-decoration: none;
+}
+
+.user_popup .user_popup_c .budgets a.selected{
+    background-position: 0px 0px;
+}
+
+.user_popup .user_popup_c .budgets a.b1{
+    width: 107px;
+}
+
+.user_popup .user_popup_c .budgets a.b2{
+    width: 135px;
+}
+
+
+.user_popup .user_popup_c .budgets2{
+    padding: 0px 0px 12px 125px;
+    height: 25px;
+}
+
+.user_popup .user_popup_c .budgets2 a{
+    height: 25px;
+    display: block;
+    float: left;
+    padding-left: 34px;
+    font-family: 'Trebuchet MS';
+    color: #3e3e3e;
+    font-size: 15px;
+    line-height: 25px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.user_popup .user_popup_c .budgets2 a:hover{
+    text-decoration: none;
+}
+
+.user_popup .user_popup_c .budgets2 a.b1{
+    width: 107px;
+}
+
+.user_popup .user_popup_c .budgets2 a.b2{
+    width: 135px;
+}
+
+.user_popup .user_popup_c .changeinfo{
+    width: 490px;
+    padding: 0px 0px 0px 130px;
+    margin: 0px;
+    display: block;
+}
+
+.user_popup .user_popup_c .description{
+    width: 489px;
+    padding: 0;
+    margin: 0px;
+    display: block;
+    background: url(../images/user/textareab.png) top left no-repeat;
+    height: 251px;
+}
+
+.user_popup .user_popup_c .description .ta{
+    padding: 16px 19px;
+}
+
+.user_popup .user_popup_c .description .ta textarea{
+    font-family: 'Trebuchet MS';
+    color: #363636;
+    font-size: 16px;
+    resize: none;
+    width: 451px;
+    height: 219px;
+    border: none;
+    background: none;
+}
+
+.user_popup .user_popup_c .video {
+    width: 388px;
+    padding: 0;
+    margin: 0px auto;
+    display: block;
+    background: url(../images/for_eventor/video.png) top left no-repeat;
+    height: 97px;
+    position: relative;
+}
+
+.user_popup .user_popup_c .video textarea{
+    font-family: 'Trebuchet MS';
+    color: #363636;
+    font-size: 16px;
+    resize: none;
+    width: 357px;
+    height: 67px;
+    border: none;
+    background: none;
+    position: absolute;
+    top: 10px;
+    left: 15px;
+}
+
+.user_popup .user_popup_c .changeinfo .photoh{
+    width: 150px;
+    padding: 0;
+    margin: 0px;
+    display: block;
+    float: left;
+    text-align: center;
+}
+
+.user_popup .user_popup_c .changeinfo .photoh .photo{
+    width: 148px;
+    height: 148px;
+    padding: 0;
+    margin: 0px 0px 11px 0px;
+    display: block;
+    overflow: hidden;
+    border-radius: 5px 5px;
+    behavior: url(../PIE.php);
+    border: 2px solid #7b7b7b;
+}
+
+.user_popup .user_popup_c .changeinfo .photoh .photoloading{
+    background: url(../images/ajax-loader.gif) center center no-repeat;
+}
+
+.user_popup .user_popup_c .changeinfo .photoh .fileinput{
+    position: relative;
+    width: 75px;
+    margin: 0px auto;
+    cursor: pointer;
+    text-align: center;
+    font-family: 'Trebuchet MS';
+    color: #00187f;
+    font-size: 16px;
+    text-decoration: underline;
+}
+
+.user_popup .user_popup_c .changeinfo .photoh .fileinput input{
+    opacity: 0;
+    filter: alpha(opacity=0);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    cursor: pointer;
+}
+
+.user_popup .user_popup_c .changeinfo .inputss {
+    width: 327px;
+    padding: 0;
+    display: block;
+    float: right;
+    margin-top: -2px;
+}
+
+.user_popup .user_popup_c .changeinfo .inputss .inputh{
+    padding: 0px 0px 4px 0px;
+    margin: 0;
+}
+
+.user_popup .user_popup_bottom {
+    width: 100%;
+    height: 116px;
+    background: url(../images/user/popuptb.png) 0px -119px no-repeat;
+    display: block;
+}
+
+.user_popup2 .user_popup_bottom {
+    width: 100%;
+    height: 116px;
+    background: url(../images/user/popuptb2.png) 0px -119px no-repeat;
+    display: block;
+}
+
+.user_popup .user_popup_bottom div.savvve1{
+    padding: 7px 0px 0px 0px;
+}
+
+.user_popup .user_popup_bottom div.savvve1 a{
+    display: block;
+    width: 199px;
+    height: 53px;
+    cursor: pointer;
+    background: url(../images/user/save.png) top left no-repeat;
+    margin: 0px auto;
+}
+
+.user_popup .user_popup_bottom div.savvve1 a.savenotadd{
+    display: block;
+    width: 199px;
+    height: 53px;
+    cursor: pointer;
+    background: url(../images/for_eventor/add.png) 0px 0px no-repeat;
+    margin: 0px auto;
+}
+
+.user_popup .topleft {
+    width: 125px;
+    height: 130px;
+    background: url(../images/user/topleft.png) 0px 0px no-repeat;
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.user_popup .bottomright {
+    width: 128px;
+    height: 125px;
+    background: url(../images/user/bottomright.png) 0px 0px no-repeat;
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+.user_popup .user_popup_rel a.close{
+    width: 74px;
+    height: 73px;
+    background: url(../images/close_pop.png) 0px 0px no-repeat;
+    display: block;
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    cursor: pointer;
+}
+
+.user_popup .nonereq {
+    padding: 0px 108px 5px 111px;
+}
+
+.user_popup .nonereq .pink{
+    background: #f8acb3;
+    padding: 0px 0px 26px 0px;
+}
+
+.user_popup .nonereq .pink .error3{
+    height: 65px;
+    line-height: 65px;
+    text-align: center;
+    font-family: 'Trebuchet MS';
+    color: #ad0000;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.user_popup .nonereq .pink .topmes {
+    text-align: center;
+    font-family: 'Trebuchet MS';
+    color: #474747;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.user_popup .nonereq .pink .topmes a{
+    font-family: 'Trebuchet MS';
+    color: #682485;
+    font-size: 18px;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.user_popup .nonereq .pink .clock{
+    height: 95px;
+    line-height: 95px;
+    font-family: 'Trebuchet MS';
+    color: #ffffff;
+    font-size: 50px;
+    font-weight: normal;
+    text-align: center;
+}
+
+.user_popup .phonereq {
+    padding: 0px 108px 5px 111px;
+}
+
+.user_popup .phonereq .toptext{
+    text-align: center;
+    font-family: 'Trebuchet MS';
+    color: #3e3e3e;
+    font-size: 16px;
+    padding: 0px 0px 10px 0px;
+    line-height: 22px;
+    margin-top: -20px;
+}
+
+.user_popup .phonereq .bw_line{
+    background: url(../images/bw_delim.png) 0px 0px repeat-x;
+    margin: 0px 0px 13px 0px;
+    height: 2px;
+}
+
+.user_popup .phonereq .input_button{
+    height: 54px;
+}
+
+.user_popup .phonereq .input_button .getcode{
+    width: 109px;
+    height: 27px;
+    display: block;
+    float: right;
+    margin: 8px 28px 0px 0px;
+    background: url(../images/popup_getcode.png) 0px 0px no-repeat;
+    cursor: pointer;
+}
+
+.user_popup .phonereq .input_button .confirmcode{
+    width: 109px;
+    height: 27px;
+    display: block;
+    float: right;
+    margin: 8px 28px 0px 0px;
+    background: url(../images/popup_getcode.png) 0px -27px no-repeat;
+    cursor: pointer;
+}
+
+.user_popup .phonereq .save_number {
+    display: block;
+    margin: 3px 0px 10px 1px;
+    background: url(../images/popup_unchecked.png) 0px 4px no-repeat;
+    cursor: pointer;
+    padding: 0px 0px 0px 40px;
+    font-family: 'Trebuchet MS';
+    color: #3e3e3e;
+    font-size: 13px;
+    height: 31px;
+    overflow: hidden;
+    line-height: 16px;
+}
+
+.user_popup .phonereq .save_number_on {
+    background: url(../images/popup_checked.png) 0px 4px no-repeat;
+}
+
+
+
+
+
+.user_popup .makerequest1 {
+    display: block;
+    position: absolute;
+    background: url(../images/popup_makerequest.png) 0px 0px no-repeat;
+    cursor: pointer;
+    top: 27px;
+    font-family: 'Trebuchet MS';
+    color: #FFF;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    height: 53px;
+    width: 199px;
+    line-height: 43px;
+    left: 235px;
+    text-align: center;
+}
+
+.user_popup .nonerequest {
+    background: url(../images/popup_nonerequest.png) 0px 0px no-repeat;
+    width: 200px;
+}
+
+
+
+.user_popup .phonereq .input_button .inp{
+    width: 278px;
+    height: 50px;
+    position: relative;
+    float: left;
+    margin: 0px 0px 0px 25px;
+    background: url(../images/popup_input_green.png) 0px -50px no-repeat;
+}
+
+.user_popup .phonereq .input_button .inpgreen{
+    background: url(../images/popup_input_green.png) 0px 0px no-repeat;
+}
+
+.user_popup .phonereq .input_button .inp input{
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    background: none;
+    font-family: 'Trebuchet MS';
+    color: #363636;
+    font-size: 16px;
+    width: 240px;
+    border: none;
+}
+
+.user_popup .evregister {
+    padding: 0px 136px;
+}
+
+.user_popup .evregister .input {
+    position: relative;
+    width: 398px;
+    height: 56px;
+    background: url(../images/reg_input.png) 0px 0px no-repeat;
+    display: block;
+}
+
+.user_popup .evregister .input input{
+    position: absolute;
+    display: block;
+    width: 350px;
+    top: 12px;
+    left: 21px;
+    background: none;
+    border: none;
+    font-family: 'Trebuchet MS';
+    font-size: 16px;
+    color: #363636;
+}
+
+.user_popup .evregister .input_button{
+    height: 54px;
+}
+
+.user_popup .evregister .input_button .getcode{
+    width: 109px;
+    height: 27px;
+    display: block;
+    float: right;
+    margin: 8px 0px 0px 0px;
+    background: url(../images/popup_getcode.png) 0px 0px no-repeat;
+    cursor: pointer;
+}
+
+.user_popup .evregister .input_button .confirmcode{
+    width: 109px;
+    height: 27px;
+    display: block;
+    float: right;
+    margin: 8px 0px 0px 0px;
+    background: url(../images/popup_getcode.png) 0px -27px no-repeat;
+    cursor: pointer;
+}
+
+.user_popup .evregister .input_button .inp{
+    width: 278px;
+    height: 50px;
+    position: relative;
+    float: left;
+    margin: 0px 0px 0px 0px;
+    background: url(../images/popup_input_green.png) 0px -50px no-repeat;
+}
+
+.user_popup .evregister .input_button .inpgreen{
+    background: url(../images/popup_input_green.png) 0px 0px no-repeat;
+}
+
+.user_popup .evregister .input_button .inp input{
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    background: none;
+    font-family: 'Trebuchet MS';
+    color: #363636;
+    font-size: 16px;
+    width: 240px;
+    border: none;
+}
+
+
+
+.user_popup .evregister a.remeberme {
+    float: left;
+    margin: 7px 0px 0px 0px;
+    display: block;
+    height: 27px;
+    line-height: 27px;
+    padding: 0px 0px 0px 34px;
+    font-family: 'Trebuchet MS';
+    font-size: 15px;
+    color: #3e3e3e;
+    text-decoration: none;
+    cursor: pointer;
+    background: url(../images/user/checkbox.png) 0px -27px no-repeat;
+}
+
+.user_popup .evregister a.remeberme a{
+    color: #682485;
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.user_popup .evregister a.remchecked {
+    background: url(../images/user/checkbox.png) 0px 0px no-repeat;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.user_popup .auth {
+    padding: 0px 160px 0px 152px;
+}
+
+.user_popup .auth .input {
+    position: relative;
+    width: 358px;
+    height: 54px;
+    background: url(../images/auth_input.png) 0px 0px no-repeat;
+    display: block;
+}
+
+.user_popup .auth .input input{
+    position: absolute;
+    display: block;
+    width: 320px;
+    top: 12px;
+    left: 21px;
+    background: none;
+    border: none;
+    font-family: 'Trebuchet MS';
+    font-size: 16px;
+    color: #363636;
+}
+
+.user_popup .auth a.remeberme {
+    float: left;
+    margin: 7px 0px 0px 0px;
+    display: block;
+    height: 27px;
+    line-height: 27px;
+    padding: 0px 0px 0px 34px;
+    font-family: 'Trebuchet MS';
+    font-size: 15px;
+    color: #3e3e3e;
+    text-decoration: none;
+    cursor: pointer;
+    background: url(../images/user/checkbox.png) 0px -27px no-repeat;
+}
+
+.user_popup .auth a.remeberme a{
+    color: #682485;
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.user_popup .auth a.remchecked {
+    background: url(../images/user/checkbox.png) 0px 0px no-repeat;
+}
+
+.user_popup .auth a.login {
+    float: right;
+    margin: 0px 1px 0px 0px;
+    display: block;
+    width: 119px;
+    height: 53px;
+    line-height: 45px;
+    font-family: 'Trebuchet MS';
+    font-size: 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-style: italic;
+    cursor: pointer;
+    text-align: center;
+    background: url(../images/auth_login.png) 0px 0px no-repeat;
+}
+
+.user_popup a.register2 {
+    float: right;
+    margin: 0px 2px 0px 0px;
+    display: block;
+    width: 199px;
+    height: 53px;
+    line-height: 45px;
+    font-family: 'Trebuchet MS';
+    font-size: 17px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-style: italic;
+    cursor: pointer;
+    text-align: center;
+    background: url(../images/user_register.png) 0px 0px no-repeat;
+    padding: 0px;
+    border-radius: 0px;
+}
+
+.user_popup div.foriventdisc {
+    position: absolute;
+    top: 17px;
+    left: 110px;
+    padding: 8px 0px 0px 0px;
+    text-align: center;
+    font-family: 'Trebuchet MS';
+    font-size: 16px;
+    color: #3e3e3e;
+	/*color:#8e1100;*/
+    font-weight: bold;
+    font-style: italic;
+    line-height: 22px;
+    width: 451px;
+    background: url(../images/bw_delim.png) 0px 0px repeat-x;
+    white-space: nowrap;
+}
+
+.user_popup div.foriventdisc a {
+    font-family: 'Trebuchet MS';
+    font-size: 18px;
+    color: #682485;
+    font-weight: bold;
+    font-style: normal;
+    text-decoration: none;
+}
+
+
+.user_popup .auth a.forgot {
+    font-family: 'Trebuchet MS';
+    font-size: 15px;
+    color: #682485;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.user_popup .auth a.restore {
+    font-family: 'Trebuchet MS';
+    font-size: 18px;
+    color: #682485;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.user_popup .auth .register {
+    font-family: 'Trebuchet MS';
+    font-size: 20px;
+    font-style: italic;
+    color: #682485;
+    text-decoration: none;
+    background: #f9f8eb;
+    padding: 10px 0px 14px 0px;
+    border-radius: 4px 4px;
+    behavior: url(../PIE.php);
+    text-align: center;
+}
+
+.user_popup .auth .register a{
+    font-family: 'Trebuchet MS';
+    font-size: 20px;
+    font-style: italic;
+    color: #682485;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.user_popup .authbuttons {
+    position: absolute;
+    top: -3px;
+    left: 152px;
+    width: 358px;
+    text-align: center;
+}
+
+.user_popup .authbuttons a{
+    display: inline-block;
+    width: 40px;
+    height: 39px;
+    margin: 0px 5px 5px 5px;
+    cursor: pointer;
+    background: url(../images/social2.png) 0px 0px no-repeat;
+}
+
+.user_popup .authbuttons a.vk {}
+.user_popup .authbuttons a.fb {background-position: -40px 0px;}
+.user_popup .authbuttons a.gg {background-position: -80px 0px;}
+
+.user_popup .authbuttons div{
+    font-family: 'Trebuchet MS';
+    font-size: 13px;
+    color: #3e3e3e;
+}
+
+
+
+.popup_wide_input {
+    background: url(../images/user/popup_wide_input.png) top left no-repeat;
+    width: 386px;
+    height: 52px;
+    position: relative;
+}
+
+.popup_wide_input input {
+    position: absolute;
+    top: 8px;
+    left: 20px;
+    width: 346px;
+    height: 30px;
+    line-height: 20px;
+    margin: 0px;
+    border: none;
+    background: none;
+    font-family: 'Trebuchet MS';
+    color: #363636;
+    font-size: 16px;
+}
+
+
+.popup_wide_input2 {
+    background: url(../images/user/popup_wide_input2.png) top left no-repeat;
+    width: 327px;
+    height: 52px;
+    position: relative;
+}
+
+.popup_wide_input2 input {
+    position: absolute;
+    top: 8px;
+    left: 20px;
+    width: 300px;
+    height: 30px;
+    line-height: 20px;
+    margin: 0px;
+    border: none;
+    background: none;
+    font-family: 'Trebuchet MS';
+    color: #363636;
+    font-size: 16px;
+}
+
+/*
+.city_list{
+    height: 300px;
+    left: 7px;
+    position: absolute;
+    top: 34px;
+    padding-top: 5px;
+    width: 379px;
+    background: url('../images/user/city_open.png') 0px -1px no-repeat;
+    cursor: default;
+    z-index: 10050;
+}
+
+.city_delim_line{
+    height: 1px;
+    left: 7px;
+    position: absolute;
+    top: 33px;
+    padding: 0;
+    width: 379px;
+    background: url('../images/user/city_open.png') top left no-repeat;
+    cursor: default;
+    z-index: 10050;
+}
+
+.city_list #elements{
+    width: 374px;
+}
+
+.city_list #city_element{
+    width: 372px;
+}
+
+
+.city_list2{
+    height: 300px;
+    left: 7px;
+    position: absolute;
+    top: 34px;
+    padding-top: 5px;
+    width: 320px;
+    background: url('../images/user/city_open2.png') 0px -1px no-repeat;
+    cursor: default;
+    z-index: 10050;
+}
+
+.city_delim_line2{
+    height: 1px;
+    left: 7px;
+    position: absolute;
+    top: 33px;
+    padding: 0;
+    width: 320px;
+    background: url('../images/user/city_open2.png') top left no-repeat;
+    cursor: default;
+    z-index: 10050;
+}
+
+.city_list2 #elements{
+    width: 315px;
+}
+
+.city_list2 #city_element{
+    width: 313px;
+}
+*/

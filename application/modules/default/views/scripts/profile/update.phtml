@@ -1,0 +1,54 @@
+<?php
+
+    $user = Zend_Auth::getInstance()->getIdentity();
+    if($user->Email!=''){
+    	$email = $user->Email;	
+	}else{
+		$email = "";
+	}
+	$id = $user->Id;
+	
+	$profile = new Obj_DBTable_Profile();
+	
+	$row = $profile->getProfileByUserId($id);
+	
+	
+	
+	if($row['Name']!=''){
+		$name=$row['Name'];
+	}
+	else {$name='';
+	}
+	
+
+	
+	if($this->error){
+		echo $this->error;
+	}
+	
+	
+?>
+
+
+<form action="<?=$this->url(array('controller' => 'profile','action' => 'do-update'),NULL,true); ?>" method="post">
+	<div>Email:</div>
+	<input type="hidden" name="id" value="<?=$user->Id ?>" />
+	<input type="hidden" name="uid" value="<?=$user->UId ?>" />
+	<input style="color:#000;" class="colortext" type="text" name="email" value="<?=$email ?>" />
+	<div>Пароль:</div>
+	<input style="color:#000;" class="colortext" type="password" name="pass" />
+	<div>Пароль повторно:</div>
+	<input style="color:#000;" class="colortext" type="password" name="pass2" />
+	<div>Имя:</div>
+	<input style="color:#000;" class="colortext" type="text" name="firstname" value="<?=$name ?>">
+    
+    <div>Город</div>
+  <!--    <select style="color:#000;" class="colortext" name="city">
+    	<?php 
+				foreach ($this->row as $row){
+        			echo '<option value="'.$row['Id'].'">'.$row['CityName'].'</option>';
+        		}
+    	?>
+    </select>-->
+    <div><input style="color:#000; width:100px;" class="colortext" type="submit" value="Сохранить" /></div>
+</form>

@@ -1,0 +1,130 @@
+div.reddi{
+	color: #343434;
+	font-size: 14px;
+	font-family: 'Trebuchet MS';
+}
+div.reddi h4{
+	font-falimy: 'Trebuchet MS';
+	font-size: 20px;
+	font-weight: bold;
+	font-style: italic;
+	color: #343434;
+	text-align: center;
+}
+div.reddi h5{
+	font-falimy: 'Trebuchet MS';
+	font-size: 15px;
+	font-weight: bold;
+	font-style: italic;
+	color: #343434;
+}
+div.reddi h6{
+	font-falimy: 'Trebuchet MS';
+	font-size: 15px;
+	font-weight: bold;
+	font-style: italic;
+	color: #343434;
+	padding: 0 0 22px 0;
+}
+div.reddi p{
+	padding: 0 0 22px 0;
+	margin: 0;
+}
+
+div.reddi p.title{
+	color: #343434;
+	font-family: 'Trebuchet MS';
+	font-size: 25px;
+	font-weight: bold;
+	font-style: italic;
+	line-height: 27px;
+	margin:0;
+}
+div.reddi p.title span{
+	color: #ad0000;
+	font-size: 27px;
+}
+div.reddi p.des{
+	color: #343434;
+	font-family: 'Trebuchet MS';
+	font-size: 19px;
+	line-height: 23px;
+}
+div.reddi p.des_2{
+	color: #343434;
+	font-family: 'Trebuchet MS';
+	font-size: 20px;
+	font-weight: bold;
+	font-style: italic;
+}
+div.reddi div.block{
+	background: url(../images/user/border.png) top left repeat-x;
+	padding: 16px 0;
+}
+div.reddi div.block div.reg{
+	width: 421px;
+	float: left;
+	margin-right: 20px;
+}
+div.reddi div.block div.reg div.num1{
+	background: url('../images/numb_bg.png') no-repeat;
+	width: 46px;
+	height: 46px;
+	float: left;
+	margin: 10px 10px 50px 0;
+}
+div.reddi div.block div.reg div.num2{
+	background: url('../images/numb_bg.png') -46px 0 no-repeat;
+	width: 46px;
+	height: 46px;
+	float: left;
+	margin: 10px 10px 50px 0;
+}
+div.reddi div.block div.reg div.num3{
+	background: url('../images/numb_bg.png') -92px 0 no-repeat;
+	width: 46px;
+	height: 46px;
+	float: left;
+	margin: 10px 10px 50px 0;
+}
+div.reddi div.block div.reg div.reg_title{
+	font-family: 'Trebuchet MS';
+	font-size: 20px;
+	font-weight: bold;
+	font-style: italic;
+	color: #331441;
+	line-height: 23px;
+	margin-top: 10px;
+}
+div.reddi div.block div.reg p{
+	padding: 0 0 12px 0;
+	color: #582071;
+	font-family: 'Trebuchet MS';
+	font-size: 15px;
+	text-align: justify;
+}
+div.reddi div.block div.bot{
+	color: #343434;
+	font-family: 'Trebuchet MS';
+	font-weight: bold;
+	font-style: italic;
+	font-size: 21px;
+	line-height: 25px;
+}
+div.reddi div.block div.bot span{
+	color: #ad0000;
+	font-size: 23px;
+}
+div.reddi div.block a{
+	background: url('../images/come.png') no-repeat;
+	width: 211px;
+	height: 55px;
+	margin: 30px auto 10px auto;
+	text-decoration: none;
+	display: block;
+	cursor: pointer;
+}
+div.reddi div.block div.bot img{
+	display: block;
+	margin: 0 auto 20px auto;
+}

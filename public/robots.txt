@@ -1,0 +1,3 @@
+User-Agent: *
+Host: masterholiday.net
+Sitemap: http://masterholiday.net/sitemap/sitemap.xml

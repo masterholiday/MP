@@ -1,0 +1,479 @@
+<?php
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/iventor.css');
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/popup.css');
+    $this->headScript()->appendFile($this->baseUrl().'/js/popup.js');
+    $this->headScript()->appendFile($this->baseUrl().'/js/auth.js');
+
+
+    $this->headScript()->appendFile($this->baseUrl().'/js/iventor.js');
+    $this->headScript()->appendFile($this->baseUrl().'/js/fileuploader.js');
+    $this->headScript()->appendFile($this->baseUrl().'/js/jq/jquery.autocomplete.js');
+	//$this->headScript()->appendFile($this->baseUrl().'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js');
+	$this->headScript()->appendFile($this->baseUrl().'/js/jquery.Jcrop.js');
+
+    $this->headScript()->appendFile($this->baseUrl().'/js/lightbox.js');
+    $this->headScript()->appendFile($this->baseUrl().'/js/jq/jquery-ui.js');
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/lightbox.css');
+	$this->headLink()->appendStylesheet($this->baseUrl().'/css/jquery-ui.css');
+	$this->headLink()->appendStylesheet($this->baseUrl().'/css/jquery.Jcrop.css');
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/fileuploader.css');
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/jquery.autocomplete.css');
+    $this->headScript()->appendFile($this->baseUrl().'/js/jq/jquery.selectbox.js');
+	//$this->headTitle('Home Page Title');
+    if (!$this->readonly) {
+        $this->headScript()->captureStart();
+        ?>
+            EPreadonly = 0
+            var topCategories = <?=json_encode($this->topCategories)?>;
+            var secCategories = {}, shownErrors = {};
+            var iventor = <?=json_encode($this->iventor)?>;
+            var currentPortfolioPage = <?=$this->nowpage?>;
+            var service = {
+                category: 0,
+                subcategory: 0,
+                city: {
+                    id: 0,
+                    country: 0,
+                    name: ''
+                },
+                sliderStep: <?=$this->iventor->CountryID == 9908 ? '100' : '500'?>,
+                min: <?=$this->iventor->CountryID == 9908 ? '100' : '500'?>,
+                max: <?=$this->iventor->CountryID == 9908 ? '10000' : '50000'?>,
+                minmin: <?=$this->iventor->CountryID == 9908 ? '100' : '500'?>,
+                maxmax: <?=$this->iventor->CountryID == 9908 ? '10000' : '50000'?>,
+                currency: <?=$this->iventor->CountryID == 9908 ? '"грн"' : '"руб"'?>
+            };
+			
+			
+			
+            var nnn = 0;
+
+			
+            $(document).ready(function(){
+                var uploader = new qq.FileUploader({
+                    element: document.getElementById('upload-protfolio'),
+                    action: '<?=$this->baseUrl()?>/iventor/upload-portfolio/page/<?=$this->nowpage?>',
+                    debug: false,
+                    uploadButtonText: 'Добавить фото',
+                    multiple: true,
+                    allowedExtensions: ['jpeg', 'jpg', 'png'],
+                    autoUpload: true,
+                    onComplete: function(id, fileName, result) {
+                        nnn--;
+                        if (nnn <= 0) {
+                            hidePortfolioShadow();
+                        }
+                        if (typeof(result.error) != 'undefined' && typeof shownErrors[result.error] == 'undefined') {
+                            showError(result.error);
+                            shownErrors[result.error] = 1;
+                        }
+                        if ($('#preportfolio' + id).length > 0) $('#preportfolio' + id).html('<a class="thumbik" rel="lightbox[group]" href="<?=$this->baseUrl()?>/img/users/' + result.ivid + '/1024x0_' + result.uploaded + '"><img src="<?=$this->baseUrl()?>/img/users/' + result.ivid + '/199x169_' + result.uploaded + '" alt="" /></a><div class="delete"><a rel="' + result.id + '"></a></div>').removeClass('preloader').attr('id', 'portfolio' + result.id);
+
+                        if (typeof(result.pages) == 'undefined') return;
+                        $('.pager').html('');
+                        if (result.pages.length > 1) {
+                            for (var i in result.pages) {
+                                $('.pager').append(htmlspecialchars_decode(result.pages[i]));
+                            }
+                        }
+                    },
+                    onUpload: function(id, fileName, xhr) {
+                        var k1 = $('.pphoto').length;
+                        if ($('.pphoto').length < 10) $('#portfolio .clear:eq(0)').before('<div class="pphoto preloader" id="preportfolio' + id + '"></div>');
+                        var k2 = $('.pphoto').length;
+                        if (nnn > 0 && k1 == 5 && k2 > 5) {
+                            $('.portfolio_shadow').remove();
+                            $('.portfolio_shadow_text').remove();
+                            showPortfolioShadow();
+                        }
+                        if (nnn == 0) {
+                            showPortfolioShadow();
+                        }
+                        nnn++;
+                    },
+                    onError: function(id, a, b) {
+                        nnn--;
+                        if (nnn <= 0) {
+                            hidePortfolioShadow();
+                        }
+                        if ($('#preportfolio' + id).length > 0) $('#preportfolio' + id).remove();
+                    }
+                });
+            });
+        <?php
+	    $this->headScript()->captureEnd();
+    }
+    else {
+        $this->headScript()->captureStart();
+        ?>
+            requestedPhoneEventor = <?=$this->iventor->UserId?>;
+            requestedPhoneService = <?=(count($this->ivent_service) > 0) ? $this->ivent_service[0]['Id'] : 0?>;
+            $(document).ready(function(){
+                //if ($('a.thumbik').length > 0) $('a.thumbik').lightBox();
+            });
+        <?php
+        $this->headScript()->captureEnd();
+    }
+?>
+
+<div class="iventor_cabinet">
+    <div class="noiseb">
+        <div class="noisew">
+            <?php if (!$this->readonly) { ?>
+                <?php if ($this->iventor->Premium == 1) { ?>
+                    <div class="bholder">
+                        <a class="cabinet active" href="<?=$this->url(array('controller' => 'iventor', 'action' => 'index'), null, true, true)?>">Личный кабинет</a>
+                        <a class="events" href="<?=$this->baseUrl()."/iventor/searches/";?>">Запросы на услуги</a>
+                        <a class="account" href="<?=$this->baseUrl()."/iventor/account/";?>">Управление счетом</a>
+                    </div>
+                <?php } else { ?>
+                    <div class="bholder" style="width: 485px;">
+                        <a class="cabinet active" href="<?=$this->url(array('controller' => 'iventor', 'action' => 'index'), null, true, true)?>">Личный кабинет</a>
+                        <a class="account" href="<?=$this->baseUrl()."/iventor/account/";?>">Управление счетом</a>
+                    </div>
+                <?php } ?>
+                <div class="topspace"></div>
+            <?php } else { ?>
+                <div class="topspace2"></div>
+            <?php } ?>
+            <div class="cntnn">
+                <?php if (!$this->readonly) { ?>
+                <h4>Информация о ивенторе</h4>
+                <?php } ?>
+				 <div id="jc-hidden-dialog">
+					
+					 
+					   <form method="post"><input type="hidden" id="x" name="x" /><input type="hidden" id="y" name="y" /><input type="hidden" id="w" name="w" /><input type="hidden" id="h" name="h" /></form>
+					  
+					  </div>
+				
+                <div class="reddi">
+                    <div class="infor">
+                        <div class="image">
+                            <?php if (trim($this->iventor->Image) == '') { ?>
+                                <img src="<?=$this->baseUrl()?>/images/iventor.png" alt="" />
+                            <?php } else { ?>
+                                <img src="<?=$this->baseUrl()?>/img/users/<?=$this->iventor->UserId?>/200x200_<?=$this->iventor->Image?>" alt="<?=$this->iventor->CompanyName?>" />
+                            <?php } ?>
+                        </div>
+                        <?php
+                        $total = 0;
+						$logo = 0;
+						$info = 0;
+						$port = 0;
+						$servc = 0;
+                        $hints = array();
+	
+						
+
+                        if (trim($this->iventor->Image) == '') {
+                            $hints[] = 'Логотип';
+							
+                        }
+                        else {
+                            $total += 20;
+							$logo = 1;
+                        }
+
+                        if (trim($this->iventor->Description) == '') {
+                            $hints[] = 'Информацию о себе';
+							
+                        }
+                        else {
+                            $total += 40;
+							$info = 1;
+                        }
+
+                        if (count($this->rows) == 0) {
+                            $hints[] = 'Портфолио';
+
+							
+                        }
+                        else {
+                            $total += 40;
+							$port = 1;
+                        }
+						
+						if($this->ivent_service){
+						$servc = 1;
+						}
+						
+						
+						if($port==0){?>
+						<script>
+						window.onload = function() {
+						$('.notyport').noty({text: '<font size=3>Для большей эффективности, пожалуйста, полностью заполните свой  профайл:<br />Добавьте фотографии в ваше портфолио.</font> ', type: 'information'});}
+						</script>
+						<?
+						}
+						
+						
+					    if(!$this->ivent_service){
+						?>
+							<script>
+						window.onload = function() {
+						element = document.getElementById("serviceline2");
+						element.parentNode.removeChild(element);
+						$('.notyserv').noty({text: '<font size=3>Внимание! Вы будете не доступны в каталоге и поиске пока не добавите ваши услуги.Нажмите кнопку "Добавить услугу", укажите категорию&frasl;подкатегорию, город и бюджет.</font> ', type: 'information'});}
+						</script>
+						<?
+						}
+						
+						if($logo==0 && $info==0){?>
+						<script>
+						window.onload = function() {
+						$('.notynoty').noty({text: '<font size=3>Для большей эффективности, пожалуйста, полностью заполните свой  профайл:<br />Нажмите кнопку <b>Редактировать</b>, на всплывающем окне загрузите логотип и введите информацию о себе.</font> ', type: 'information'});}
+						</script>
+						<?
+						}
+						
+						if($logo==0 && $info==1){?>
+						<script>
+						window.onload = function() {
+						$('.notynoty').noty({text: '<font size=3>Для большей эффективности, пожалуйста, полностью заполните свой  профайл:<br />Нажмите кнопку <b>Редактировать</b>, на всплывающем окне загрузите логотип.</font> ', type: 'information'});
+						}
+						</script>
+						<?
+						}
+						
+						if($logo==1 && $info==0){?>
+						<script>
+						window.onload = function() {
+						$('.notynoty').noty({text: '<font size=3>Для большей эффективности, пожалуйста, полностью заполните свой  профайл:<br />Нажмите кнопку <b>Редактировать</b>, на всплывающем окне и введите информацию о себе.</font> ', type: 'information'});}
+						</script>
+						<?
+						}
+						
+						
+						
+					
+						
+						
+                        $width = intval(1.58 * $total) - 11;
+                        if ($width < 0) $width = 0;
+                        ?>
+
+                        <?php if (!$this->readonly && $total < 100) { ?>
+
+                            <div class="hints">
+                                <h5>Заполнено информации:</h5>
+                                <div class="progress">
+                                    <div class="fon"></div>
+                                    <div class="pleft"></div> <!-- total width = 158px -->
+                                    <div class="pmain" style="width: <?=$width?>px;"></div> <!-- % = width, 0px = 0%, 147px = 100% -->
+                                    <div class="pright" style="left: <?=($width + 5)?>px;"></div> <!-- max left: 152px = 100% --> <!-- 70% -->
+                                    <div class="perc"><?=$total?>%</div>
+                                </div>
+                                <?php if ($total != 100) { ?>
+                                <h6>Рекомендуем добавить:</h6>
+                                <ul>
+                                    <?php
+                                        foreach ($hints as $h) {
+                                            ?>
+                                            <li><a><?=$h?></a></li>
+                                            <?php
+                                        }
+                                    ?>
+                                </ul>
+                                <?php } ?>
+                            </div>
+                        <?php } ?>
+                        <?php if ($this->readonly && $this->iventor->Premium == 1 && trim($this->nice) != '') { ?>
+                        <div class="hints hints2">
+                            <h5>Ивентор будет занят в эти даты:</h5>
+                            <div class="nice"><?=$this->nice?></div>
+                        </div>
+                        <?php } ?>
+                        <div class="infolist">
+                            <h1 class="ivname"><?=$this->iventor->CompanyName?></h1>
+                            <div class="ivinfo<?=$this->readonly ? ' ivinforeadonly' : ''?>">
+                                <div style="float: left;">
+                                    <span>Телефон: </span><?=$this->iventor->CompanyPhone?><?php if (!$this->readonly) { ?> <a class="changephone">(изменить)</a><?php } ?>
+                                </div>
+                                <?php if ($this->iventor->Premium == 1 && trim($this->iventor->Skype) != '') { ?>
+                                    <div class="skypew">Skype:
+                                        <script type="text/javascript" src="http://download.skype.com/share/skypebuttons/js/skypeCheck.js"></script>
+                                        <a href="skype:<?=$this->iventor->Skype?>?call"><img src="<?=$this->baseUrl()?>/images/callme.png" width="107" height="38" alt=""/></a>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                            <div class="ivinfo<?=$this->readonly ? ' ivinforeadonly' : ''?>"><span>E-mail: </span><?=$this->iventor->Email?></div>
+                            <div class="ivinfo<?=$this->readonly ? ' ivinforeadonly' : ''?>"><span>Город: </span><?=$this->iventor->CityName?></div>
+                            <div class="ivinfo<?=$this->readonly ? ' ivinforeadonly' : ''?>"><div class="address"><span>Сайт:</span>
+							<? $address = str_replace("http://", "", str_replace("https://", "", $this->iventor->Website));?>
+							<a href="<?$this->baseUrl();?>/link/link.php?link=<?=$address?>" id="siteurl" onMouseDown="saveClick(<?=$this->iventor->UserId?>, '<?=$address?>')" target="blank"><?=str_replace("http://", "", str_replace("https://", "", $this->iventor->Website))?>
+							</a></div></div>
+                            <?php if ($this->showButtons && $this->iventor->Premium == 1 && count($this->ivent_service) > 0) { ?>
+                                <?php if ($this->showCall) { ?><div class="reqphone">Нажмите, если хотите, что бы ивентор сам связался с вами.</div><?php } else {?><div class="reqphone2">Вы уже дали запрос на звонок. Ожидайте.</div><?php } ?>
+                                <?php if ($this->showStar) { ?><div class="reqstar">Нажмите, если хотите добавить ивентора себе в избранное.</div><?php }  else {?><div class="reqstar2">Этот ивентор уже находится в избранном.<br />Нажмите если хотите убрать.</div><?php } ?>
+                                <div class="clear"></div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <div class="description">
+                        <h5>О компании:</h5>
+                        <div class="dtext">
+						
+						<? $desc = nl2br($this->iventor->Description); 
+						echo strip_tags($desc, '<p><h2><br>'); ?></div>
+                    </div>
+                    <?php if (!$this->readonly) { ?>
+					<div class="notynoty" style="margin-bottom:10px;"></div>
+                        <div class="buttons">
+                            <a class="edit" onclick="addEditInfoPopup(iventor);">Редактировать</a>
+                            <a class="changepass" onclick="addPasswordPopup();">Сменить пароль</a>
+                        </div>
+                    <?php } ?>
+                </div>
+
+
+<!-- YSLUGI -->
+                <h4>Услуги ивентора</h4>
+                <div id="ivent_service" class="reddi">
+                    <div class="serviceline shead">
+                        <div class="stitle">Категория > Подкатегория</div>
+                        <div class="scity">Город</div>
+                        <div class="smoney">Бюджет</div>
+                    </div>
+                    <?php 
+                    	$Obj_city = new Obj_DBTable_Citys();
+                    	$Obj_cat = new Obj_DBTable_ServiceCategories();
+                    	$Obj_country = new Obj_DBTable_Country();
+                    	if($this->ivent_service){
+                    	foreach ($this->ivent_service as $service){
+                    		$pidcat = $Obj_cat->getCategories($service['CategoryId']);
+                    		$cat = $Obj_cat->getCategories($pidcat['ParentId']);
+                    		$city = $Obj_city->getCity($service['CityId']);
+                    		$country = $Obj_country->getCountryName($city['country_id']);
+							$add = "";
+							if( $service['maxPrice']==50000){
+							$add = "+";
+							}
+							if($service['maxPrice']==10000){
+							if($city['country_id'] == 9908){
+							$add = "+";}
+							
+							}
+                            if ($this->readonly) {
+							
+                            echo '<div class="serviceline">
+                        		    <div class="stitle">'
+									.$cat['CategoryName'].' &gt; <a target="blank" href="/catalog/'.$pidcat['alias'].'/'.$city['alias'].'/">'.$pidcat['CategoryName'].'</a></div>
+									
+                        		    <div class="scity">'.$city['name'].', '.$country['name'].'</a></div>
+                        		    <div class="smoney">от '.$service['minPrice'].' до '.$service['maxPrice'].$add.' '.($city['country_id'] == 9908 ? 'грн.' : 'руб.').'</div>';
+                            }
+                            else {
+                                echo '
+                    			<div class="serviceline">
+                        		    <div class="stitle">'.$cat['CategoryName'].' &gt; '.$pidcat['CategoryName'].'</div>
+                        		    <div class="scity">'.$city['name'].', '.$country['name'].'</div>
+                        		    <div class="smoney">от '.$service['minPrice'].' до '.$service['maxPrice'].$add.' '.($city['country_id'] == 9908 ? 'грн.' : 'руб.').'</div>
+                    		';
+                            }
+                    		if (!$this->readonly) {
+                    			echo '<div class="sdelete"><a rel="'.$service['Id'].'"></a></div>';
+                    			echo '<div class="sedit"><a rel="'.$service['Id'].'"></a></div>';
+                    		}
+                    		echo '</div>';
+                    	}
+                    	}elseif(!$this->readonly){
+                    		echo '<div class="serviceline" id="serviceline2">Для того что бы у вас появились сделки, добавьте ваши услуги, укажите бюджет и город.</div>';
+                    	}
+                    
+                    ?>
+                    
+                    
+                   <?php if (!$this->readonly) { ?>
+				   <div class="notyserv" style="margin-bottom:10px;"></div>
+                    <div class="buttons">
+                        <a class="addy" onclick="addServicePopup();">Добавить услугу</a>
+                    </div>
+                    <?php } ?>
+                    <div class="clear h6"></div>
+                </div>
+<!-- YSLUGI -->
+                <?php if ($this->iventor->Premium == 1 && (!$this->readonly || count($this->videos))) { ?>
+                <h4>Видео записи</h4>
+                <div id="videos" class="reddi" style="width: 950px; padding-left: 2px; padding-right: 2px;">
+                    <?php
+                    foreach ($this->videos as $v) {
+                        $link = explode("/", $v->VideoLink);
+                        $id = $link[count($link) - 1];
+                        ?>
+                        <div class="video" id="video<?=$v->ID?>">
+                            <img src="http://i.ytimg.com/vi/<?=$id?>/0.jpg" alt="" width="307" height="173"/>
+                            <div class="vclicker" id="<?=$id?>"></div>
+                            <?php if (!$this->readonly) { ?><div class="vdel"><a id="<?=$v->ID?>"></a></div><?php } ?>
+                        </div>
+                        <?php
+                    }
+                    ?>
+                    <div class="clear"></div>
+                    <?php if (!$this->readonly) { ?>
+                    <div class="buttons">
+                        <a class="addy" onclick="addVideoPopup();">Добавить видео</a>
+                    </div>
+                    <div class="clear"></div>
+                    <?php } ?>
+                    <?php if ($this->readonly) { ?><div class="clear h6"></div><?php } ?>
+                </div>
+                <?php } ?>
+
+<!-- YSLUGI -->
+                <?php if (!$this->readonly || count($this->rows) > 0) { 
+				
+				?>
+                <h4>Портфолио ивентора</h4>
+				
+				<div class="notyport" style="margin-bottom:10px;"></div>
+                <div id="portfolio" class="reddi" style="width: 950px; padding-left: 2px; padding-right: 2px;">
+                <?php 
+                	foreach ($this->rows as $rows){
+                		echo '<div class="pphoto" id="portfolio'.$rows['Id'].'"><a class="thumbik" rel="lightbox[group]" href="'.$this->baseUrl().'/img/users/'.$rows['IventorId'].'/1024x0_'.$rows['FileName'].'"><img src="'.$this->baseUrl().'/img/users/'.$rows['IventorId'].'/199x169_'.$rows['FileName'].'" alt="" /></a>'.($this->readonly ? '' : '<div class="delete"><a rel="'.$rows['Id'].'"></a></div>').'</div>';
+                	}
+                ?>
+                
+                
+                    <div class="clear"></div>
+                    <div class="buttons photobuttons">
+                        <?php if (!$this->readonly) { ?>
+                            <div class="addf">
+                                <div id="upload-protfolio">sf</div>
+                            </div>
+                               <div class="addfsub">
+                                    максимум <?=$this->iventor->Premium == 1 ? 3 : 1?>0 фотографий
+                                </div>
+                        <?php } ?>
+                        <div class="pager">
+                        <?php if ($this->count_page > 1 && $this->iventor->Premium > 0) { ?>
+                        <?php
+                        	for($i = 1; $i <= $this->count_page; $i++){
+                        		if($i == $this->nowpage){
+                        		    echo '<a href="#" onclick="return false;" class="current">'.$i.'</a>';
+                        		}else{
+                                    echo '<a href="#" onclick="getPortfolioPage('.$i.', '.$this->iventor->UserId.'); return false;">'.$i.'</a>';
+                        		}
+                        	}
+                        ?>
+                        <?php } ?>
+                        </div>
+                    </div>
+                    <div class="clear h10"></div>
+                </div>
+                <?php } ?>
+                <h4>Отзывы</h4>
+                <div id="vk_comments"></div>
+                <script type="text/javascript">
+                    VK.Widgets.Comments("vk_comments", {limit: 15, width: "948", attach: "*"});
+                </script>
+                <div class="clear h16"></div>
+                <div>&nbsp;</div>
+                <!-- YSLUGI -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

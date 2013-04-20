@@ -1,0 +1,147 @@
+<?php
+    $this->headScript()->appendFile($this->baseUrl().'/js/popup.js');
+    $this->headScript()->appendFile($this->baseUrl().'/js/catalog.js');
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/popup.css');
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/client.css');
+    $this->headScript()->captureStart();
+    ?>
+    var currentAddress = '<?=$this->url($this->cpage, null, true)?>';
+    $('.iphone').live('mouseover', function(){
+        $('.myhint', $(this).parent()).hide();
+        if ($(this).hasClass('iphoned')) $('.callwait', $(this).parent()).show();
+        $('.callme', $(this).parent()).show();
+    });
+    $('.iphone').live('mouseout', function(){
+        $('.myhint', $(this).parent()).hide();
+    });
+
+    $('.iphone').live('click', function(){
+        $('.myhint', $(this).parent()).hide();
+        if ($(this).hasClass('iphoned')) {
+
+        }
+        else {
+            var eid = $(this).attr('eid');
+            var sid = $(this).attr('sid');
+            requestedPhoneEventor = eid;
+            requestedPhoneService = sid;
+            $.ajax({
+                type: 'POST',
+                url: HTTP_HOST + '/iventor/request-call',
+                data: {id:eid, sid:sid},
+                success: function(data){
+                    if (typeof(data.error) == 'undefined') {
+                        $('a.iphone[eid=' + eid + ']').addClass('iphoned');
+                        showNotification('Запрос выслан. Вам перезвонят на телефон ' + data.phone);
+                    }
+                    else {
+                        if (data.error == 'login') {
+                            showLoginPopup();
+                            return;
+                        }
+                        if (data.error == 'phone') {
+                            showPhoneNumberPopupC();
+                            return;
+                        }
+                        showError(data.error);
+                    }
+                },
+                dataType: 'json'
+            });
+        }
+    });
+
+    $('.istar').live('mouseover', function(){
+        $('.myhint', $(this).parent()).hide();
+        if ($(this).hasClass('istard')) $('.delstar', $(this).parent()).show();
+        $('.addstar', $(this).parent()).show();
+    });
+    $('.istar').live('mouseout', function(){
+        $('.myhint', $(this).parent()).hide();
+    });
+    $('.istar').live('click', function(){
+        $('.myhint', $(this).parent()).hide();
+        var eid = $(this).attr('eid');
+        var sid = $(this).attr('sid');
+        var link = $(this);
+        if ($(this).hasClass('istard')) {
+            $.ajax({
+                type: 'POST',
+                url: HTTP_HOST + '/iventor/remove-star',
+                data: {id:eid},
+                success: function(data){
+                    if (typeof(data.error) == 'undefined') {
+                        showNotification("Ивентор удален из избранного");
+                        window.location.href = currentAddress;
+                    }
+                    else {
+                        showError(data.error);
+                    }
+                },
+                dataType: 'json'
+            });
+        }
+    });
+
+    <?php
+    $this->headScript()->captureEnd();
+
+?>
+<div class="client_search_requests">
+    <div class="noiseb">
+        <div class="noisew">
+            <div class="bholder">
+                <a class="starred active">Избранное</a>
+                <a href="<?=$this->url(array('module' => 'default', 'controller' => 'client', 'action' => 'index'), NULL, true) ?>" class="requests">Запросы на услуги</a>
+                <a href="<?=$this->url(array('module' => 'default', 'controller' => 'client', 'action' => 'settings'), NULL, true) ?>" class="settings">Настройки</a>
+            </div>
+
+            <div class="topspace"></div>
+            <?php
+                if (count($this->list) < 1) {
+                    ?>
+                        <div class="reddi">
+                            <div class="not_ug">
+                                Вы пока не добавили в Избранное ни одного ивентора.
+                            </div>
+                        </div>
+                    <?php
+                }
+                else {
+                    ?>
+                    <div class="catalogresult usercatalogresult">
+                        <?php
+
+                        foreach ($this->list as $l) {
+							//print_r($l);
+                            echo $this->premiumCatalog($l, true);
+                        }
+
+                        ?>
+                        <div class="clear"></div>
+                    </div>
+                    <?php
+                }
+            ?>
+            <?php if ($this->pages && count($this->pages) > 1) { ?>
+            <div class="clear h14"></div>
+            <div class="reggi">
+                <div class="paging">
+                    <?php
+                    foreach ($this->pages as $p) {
+                        ?>
+                        <a class="<?=$p['class']?>" href="<?=$p['href']?>"><?=$p['html']?></a>
+                        <?php
+                    }
+                    ?>
+                </div>
+            </div>
+
+            <?php } 
+			
+			?>
+
+            <a href="<? echo $this->baseUrl()."/catalog?main=1" ?>" class="make_catalog"></a>
+        </div>
+    </div>
+</div>

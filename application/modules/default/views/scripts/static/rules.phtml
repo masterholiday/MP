@@ -1,0 +1,23 @@
+<?php
+    $this->headScript()->appendFile($this->baseUrl().'/js/popup.js');
+    $this->headScript()->appendFile($this->baseUrl().'/js/auth.js');
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/popup.css');
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/client.css');
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/static.css');
+    $this->headTitle("Правила пользования сайтом – MasterHoliday");
+	$this->headMeta()->appendName('description', "Правила пользования сайтом – MasterHoliday");
+?>
+<div class="client_search_requests">
+    <div class="noiseb">
+        <div class="noisew">
+            <div class="bholder" style="width: 483px;">
+                <a href="" class="requests active" style="left: 0px;">Правила</a>
+                <a href="<?=$this->url(array('module' => 'default', 'controller' => 'static', 'action' => 'agreement'), NULL, true) ?>" class="settings">Соглашение</a>
+            </div>
+            <div class="topspace"></div>
+            	<div class="reddi">
+					<?=$this->text['Text']?>
+				</div>
+		</div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<?php
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/client.css');
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/popup.css');
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/popup_client.css');
+    $this->headScript()->appendFile($this->baseUrl().'/js/client.js');
+?>
+<div class="client_search_requests">
+    <div class="noiseb">
+        <div class="noisew">
+            <div class="bholder">
+                <a href="<?=$this->url(array('module' => 'default', 'controller' => 'client', 'action' => 'starred'), NULL, true) ?>" class="starred">Избранное</a>
+                <a href="<?=$this->url(array('module' => 'default', 'controller' => 'client', 'action' => 'index'), NULL, true) ?>" class="requests">Запросы на услуги</a>
+                <a class="settings active">Настройки</a>
+            </div>
+            <div class="topspace" style="height: 80px;"></div>
+				<div class="cntnn" style="padding: 0px 16px;">
+					<div class="border client-border">
+                        <div class="namec"><span>Инициалы:</span><?=$this->name ?></div>
+						<div class="phonec"><span>Телефон:</span>
+                            <?php if (trim($this->phone) != '') { ?><?=$this->phone ?><a class="del"></a> <?php } else { ?>
+                                <a onclick="addEditInfoPopup();" class="addph">добавить телефон</a>
+                            <?php } ?>
+                        </div>
+						<div class="emailc"><span>E-mail:</span><?=$this->email ?></div>
+						<div class="clear"></div>
+					</div>
+					<div class="buttons client-buttons">
+						<a onclick="addEditInfoPopup();">Редактировать</a>
+						<?php if ($this->showChangePass) { ?><a onclick="addPasswordPopup();">Сменить пароль</a><?php } ?>
+					</div>
+				</div>
+       		<div class="shadow"></div>
+        </div>
+   </div>
+</div>

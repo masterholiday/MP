@@ -1,0 +1,84 @@
+<?php 
+$category = new Obj_DBTable_ServiceCategories();
+?>
+
+<div class="search_line"></div>
+<div class="search_left_info_block">
+<div>Название мероприятия<span class="error">*</span>:</div>
+<!-- <div>Количество гостей:</div> -->
+<div>Адрес:</div>
+</div>
+<div class="search_right_info_block">
+<div class="inp_text"><input id="activityname" value="" maxlength="60" name="activityname" type="text" /></div>
+<!-- <input class="inp_num" id="personcount" name="personcount" type="text" /> -->
+<div class="inp_text"><input id="address" name="address" maxlength="60" type="text" /></div>
+</div>
+
+<div class="clear"></div>
+<!--  <div>Телефон:</div>
+<input style="color:#000;" class="inp_text" id="phone" name="phone" type="text" />
+-->
+
+
+
+<div id="cat1" class="cat_desc">
+<div class="desc_title">Добавить услугу</div>
+<div class="desc_text">
+<div id="notbtn">
+<div id="group">
+
+<div class="lineForm leftselect">
+<select id="sel1" name="1" class="sel80" onchange="activityshowSelectCategoty(this, 1)" tabindex="2">
+	<?php
+		$categ_row = $category->getAllCategoriesByParent();
+		echo '<option disabled selected value="error">Категория услуги*</option>';
+		foreach ($categ_row as $row_cat){
+		echo '<option value="'.$row_cat['Id'].'">'.$row_cat['CategoryName'].'</option>';
+		}
+	?>
+</select>
+</div>
+
+<div class="lineForm rightselect">
+	<select class="sel802" id="sel2" name="2" >
+	    <option disabled selected value="error">Подкатегория*</option>
+	</select>
+</div>
+
+</div>
+<div class="clear"></div>
+<!-- <div>Время</div>
+<input style="color:#000;" class="colortext" type="text" name="time1" id="time1" /> -->
+
+<select class="styled" id="price1" name="price">
+	<?php 
+		echo '<option disabled selected value="error">Бюджет*</option>';
+		$i = 0;
+		foreach ($this->price as $pr_row){
+		    if($i == 0){
+		    	echo '<option value="'.$pr_row['Id'].'">до '.$pr_row['HightPrice'].' '.$this->val.'</option>';
+		    }
+		    if($i == 1){
+				echo '<option value="'.$pr_row['Id'].'">'.$pr_row['LowPrice'].' - '.$pr_row['HightPrice'].' '.$this->val.'</option>';
+		    }
+		    if($i == 2){
+		    	echo '<option value="'.$pr_row['Id'].'">от '.$pr_row['LowPrice'].' '.$this->val.'</option>';
+		    }
+			$i++;
+		}
+	?>
+</select>
+<div>
+<span class="left">Описание<span class="error">*</span>: </span>
+    <div class="taholder">
+        <textarea name="info1" id="info1" onblur="if ($(this).text()==''){$(this).text('Укажите детали вашего мероприятия');}" onfocus="if($(this).text()=='Укажите детали вашего мероприятия'){$(this).text('')}">Укажите детали вашего мероприятия</textarea>
+    </div>
+
+<div class="clear"></div>
+</div>
+</div>
+<div><input class="next_btn" name="addactivity1" id="addactivity1" type="button" onclick="addActivity(1)" value="Добавить" /></div>
+<div class="clear"></div>
+</div>
+<div class="cat_desc_bott_bg"></div>
+</div>

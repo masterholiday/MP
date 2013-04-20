@@ -1,0 +1,63 @@
+.dropdownline{
+	position: relative;
+}
+.user_popup .user_popup_c .code{
+    margin: 0px auto;
+	background: #e9a8ae;
+	width: 451px;
+    padding-bottom: 12px;
+}
+.user_popup .user_popup_c .code .text{
+    font-size: 13px;
+	color: #ad0000;
+	font-family: 'Trebuchet MS';
+	padding: 5px 0px 10px 0px;
+    text-align: center;
+}
+.user_popup .user_popup_c .code div.popup_wide_input{
+	margin-left:14px;
+}
+
+.user_popup .user_popup_c .code .client_phone{
+	/*background: url('../images/client_phone.png') no-repeat;*/
+	background: url('../images/popup_input_green.png') 0px -50px no-repeat;
+	width: 278px;
+	height: 50px;
+	position: relative;
+	margin: 6px 0 0 31px;
+	float: left;
+}
+.user_popup .user_popup_c .code .client_phone_ok{
+	background: url('../images/popup_input_green.png') 0px 0px no-repeat;
+}
+.user_popup .user_popup_c .code .client_phone input{
+	position: absolute;
+	top: 10px;
+	left: 20px;
+	border: none;
+	background: transparent;
+	width: 210px;
+	height: 27px;
+	line-height: 27px;
+	font-size: 16px;
+	color: #6f6f6f;
+}
+.user_popup .user_popup_c .code .buttons{
+	float:right;
+	width: 140px;
+	margin-top: -42px;
+}
+.user_popup .user_popup_c .code .buttons .get{
+	background: url('../images/code_buttons.png') no-repeat 0 0;
+	width: 109px;
+	height: 27px;
+	border: none;
+	cursor: pointer;
+}
+.user_popup .user_popup_c .code .buttons .confirm{
+	background: url('../images/code_buttons.png') no-repeat 0 -27px;
+	width: 109px;
+	height: 27px;
+	border: none;
+	cursor: pointer;
+}

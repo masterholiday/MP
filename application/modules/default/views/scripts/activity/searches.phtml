@@ -1,0 +1,39 @@
+<? if(isset($this->count) && $this->count == 'yeas'): ?>
+<table>
+<tr style="color:#ccc;"><td style="width: 150px; padding:5px 10px;">Название компании</td>
+<td style="width: 150px; padding:5px 10px;">Телефон компании</td>
+<td style="width: 150px; padding:5px 10px;">Ответствинное лицо</td>
+<td style="width: 150px; padding:5px 10px;">Категория</td>
+<td style="width: 150px; padding:5px 10px;">Город</td>
+<td style="width: 150px; padding:5px 10px;">Прайс</td>
+</tr>
+	<?php 
+		if($_SESSION['search_row'] && $_SESSION['search_row'] != 'not'){
+		    $invinfo = new Obj_DBTable_InventorInfo();
+		    $cat = new Obj_DBTable_ServiceCategories();
+		    $city = new Obj_DBTable_Citys();
+		    $price = new Obj_DBTable_ServicesPrices();
+			foreach ($_SESSION['search_row'] as $row){
+				$invinfo_row = $invinfo->getInventorInfoByUserId($row['IventorId']);
+				$cat_row = $cat->getCategories($row['CategoryId']);
+				$city_row = $city->getCity($row['CityId']);
+				$price_row = $price->getServicesPrices($row['PriceId']);
+				echo '<tr>
+				<td style="padding:5px 10px;">'.$invinfo_row['CompanyName'].'</td>
+				<td style="padding:5px 10px;">'.$invinfo_row['CompanyPhone'].'</td>
+				<td style="padding:5px 10px;">'.$invinfo_row['ResponsiblePerson'].'</td>
+				<td style="padding:5px 10px;">'.$cat_row['CategoryName'].'</td>
+				<td style="padding:5px 10px;">'.$city_row['name'].'</td>
+				<td style="padding:5px 10px;">'.$price_row['LowPrice'].' - '.$price_row['HightPrice'].'</td>
+				
+				</tr>'; 
+			}
+		}else {
+			echo '<h3>По вашему критерию ничего не найдено.</h3>';
+		}
+	?>
+</table>
+<?else:?>
+<h3>Лимит просмотров закончился</h3>
+<?endif?>
+

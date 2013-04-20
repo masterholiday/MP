@@ -1,0 +1,116 @@
+<?php
+echo $this->doctype();
+$this->headTitle()->setSeparator('');
+$this->headTitle('', 'PREPEND');
+//$this->headMeta()->appendName('description', 'A brief description of the site.');
+$this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
+$this->headMeta()->appendHttpEquiv('Content-Language', 'ru-RU');
+?>
+<?php echo $this->doctype() ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="icon" type="image/png" href="<?=$this->baseUrl()?>/images/icon_M_32.png" />
+
+  <?php 
+  echo $this->headTitle();
+  echo $this->headMeta();
+  echo $this->headLink()->appendStylesheet($this->baseUrl().'/css/style.css');?>
+  
+<?php
+    $this->headScript()
+    ->prependFile($this->baseUrl().'/js/jq/jquery-1.8.2.min.js')
+    ->appendFile($this->baseUrl().'/js/jq/noty/jquery.noty.js')
+    ->appendFile($this->baseUrl().'/js/jq/noty/layouts/top.js')
+    ->appendFile($this->baseUrl().'/js/jq/noty/layouts/inline.js')
+    ->appendFile($this->baseUrl().'/js/jq/noty/themes/default.js')
+    ->appendFile("//vk.com/js/api/openapi.js?64");
+    $this->headScript()->captureStart();
+?>
+    var HTTP_HOST = '<?=$this->baseUrl()?>';
+    function showError(message) {
+        var n = noty({
+            text: message,
+            type: 'error',
+            dismissQueue: true,
+            layout: 'top',
+            theme: 'defaultTheme'
+        });
+        setTimeout(function(){n.close();}, 5000);
+    }
+    function showNotification(message) {
+        var n = noty({
+            text: message,
+            type: 'success',
+            dismissQueue: true,
+            layout: 'top',
+            theme: 'defaultTheme'
+        });
+        setTimeout(function(){n.close();}, 5000);
+    }
+    VK.init({apiId: 3024206, onlyWidgets: true});
+<?php
+    $this->headScript()->captureEnd();
+    echo $this->headScript();
+?>
+</head>
+<body>
+    <?php echo $this->facebookLike("init"); ?>
+    <div id="body">
+        <?php if (isset($this->banner)) { ?>
+        <div class="mt_banner">
+            <div class="relpos">
+                <a class="close_mt_banner" onclick="hide_banner();">закрыть</a>
+            </div>
+            <?php if ($this->banner->filetype == 'image') { ?>
+            <img src="<?=$this->baseUrl()?>/banner/<?=$this->banner->filename?>" alt="" />
+            <?php } else { ?>
+            <?php
+            $dims = getimagesize(APPLICATION_PATH.'/../public/banner/'.$this->banner->filename);
+            $width = $dims[0];
+            $height = $dims[1];
+            $k = $width / 1000;
+            $height = intval($height / $k);
+            $width = 1000;
+            ?>
+            <object width="<?=$width?>" height="<?=$height?>" id="mymoviename">
+                <param name="movie" value="<?=$this->baseUrl()?>/banner/<?=$this->banner->filename?>" />
+                <param name="quality" value="high" />
+                <param name="wmode" value="transparent">
+                <param name="bgcolor" value="#ffffff" />
+                <embed src="<?=$this->baseUrl()?>/banner/<?=$this->banner->filename?>" wmode="transparent" quality="high" bgcolor="#ffffff" width="<?=$width?>" height="<?=$height?>" name="mymoviename" align="" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed>
+            </object>
+            <?php } ?>
+        </div>
+        <?php } ?>
+        <div id="wrapper">
+            <?php echo $this->render('blocks/siteheader.phtml'); ?>
+	        <div id="content">
+	            <?php echo $this->layout()->content ?>
+                <?php if ($this->showLastIventors) { ?>
+                <?php
+                if (count($this->lastiventors) > 0) { ?>
+                    <div class="lastiventors">
+                        <h3>Недавно присоединившиеся</h3>
+                        <?php
+						$translit = new Zend_Filter_Translit();
+                        foreach ($this->lastiventors as $i) {
+                            ?>
+                            <div>
+                                <img src="<?=$this->baseUrl()?>/img/users/<?=$i['UserId']?>/150x150_<?=$i['Image']?>" width="150" height="150" alt="" />
+                 			 <a target="_blank" href="<?=$this->url(array('ID' => $i['Id'],  'title' => $translit->filter($i['CompanyName'])), 'iventor')?>"><?=$i['CompanyName']?></a>
+                            </div>
+                            <?php
+                        }
+                        ?>
+                        <div class="clear" style="height: 25px;"></div>
+                    </div>
+                    <div class="clear"></div>
+                    <?php }?>
+                <?php } ?>
+	        </div><!-- #content-->
+        </div><!-- #wrapper -->
+    <?php  echo $this->render('blocks/footer.phtml'); ?>
+    </div>
+</body>
+</html>

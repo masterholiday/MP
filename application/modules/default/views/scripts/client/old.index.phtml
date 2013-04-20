@@ -1,0 +1,261 @@
+<?php
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/client.css');
+    $this->headScript()->captureStart();
+    ?>
+    $('.plusminus a').live('click', function(){
+        var p = $(this).parent().parent().parent();
+        if ($(this).hasClass('opened')) {
+            $(this).removeClass('opened');
+            $('ul li', p).hide();
+            if ($('.one', p).length > 0) $('.one', p).parent().show();
+        }
+        else {
+            $(this).addClass('opened');
+            $('ul li', p).show();
+            if ($('.one', p).length > 0) $('.one', p).parent().hide();
+        }
+    });
+    <?php
+    $this->headScript()->captureEnd();
+
+?>
+<div class="client_search_requests">
+    <div class="noiseb">
+        <div class="noisew">
+            <div class="bholder">
+                <a href="<?=$this->url(array('module' => 'default', 'controller' => 'client', 'action' => 'starred'), NULL, true) ?>" class="starred">Избранное</a>
+                <a class="requests active">Запросы на услуги</a>
+                <a href="<?=$this->url(array('module' => 'default', 'controller' => 'client', 'action' => 'settings'), NULL, true) ?>" class="settings">Настройки</a>
+            </div>
+
+            <div class="topspace2"></div>
+            <div class="bholder2">
+                <a href="<?=$this->url(array('module' => 'default', 'controller' => 'client', 'action' => 'index', 'type' => 'complex'), NULL, true) ?>" class="complex<?=$this->stype == 'complex' ? ' active' : ''?>">Комплексные</a>
+                <a href="<?=$this->url(array('module' => 'default', 'controller' => 'client', 'action' => 'index', 'type' => 'catalog'), NULL, true) ?>" class="catalog<?=$this->stype == 'catalog' ? ' active' : ''?>">Каталог</a>
+            </div>
+            <div class="topspace"></div>
+            <?php
+            ?>
+<!-- TYT TROGAI -->
+       <?php 
+       $invinfo = new Obj_DBTable_InventorInfo();
+       $cat = new Obj_DBTable_ServiceCategories();
+       $city = new Obj_DBTable_Citys();
+       $price = new Obj_DBTable_ServicesPrices();
+       $searches = new Obj_DBTable_Searches();
+       $Obj_ivent_ser = new Obj_DBTable_IventorServices();
+       $Obj_trans = new Obj_DBTable_Transaction();
+       $Obj_ser = new Obj_DBTable_ServicesSearches();
+             
+       if(isset($this->i) && $this->i == 0){
+       		$i = 0;
+       }else{
+           $i = 1;
+       }
+       
+       foreach ($this->user_search as $search){
+           //print_r($search);
+           $service = $Obj_ser->getAllServicesSearchesBySearchesId($search['Id']);
+           echo '<div class="reddi">
+                <h4>'.$search['ActivityName'].'</h4>';
+           $k = count($service) - 1;
+           $j = 0;
+           foreach ($service as $service_row){
+           
+           $trans = $Obj_trans->getAllTransactionBySearchId($service_row['Id']);
+           $count = count($trans);
+            $date = date('d.m.Y', strtotime($search['Date']));
+			
+			
+			$price_row = $price->getServicesPrices($service_row['ServicesPricesId']);
+			try {
+			$cat_row = $cat->getCategories($service_row['CategoriesId']);
+			}catch (Exception $e){
+			    $cat_row['CategoryName'] = '';
+			}
+			
+			try {
+				$cat_p = $cat->getCategories($cat_row['ParentId']);
+			}catch (Exception $e){
+				$cat_p['CategoryName'] = '';
+			}
+			
+			$city_country = $city->getCityAndCountry($search['CityId']);
+
+               //country_id
+
+            $s = "";
+            if ($price_row['LowPrice'] == 0) {
+                $s = "до ".$price_row['HightPrice'];
+            }
+            elseif ($price_row['HightPrice'] > 100000) {
+                $s = "от ".$price_row['LowPrice'];
+            }
+            else {
+                $s = $price_row['LowPrice'] . " - " . $price_row['HightPrice'];
+            }
+            if ($search['country_id'] == 9908) {
+                $s .= " грн.";
+            }
+            else {
+                $s .= " руб.";
+            }
+
+
+			if($count > 0){
+                $iventrosss = "";
+                if ($count % 10 == 1) $iventrosss = "ивентор";
+                elseif ($count % 10 < 5) $iventrosss = "ивентора";
+                else $iventrosss = "ивенторов";
+		     echo '
+		    	 
+                <div class="request">
+                    <div class="headline">
+                        <div class="plusminus">
+                            <a class="'.($i == 0 ? 'opened' : '').'"></a>
+                        </div>
+                        <div class="categname"> '.$cat_p['CategoryName'].' > '.$cat_row['CategoryName'].'</div>
+                        <div class="specinfo">
+                            <div class="date">
+                                <span>Дата: </span>'.$date.'
+                            </div>
+                            <div class="city">
+                                <span>Город: </span>'.$city_country['cityname'].', '.$city_country['name'].'
+                            </div>
+                            <div class="ivcount">
+                                '.$count.' '.$iventrosss.'
+                            </div>
+                            <div class="price">
+                                <span>Бюджет: </span>'.$s.'
+                            </div>
+                        </div>
+                    </div>
+                <ul>
+		    ';
+		    foreach ($trans as $tr){
+				$invinfo_row = $invinfo->getInventorInfoByUserId($tr['IventorId']);
+				$row = $Obj_ivent_ser->getIventorServicesByIventorId($tr['IventorId']);
+				$cat_row = $cat->getCategories($row['CategoryId']);
+				$city_row = $city->getCity($row['CityId']);
+				$price_row = $price->getServicesPrices($row['PriceId']);
+                $address = strip_tags(trim($invinfo_row['AddressLine']));
+                if ($address != '') $address = ', '.$address;
+				if(isset($invinfo_row['Image']) && $invinfo_row['Image'] != ''){
+					$images = $this->baseUrl().'/img/users/'.$tr['IventorId']."/70x70_".$invinfo_row['Image'];
+				}else{
+				    $images = $this->baseUrl().'/70x70.gif';
+				}
+				echo '
+    
+				<li'.($i > 0 ? ' style="display: none;"' : '').'>
+                            <div class="grey">
+                                <div class="image">
+                                    <img src="'.$images.'" alt="" />
+                                </div>
+                                <div class="seebutton">
+                                    <a href="'.$this->url(array('controller' => 'iventor', 'ID' => $invinfo_row['Id'])).'">Посмотреть</a>
+                                </div>
+                                <div class="description">
+                                    <div class="title">'.$invinfo_row['CompanyName'].'</div>
+                                    <div class="phoneaddr">
+                                        <div class="phone">
+                                            <span>Телефон: </span> '.$invinfo_row['CompanyPhone'].'
+                                        </div>
+                                        <div class="addr">
+                                            <span>Адрес: </span> г.'.$city_row['name'].$address.'
+                                        </div>
+                                    </div>
+                                    <div class="descrtext">
+                                        '.$invinfo_row['Description'].'
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+				'; 
+			}
+                if ($j != $k) {
+                    ?>
+                    <li<?=($i == 0 ? ' style="display: none;"' : '')?>><div class="grey one"></div></li>
+                    <?php
+                }
+       }else {
+		    
+		 echo '
+				<div class="request">
+                    <div class="headline">
+                        <div class="plusminus">
+                            <a class="'.($i == 0 ? 'opened' : '').'"></a>
+                        </div>
+                        <div class="categname"> '.$cat_p['CategoryName'].' > '.$cat_row['CategoryName'].'</div>
+                        <div class="specinfo">
+                            <div class="date">
+                                <span>Дата: </span>'.$date.'
+                            </div>
+                            <div class="city">
+                                <span>Город: </span>'.$city_country['cityname'].', '.$city_country['name'].'
+                            </div>
+                            <div class="ivcount noiv">
+                                нет ивенторов
+                            </div>
+                            <div class="price">
+                                <span>Бюджет: </span>'.$s.'
+                            </div>
+                        </div>
+                    </div>
+                <ul>
+				
+				
+						<li '.($i > 0 ? ' style="display: none;"' : '').'>
+						   <div class="grey">
+                                <div class="notfound">
+                                    К сожалению в данное время по вашему зарпосу нет доступных ивенторов. Мы в кратчайшие сроки
+                                    постараемся найти ивенторов для вас. За обновлениеями сервиса, следите с помощью рассылки
+                                    или на наших социальных старницах.
+                                </div>
+                            </div>
+                        </li>';
+		}
+		
+		
+		echo '
+				</ul>
+          </div>
+               
+    
+		
+		';
+               $j++;
+    }
+	echo '</div>';
+	$i++;
+}
+	?>
+	
+	<?php if(!$this->user_search){?>
+	<div class="reddi"><div class="not_ug">
+	Вы пока не сделали ни одного запроса на услуги ивенторов. Для того что бы сделать запрос, нажмите  
+кнопку “Сделать запрос”, которая находится ниже. Для того, что бы детальнее изучить процесс 
+добавления запроса перейдите в раздел “FAQ”  для пользователей.
+</div></div>
+<?php }?>
+	
+	
+            <div class="reddi">
+            <?php if ($this->pages) { ?>
+                    <div class="paging">
+                        <?php
+                            foreach ($this->pages as $p) {
+                                ?>
+                                    <a class="<?=$p['class']?>" href="<?=$p['href']?>"><?=$p['html']?></a>
+                                <?php
+                            }
+                        ?>
+                    </div>
+                    <?php } ?>
+            </div>
+                    
+<!-- TYT TROGAI -->
+           <a href="<?=$this->url(array('module' => 'default', 'controller' => 'index', 'action' => 'index'), NULL, true) ?>" class="make_post"></a>
+        </div>
+    </div>
+</div>

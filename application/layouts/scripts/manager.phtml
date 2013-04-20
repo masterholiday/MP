@@ -1,0 +1,122 @@
+<?php echo $this->doctype() ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Zend Framework Quickstart Application</title>
+  <?php echo $this->headLink()->appendStylesheet('/css/style.css');?>
+  
+  <?php 
+  
+  echo $this->headScript()
+  			->prependFile($this->baseUrl().'/js/jQuery/jquery-1.6.2.min.js')
+  			->appendFile($this->baseUrl().'/js/jQuery/jquery.jcarousel.js')
+  			->appendFile($this->baseUrl().'/js/jQuery/jquery.qtip-1.0.0-rc3.min.js')
+  			->appendFile($this->baseUrl().'/js/index.js')
+  			->appendFile($this->baseUrl().'/js/manager.js')
+  			->appendFile($this->baseUrl().'/js/tiny_mce/tiny_mce.js');
+  							;
+  			$this->headScript()->captureStart();
+  			?>
+  			  			var HTTP_HOST = '<?=$this->baseUrl()?>';
+  			  		<?php 
+  			  		$this->headScript()->captureEnd();
+  			  		echo $this->headScript();
+  		
+  	?>
+  	
+  	<script type="text/javascript">
+	tinyMCE.init({
+		// General options
+		mode : "specific_textareas",
+		editor_selector : "textarea",
+		theme : "advanced",
+		plugins : "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave,visualblocks",
+
+		// Theme options
+		theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
+		theme_advanced_buttons2 : "bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+		theme_advanced_buttons3 : "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
+		//theme_advanced_buttons4 : "insertlayer,moveforward,movebackward,absolute,|,styleprops,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak,restoredraft,visualblocks",
+		theme_advanced_toolbar_location : "top",
+		theme_advanced_toolbar_align : "left",
+		theme_advanced_statusbar_location : "bottom",
+		theme_advanced_resizing : true,
+
+		// Example content CSS (should be your site CSS)
+		content_css : "css/content.css",
+
+		// Drop lists for link/image/media/template dialogs
+		template_external_list_url : "lists/template_list.js",
+		external_link_list_url : "lists/link_list.js",
+		external_image_list_url : "lists/image_list.js",
+		media_external_list_url : "lists/media_list.js",
+
+		// Style formats
+		style_formats : [
+			{title : 'Bold text', inline : 'b'},
+			{title : 'Red text', inline : 'span', styles : {color : '#ff0000'}},
+			{title : 'Red header', block : 'h1', styles : {color : '#ff0000'}},
+			{title : 'Example 1', inline : 'span', classes : 'example1'},
+			{title : 'Example 2', inline : 'span', classes : 'example2'},
+			{title : 'Table styles'},
+			{title : 'Table row 1', selector : 'tr', classes : 'tablerow1'}
+		],
+
+		// Replace values for the template plugin
+		template_replace_values : {
+			username : "Some User",
+			staffid : "991234"
+		}
+	});
+</script>
+  	
+  	
+</head>
+<body>
+<div style="margin: 0 auto; width:900px;">
+<div style="float:right; margin-top:-100px;">
+<?php 
+if (Zend_Registry::isRegistered('user')) {
+    $user = Zend_Registry::get('user');
+   echo $user->Email;
+   echo '<a href="'.$this->url(array('module' => 'manager','controller' => 'index','action' => 'exit'),NULL,true).'"> Exit</a>';
+}
+
+?>
+
+</div>
+
+<div style="margin: 100px 0 0 0;">
+
+<?php if (Zend_Registry::isRegistered('user')):?>
+<div style="margin-top: 20px;text-align: center;line-height: 30px;">
+<a class="but" href="<?=$this->url(array('module' => 'manager','controller' => 'service-categories','action' => 'index'),NULL,true)?>">Категории</a>
+<a class="but" href="<?=$this->url(array('module' => 'manager','controller' => 'citys','action' => 'index'),NULL,true)?>">Города</a>
+<a class="but" href="<?=$this->url(array('module' => 'manager','controller' => 'services-prices','action' => 'index'),NULL,true)?>">Цены</a>
+<a class="but" href="<?=$this->url(array('module' => 'manager','controller' => 'posts-categories','action' => 'index'),NULL,true)?>">Категории статеи</a>
+<a class="but" href="<?=$this->url(array('module' => 'manager','controller' => 'faq','action' => 'index'),NULL,true)?>">Часто задаваемые вопроси клиента</a>
+<a class="but" href="<?=$this->url(array('module' => 'manager','controller' => 'faq','action' => 'iventor'),NULL,true)?>">Часто задаваемые вопроси ивентора</a>
+<a class="but" href="<?=$this->url(array('module' => 'manager','controller' => 'faq-categories','action' => 'index'),NULL,true)?>">Категории FAQ</a>
+<a class="but" href="<?=$this->url(array('module' => 'manager','controller' => 'site-management','action' => 'mailer'),NULL,true)?>">E-mail рассылка</a>
+
+<a class="but" href="<?=$this->url(array('module' => 'manager','controller' => 'ivent-management','action' => 'index'),NULL,true)?>">Управление ивенторами</a>
+<a class="but" href="<?=$this->url(array('module' => 'manager','controller' => 'ivent-management','action' => 'ivent-post-management'),NULL,true)?>">Управление публикациями</a>
+<a class="but" href="<?=$this->url(array('module' => 'manager','controller' => 'user-management','action' => 'index'),NULL,true)?>">Управление клиентами</a>
+<a class="but" href="<?=$this->url(array('module' => 'manager','controller' => 'transaction-management','action' => 'index'),NULL,true)?>">Сделки</a>
+<a class="but" href="<?=$this->url(array('module' => 'manager','controller' => 'static','action' => 'index'),NULL,true)?>">Статические страницы</a>
+</div>
+<?php endif;?>
+<div style="margin-top: 70px;">
+<?php echo $this->layout()->content ?>
+</div>
+</div>
+<script type="text/javascript">
+//var ckeditor1 = CKEDITOR.replace('text');
+//var ckeditor2 = CKEDITOR.replace('text1');
+//AjexFileManager.init({returnTo: 'ckeditor', editor: ckeditor1});
+//AjexFileManager.init({returnTo: 'ckeditor', editor: ckeditor2});
+</script>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<div class="header">
+    <div class="left">
+        <a href="<?=$this->baseUrl()?>/manager/" class="logo"><?=Zend_Registry::get('user')->Email?></a>
+        <div class="logout"><a href="<?=$this->url(array('module' => 'manager', 'controller' => 'index', 'action' => 'exit'), null, true)?>">выход</a></div>
+    </div>
+    <div class="right"><?=Zend_Registry::isRegistered('topButtons') ? trim(Zend_Registry::get('topButtons')) : ''?></div>
+    <div class="clear"></div>
+</div>

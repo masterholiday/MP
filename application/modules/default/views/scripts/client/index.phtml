@@ -1,0 +1,96 @@
+<?php
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/client.css');
+    $this->headScript()->appendFile($this->baseUrl().'/js/client.index.js');
+    $this->headScript()->captureStart();
+    ?>
+
+    <?php if ($this->showFirst) { ?>
+    $(document).ready(function(){
+        $('.noisew .reddi:eq(0) .plusminus a').trigger('click');
+    });
+    <?php } ?>
+
+    var currentAddress = '<?=$this->url($this->cpage, null, true)?>';
+    <?php
+    $this->headScript()->captureEnd();
+
+?>
+<div class="client_search_requests">
+    <div class="noiseb">
+        <div class="noisew">
+            <div class="bholder">
+                <a href="<?=$this->url(array('module' => 'default', 'controller' => 'client', 'action' => 'starred'), NULL, true) ?>" class="starred">Избранное</a>
+                <a class="requests active">Запросы на услуги</a>
+                <a href="<?=$this->url(array('module' => 'default', 'controller' => 'client', 'action' => 'settings'), NULL, true) ?>" class="settings">Настройки</a>
+            </div>
+
+            <div class="topspace2"></div>
+            <div class="bholder2">
+                <a href="<?=$this->url(array('module' => 'default', 'controller' => 'client', 'action' => 'index', 'type' => 'complex'), NULL, true) ?>" class="complex<?=$this->stype == 'complex' ? ' active' : ''?>">Комплексные</a>
+                <a href="<?=$this->url(array('module' => 'default', 'controller' => 'client', 'action' => 'index', 'type' => 'catalog'), NULL, true) ?>" class="catalog<?=$this->stype == 'catalog' ? ' active' : ''?>">Каталог</a>
+            </div>
+            <div class="topspace3"></div>
+            <?php
+                if (count($this->list) < 1) {
+                    ?>
+                        <div class="reddi">
+                            <div class="not_ug">
+                                <?php if ($this->stype == 'complex') { ?>
+                                    Вы пока не сделали ни одного запроса на услуги ивенторов. Для того что бы сделать запрос, нажмите кнопку “Сделать запрос”, которая находится ниже. Произведите простой поиск на главной странице и празднуйте в свое удовольствие.
+                                <?php } else { ?>
+                                    Вы пока не сделали ни одного запроса на услуги ивенторов в каталоге. Для того что бы сделать запрос на звонок, нажмите кнопку “Перезвоните мне” в каталоге или на странице клиента.
+                                <?php } ?>
+                            </div>
+                        </div>
+                    <?php
+                }
+                else {
+                    ?>
+                    <?php
+                    if ($this->stype == 'complex') {
+                        foreach ($this->list as $k => $l) {
+                            echo $this->clientComplexSearchResult($l, $k);
+                        }
+                        if ($this->pages && count($this->pages) > 1) { ?>
+                            <div class="reddi">
+                                <div class="paging">
+                                    <?php
+                                    foreach ($this->pages as $p) {
+                                        ?>
+                                        <a class="<?=$p['class']?>" href="<?=$p['href']?>"><?=$p['html']?></a>
+                                        <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                    }
+                    else {
+                        echo $this->clientCatalogSearchResult($this->list);
+                        if ($this->pages && count($this->pages) > 1) { ?>
+                            <div class="reddi" style="margin: 0px auto; background: none;">
+                                <div class="paging" style="padding: 3px 0px 0px 0px;">
+                                    <?php
+                                    foreach ($this->pages as $p) {
+                                        ?>
+                                        <a class="<?=$p['class']?>" href="<?=$p['href']?>"><?=$p['html']?></a>
+                                        <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                    }
+                }
+            ?>
+
+            <?php if ($this->stype == 'complex') { ?>
+                <a href="<?=$this->url(array('module' => 'default', 'controller' => 'index', 'action' => 'index'), NULL, true) ?>" class="make_post"></a>
+            <?php } else { ?>
+                <a href="<?=$this->url(array('module' => 'default', 'controller' => 'catalog', 'action' => 'index', 'main' => 1), NULL, true) ?>" class="make_catalog"></a>
+            <?php } ?>
+        </div>
+    </div>
+</div>

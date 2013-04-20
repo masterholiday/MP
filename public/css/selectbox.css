@@ -1,0 +1,318 @@
+.selectbox-styled {
+  vertical-align: middle;
+  cursor: pointer;
+}
+.selectbox-styled .select {
+  width: 218px;
+  height: 50px;
+  padding: 0 0 0 10px;
+  font: 14px/30px Arial, Tahoma, sans-serif;
+  color: #333;
+  background: url('../images/sel_smal.png') no-repeat;
+}
+
+.selectbox-styled .focused .select {
+  border: 1px solid #5794BF;
+}
+.selectbox-styled .select .text {
+	display: block;
+  	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	padding: 7px 30px 0 12px;
+	color: #363636;
+	font-falily: Trebuchet MS;
+	font-size: 16px;
+}
+
+.selectbox-styled:hover .arrow {
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
+.selectbox-styled ul.dropdown {
+	top: 31px;
+	left: 6px;
+  	width: 192px;
+	margin: 0;
+	padding: 4px 0;
+	background: #d3d3d3;
+  	border: 1px solid #ffffff;
+	border-top: none;
+  	font: 16px;
+}
+.selectbox-styled li {
+	padding: 5px 10px 6px;
+	color: #363636;
+}
+.selectbox-styled li:hover,
+.selectbox-styled li.selected {
+	background: #59b104;
+	color: #FFF;
+}
+.selectbox-styled li.disabled {
+	color: #AAA;
+}
+.selectbox-styled li.disabled:hover {
+	background: none;
+}
+
+
+
+
+.selectbox-sel80 {
+    vertical-align: middle;
+    cursor: pointer;
+    z-index: 6;
+}
+.selectbox-sel80 .select {
+    width: 377px;
+    height: 50px;
+    padding: 0 0 0 10px;
+    font: 14px/30px Arial, Tahoma, sans-serif;
+    color: #333;
+    background: url('../images/selects-2.png') no-repeat;
+}
+
+.selectbox-sel80 .focused .select {
+    border: 1px solid #5794BF;
+}
+.selectbox-sel80 .select .text {
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 7px 30px 0 12px;
+    color: #363636;
+    font-falily: Trebuchet MS;
+    font-size: 16px;
+}
+
+.selectbox-sel80:hover .arrow {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+.selectbox-sel80 ul.dropdown {
+    top: 31px;
+    left: 5px;
+    width: 352px;
+    margin: 0;
+    padding: 4px 0;
+    background: #d3d3d3;
+    border: 1px solid #ffffff;
+    border-top: none;
+    font: 16px;
+}
+.selectbox-sel80 li {
+    padding: 5px 10px 6px;
+    color: #363636;
+}
+.selectbox-sel80 li:hover,
+.selectbox-sel80 li.selected {
+    background: #59b104;
+    color: #FFF;
+}
+.selectbox-sel80 li.disabled {
+    color: #AAA;
+}
+.selectbox-sel80 li.disabled:hover {
+    background: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+.selectbox-sel802 {
+    vertical-align: middle;
+    cursor: pointer;
+    z-index: 4;
+}
+.selectbox-sel802 .select {
+    width: 377px;
+    height: 50px;
+    padding: 0 0 0 10px;
+    font: 14px/30px Arial, Tahoma, sans-serif;
+    color: #333;
+    background: url('../images/selects-2.png') no-repeat;
+}
+
+.selectbox-sel802 .focused .select {
+    border: 1px solid #5794BF;
+}
+.selectbox-sel802 .select .text {
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 7px 30px 0 12px;
+    color: #363636;
+    font-falily: Trebuchet MS;
+    font-size: 16px;
+}
+
+.selectbox-sel802:hover .arrow {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+.selectbox-sel802 ul.dropdown {
+    top: 31px;
+    left: 5px;
+    width: 352px;
+    margin: 0;
+    padding: 4px 0;
+    background: #d3d3d3;
+    border: 1px solid #ffffff;
+    border-top: none;
+    font: 16px;
+}
+.selectbox-sel802 li {
+    padding: 5px 10px 6px;
+    color: #363636;
+}
+.selectbox-sel802 li:hover,
+.selectbox-sel802 li.selected {
+    background: #59b104;
+    color: #FFF;
+}
+.selectbox-sel802 li.disabled {
+    color: #AAA;
+}
+.selectbox-sel802 li.disabled:hover {
+    background: none;
+}
+
+ul.dropdown li {
+    font-size: 16px;
+}
+
+
+
+.selectbox-hmonth {
+    vertical-align: middle;
+    cursor: pointer;
+    z-index: 4;
+}
+.selectbox-hmonth .select {
+    width: 197px;
+    height: 50px;
+    padding: 0 0 0 10px;
+    font: 14px/30px Arial, Tahoma, sans-serif;
+    color: #333;
+    background: url('../images/user/dropdown.png') no-repeat;
+}
+
+.selectbox-hmonth .focused .select {
+    border: 1px solid #5794BF;
+}
+.selectbox-hmonth .select .text {
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 7px 30px 0 12px;
+    color: #363636;
+    font-falily: Trebuchet MS;
+    font-size: 16px;
+}
+
+.selectbox-hmonth:hover .arrow {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+.selectbox-hmonth ul.dropdown {
+    top: 31px;
+    left: 5px;
+    width: 162px;
+    margin: 0;
+    padding: 4px 0;
+    background: #d3d3d3;
+    border: 1px solid #ffffff;
+    border-top: none;
+    font: 16px;
+}
+.selectbox-hmonth li {
+    padding: 5px 10px 6px;
+    color: #363636;
+}
+.selectbox-hmonth li:hover,
+.selectbox-hmonth li.selected {
+    background: #59b104;
+    color: #FFF;
+}
+.selectbox-hmonth li.disabled {
+    color: #AAA;
+}
+.selectbox-hmonth li.disabled:hover {
+    background: none;
+}
+
+
+
+
+
+
+.selectbox-hyear {
+    vertical-align: middle;
+    cursor: pointer;
+    z-index: 4;
+}
+.selectbox-hyear .select {
+    width: 197px;
+    height: 50px;
+    padding: 0 0 0 10px;
+    font: 14px/30px Arial, Tahoma, sans-serif;
+    color: #333;
+    background: url('../images/user/dropdown.png') no-repeat;
+}
+
+.selectbox-hyear .focused .select {
+    border: 1px solid #5794BF;
+}
+.selectbox-hyear .select .text {
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 7px 30px 0 12px;
+    color: #363636;
+    font-falily: Trebuchet MS;
+    font-size: 16px;
+}
+
+.selectbox-hyear:hover .arrow {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+.selectbox-hyear ul.dropdown {
+    top: 31px;
+    left: 5px;
+    width: 162px;
+    margin: 0;
+    padding: 4px 0;
+    background: #d3d3d3;
+    border: 1px solid #ffffff;
+    border-top: none;
+    font: 16px;
+}
+.selectbox-hyear li {
+    padding: 5px 10px 6px;
+    color: #363636;
+}
+.selectbox-hyear li:hover,
+.selectbox-hyear li.selected {
+    background: #59b104;
+    color: #FFF;
+}
+.selectbox-hyear li.disabled {
+    color: #AAA;
+}
+.selectbox-hyear li.disabled:hover {
+    background: none;
+}
+

@@ -1,0 +1,66 @@
+
+<div id="footer">
+    <div class="left"></div>
+    <div class="right"><div class="lenta"></div></div>
+	
+    <div class="footer">
+
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="weinnet">
+            <span>Мы в сети</span>
+            <div class="icons">
+                <a href="http://www.facebook.com/MasterskaaPrazdnikov" target="_blank" class="fb"></a>
+                <a href="http://vk.com/holidayfactory" target="_blank" class="vk"></a>
+                <a href="https://plus.google.com/105401231481831660760" rel="publisher" target="_blank" class="gp"></a> 
+                <a href="https://twitter.com/#!/MPrazdnik" target="_blank" class="tw"></a>
+                <!--<a target="_blank" class="yb"></a>-->
+            </div>
+        </div>
+        <div class="likes">
+            <div class="vk">
+                <div id="vk_like"></div>
+                <script type="text/javascript">
+                    VK.Widgets.Like("vk_like", {type: "mini", pageTitle: 'Вы связаны с ивент бизнесом? Мастерская праздников.',text: 'Мастреская праздников. Интернет сервис, который поможет в организации и проведении любого мероприятия.'});
+                </script>
+            </div>
+            <div class="fb">
+                <?php echo $this->facebookLike("button");?>
+            </div>
+            <div class="tw">
+                <a href="https://twitter.com/share" class="twitter-share-button" data-lang="ru">Твитнуть</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            </div>
+            <div class="od">
+                <a target="_blank" class="mrc__plugin_uber_like_button" href="http://connect.mail.ru/share" data-mrc-config="{'cm' : '1', 'ck' : '1', 'sz' : '20', 'st' : '2', 'tp' : 'ok'}">Нравится</a>
+                <script src="http://cdn.connect.mail.ru/js/loader.js" type="text/javascript" charset="UTF-8"></script>
+            </div>
+            <div class="gp">
+                <g:plusone size="medium" href="http://masterholiday.net"></g:plusone>
+				<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+				  {lang: 'ru'}
+				</script>
+                <script type="text/javascript">
+                   /* window.___gcfg = {lang: 'ru'};
+                    (function() {
+                        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                        po.src = 'https://apis.google.com/js/plusone.js';
+                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                    })();*/
+                </script>
+            </div>
+        </div>
+        <div class="leftdisclaimer">
+            <div class="l1">Служба поддержки:</div>
+            <div class="l2"><a href="mailto:support@masterholiday.net"><span>support</span>@masterholiday.net</a></div>
+            <div class="l3">Copyright &copy; 2012-2013 Мастерская праздников</div>
+        </div>
+        <div class="pizza"></div>
+        <div class="menu">
+            <a href="<?=$this->baseUrl()?>/static/rules/">Правила</a>
+            <a href="<?=$this->baseUrl()?>/static/agreement/">Соглашения</a>
+            <a href="<?=$this->baseUrl()?>/faq/">FAQ</a>
+            <a href="<?=$this->baseUrl()?>/static/how-this-work">Как это работает?</a>
+        </div>
+    </div>
+</div><!-- #footer -->

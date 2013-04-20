@@ -1,0 +1,49 @@
+<?php echo $this->error;
+
+if(isset($this->data->email) && $this->data->email!==''){
+    $email=$this->data->email;
+    $id=$this->id;
+    $action=$this->url(array('controller' => 'index','action' => 'update'),NULL,true);
+}
+else {
+		$email='';
+		$id='';
+		$action=$this->url(array('controller' => 'index','action' => 'do-register'),NULL,true);
+	}
+
+?>
+<div id="register-form">
+	<form action="<?=$action;?>" method="post">
+	    <dl>  
+        <dt>
+            E-mail:
+        </dt>
+        <dd>
+        	<input type="hidden" name="id" value="<? ?>" />
+            <input type="text" name="email" value="<?=$email;?>" />
+        </dd>
+        <dt>
+            Пароль:
+        </dt>
+        <dd>
+            <input type="password" name="password" value="" />
+        </dd>
+        <dt>
+           	Пароль повторно:
+        </dt>
+        <dd>
+            <input type="password" name="password2" value="" />
+        </dd>
+        <dt>
+            Введите символы с картинки: <br /><img src="<?=$this->baseUrl()?>/images/captcha/<?=$this->imageid?>.png" alt="" />
+        </dt>
+        <dd>
+            <input type="text" name="captcha" value="" />
+            <input type="hidden" name="id" value="<?=$this->imageid?>" />
+        </dd>
+        <dd>
+            <input type="submit" value="Регистрацыя">
+        </dd>
+    </dl>
+   </form>
+</div>

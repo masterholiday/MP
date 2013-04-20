@@ -1,0 +1,31 @@
+<?php
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/client.css');
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/popup.css');
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/popup_client.css');
+    $this->headScript()->appendFile($this->baseUrl().'/js/client.js');
+?>
+<div class="client_search_requests">
+    <div class="noiseb">
+        <div class="noisew">
+            <div class="bholder">
+                <a href="<?=$this->url(array('module' => 'default', 'controller' => 'client', 'action' => 'index'), NULL, true) ?>" class="requests">Запросы на услуги</a>
+                <a class="settings active">Настройки</a>
+            </div>
+            <div class="topspace"></div>
+				<div class="cntnn">
+					<div class="border">
+						<h4><?=$this->name?></h4>
+						<div class="phonec"><span>Телефон:</span><?=$this->phone ?></div>
+						<div class="email"><span>E-mail:</span><?=$this->email ?></div>
+						<div class="cityc"><span>Город:</span><?=$this->city ?></div>
+						<div class="clear"></div>
+					</div>
+					<div class="buttons">
+						<a onclick="addEditInfoPopup()">Редактировать</a>
+						<a onclick="addPasswordPopup()">Сменить пароль</a>
+					</div>
+				</div>
+       		<div class="shadow"></div>
+        </div>
+   </div>
+</div>

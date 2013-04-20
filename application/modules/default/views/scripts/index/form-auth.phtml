@@ -1,0 +1,43 @@
+<div id="register-form">
+	<a class="close_pop" onclick="CloseModalWindow();"></a>
+	
+	<div class="title_pop">Введите ваш логин и пароль.</div>
+    
+     		<div class="auth_el_pos">
+            <div class="inp_text">
+            	<input class="" type="text" id="login" name="login" value="E-mail" onblur="if (this.value==''){this.value='E-mail';}" onfocus="if(this.value=='E-mail'){this.value='';}" />
+    		</div>
+                 <div id="forgot">
+    		<div class="inp_text">
+            <input class="inp_text" type="text" id="password2" name="password2" value="Пароль" onfocus="if(this.value=='Пароль'){$(this).hide(); $('#password').show().focus();}"/>
+            <input class="inp_text" type="password" id="password" name="password" value="" onblur="if (this.value==''){$(this).hide(); $('#password2').show();}" style="display: none;"/>
+       		</div>
+       			<div id="check" class="left">
+       				<input id="rem" type="checkbox" class="check" name="remember" />
+       				<a class="check_off"></a>
+       			</div>
+       			<div class="check_text">Запомнить меня</div>
+            	<input type="button" class="form_btn" onclick="doLogin();" value="" />
+            	<div class="clear"></div>
+            	<a class="pass_now" onclick="changeForgot();">Забыли пароль, не можете зайти в свой аккаунт?</a>
+            	
+            	<div class="not_acc">
+            		<a class="linck_not_acc" onclick="formReg(1)">Нет аккаунта? Регистрируйся!</a>
+            	</div>
+                 </div>
+            </div>
+            
+            <div class="clear"></div>
+            <!-- 
+<script src="http://loginza.ru/js/widget.js" type="text/javascript"></script>            
+            <div class="reg_soc">
+            	<a href="https://loginza.ru/api/widget?token_url=<?=urlencode('http://'.$_SERVER['SERVER_NAME'].$this->baseUrl())?>/index/auth" class="reg_vk"></a>
+            	<a href="https://loginza.ru/api/widget?token_url=<?=urlencode('http://'.$_SERVER['SERVER_NAME'].$this->baseUrl())?>/index/auth" class="reg_tw"></a>
+            	<a href="https://loginza.ru/api/widget?token_url=<?=urlencode('http://'.$_SERVER['SERVER_NAME'].$this->baseUrl())?>/index/auth" class="reg_f"></a>
+            	<a href="https://loginza.ru/api/widget?token_url=<?=urlencode('http://'.$_SERVER['SERVER_NAME'].$this->baseUrl())?>/index/auth" class="reg_g providers_sprite google"></a>
+            </div>
+
+            <div class="reg_soc">Вход с помощью социальных сетей.</div>
+             -->
+       
+</div>

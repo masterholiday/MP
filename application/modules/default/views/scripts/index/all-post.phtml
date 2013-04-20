@@ -1,0 +1,35 @@
+<?php
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/client.css');
+	$this->headScript()->appendFile($this->baseUrl().'/js/popup.js');
+    $this->headScript()->appendFile($this->baseUrl().'/js/auth.js');
+	$this->headLink()->appendStylesheet($this->baseUrl().'/css/popup.css');
+?>
+<?php 
+	$translit = new Zend_Filter_Translit();
+	foreach ($this->post as $k => $post){
+		echo '
+		<div class="all_post_block">
+			<a href="'.$this->url(array('id' => $post['Id'],'title' => $translit->filter($post['Title'])), 'entity_page').'" class="all_post_title">'.$post['Title'].'</a> 
+			<div class="all_post_desc">'.$post['IntroText'].'</div>
+			<div class="all_post_date">Дата: <span>'.date('d.m.Y', strtotime($post['DateCreated'])).'</span></div>
+			<a href="'.$this->url(array('id' => $post['Id'],'title' => $translit->filter($post['Title'])), 'entity_page').'" class="all_post_more">подробнее...</a>
+		</div>
+		';
+        if ($k > 0 && $k % 2 == 1) echo '<div class="clear"></div>';
+	}
+	
+?>
+<div class="clear"></div>
+<div class="reddi">
+            <?php if ($this->pages) { ?>
+                    <div class="paging">
+                        <?php
+                            foreach ($this->pages as $p) {
+                                ?>
+                                    <a class="<?=$p['class']?>" href="<?=$p['href']?>"><?=$p['html']?></a>
+                                <?php
+                            }
+                        ?>
+                    </div>
+                    <?php } ?>
+            </div>

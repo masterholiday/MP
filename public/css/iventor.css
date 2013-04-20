@@ -1,0 +1,1757 @@
+div.iventor_cabinet {
+    padding: 0px 0px 0px 0px;
+    margin: 0px auto;
+}
+
+#jc-hidden-dialog{
+    background: none repeat scroll 0 0 #333333;
+    display: none;
+    padding: 10px;
+    position: absolute;
+    z-index: 1000000000;
+	left:50%;
+}
+
+div.noiseb {
+    border: 1px solid #d5d5d5;
+    border-radius: 4px 4px;
+    padding: 0px;
+    margin: 0px;
+    behavior: url(../PIE.php);
+}
+
+div.noisew {
+    border: 1px solid #FFF;
+    border-radius: 4px 4px;
+    padding: 0px;
+    margin: 0px;
+    background: url(../images/user/noise.jpg) top left;
+    behavior: url(../PIE.php);
+}
+
+div.noisew div.bholder2 {
+    position: relative;
+    width: 319px;
+    margin: 0px auto;
+}
+
+div.noisew div.bholder2 a{
+    position: absolute;
+    display: block;
+    width: 149px;
+    height: 35px;
+    top: 0px;
+    background: url(../images/user/buttons3.png);
+    background-repeat: no-repeat;
+    font-family: 'Trebuchet MS';
+    font-size: 15px;
+    color: #FFF;
+    text-align: center;
+    line-height: 35px;
+    background-position: 0px 0px;
+    cursor: pointer;
+    text-shadow: 0px 1px 5px #000;
+}
+
+div.noisew div.bholder2 a.active{
+    background-position: 0px -35px;
+}
+
+div.noisew div.bholder2 a.complex {
+    left: 0px;
+}
+
+div.noisew div.bholder2 a.catalog {
+    right: 0px;
+}
+
+div.noisew div.bholder {
+    position: relative;
+    width: 744px;
+    margin: 0px auto;
+}
+
+div.noisew div.bholder a{
+    position: absolute;
+    display: block;
+    width: 222px;
+    height: 42px;
+    top: -9px;
+    background: url(../images/user/buttons.png);
+    background-repeat: no-repeat;
+    font-family: 'Trebuchet MS';
+    font-size: 20px;
+    color: #FFF;
+    text-align: center;
+    line-height: 42px;
+    background-position: 0px -42px;
+    cursor: pointer;
+}
+
+div.noisew div.bholder a.active{
+    background-position: 0px 0px;
+}
+
+#button4{
+display: inline-block;
+width: 149px;
+height: 35px;
+background: url(../images/user/greenbutton2.png) top left no-repeat;
+line-height: 32px;
+text-align: center;
+color: #FFF;
+font-size: 15px;
+font-family: 'Trebuchet MS';
+text-shadow: 1px 1px #000;
+cursor: pointer;
+margin-top:10px;
+}
+
+div.noisew div.bholder a.cabinet{
+    left: 0px;
+}
+
+div.noisew div.bholder a.events{
+    left: 261px;
+}
+
+div.noisew div.bholder a.account{
+    right: 0px;
+}
+
+
+div.noisew div.topspace {
+    height: 53px;
+}
+
+div.noisew div.topspace2 {
+    height: 13px;
+}
+
+div.noisew div.topspace3 {
+    height: 83px;
+}
+
+div.noisew div.cntnn {
+    padding: 0px 25px 0px 23px;
+}
+
+div.noisew div.cntnn h4{
+    color: #414140;
+    font-size: 24px;
+    font-family: 'Trebuchet MS';
+    font-weight: bold;
+    font-style: italic;
+    padding: 0px 0px 0px 12px;
+    height: 36px;
+}
+
+div.noisew div.cntnn h4 span{
+    color: #ea8400;
+}
+
+div.noisew div.cntnn .reddi{
+    padding: 11px 10px 0px 12px;
+    background: url(../images/user/reddi.png);
+    margin: 0px 0px 14px 0px;
+}
+
+div.noisew div.cntnn .reddi .infor{
+    padding: 0px 0px 13px 0px;
+    background: url(../images/user/border.png) bottom left repeat-x;
+}
+
+div.noisew div.cntnn .reddi .infor .image {
+    padding: 0;
+    margin: 0;
+    float: left;
+    width: 196px;
+    height: 196px;
+    border-radius: 5px 5px;
+    behavior: url(../PIE.php);
+    border: 2px solid #7b7b7b;
+    overflow: hidden;
+}
+
+div.noisew div.cntnn .reddi .infor .hints {
+    padding: 0px 0px 10px 0px;
+    margin: 25px 0px 0px 0px;
+    float: right;
+    width: 185px;
+    border-bottom: 1px solid #e1eae6;
+    border-top: 1px solid #e1eae6;
+    background: #c0d8de;
+}
+
+div.noisew div.cntnn .reddi .infor .hints2 {
+    margin: 0px;
+    height: 190px;
+}
+
+div.noisew div.cntnn .reddi .infor .hints ul{
+    margin: 0px 0px 0px 15px;
+    padding: 0px;
+    list-style: none;
+}
+
+div.noisew div.cntnn .reddi .infor .hints ul li{
+    margin: 0px 0px 2px 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+div.noisew div.cntnn .reddi .infor .hints ul li a{
+    margin: 0px 0px 2px 0px;
+    padding: 0px;
+    color: #005165;
+    font-size: 14px;
+    font-family: 'Trebuchet MS';
+    font-weight: normal;
+    display: block;
+    height: 16px;
+    line-height: 16px;
+}
+
+div.noisew div.cntnn .reddi .infor .hints ul li a:hover{
+    color: #005165;
+}
+
+div.noisew div.cntnn .reddi .infor .hints ul li a:visited{
+    color: #005165;
+}
+
+
+div.noisew div.cntnn .reddi .infor .hints h5{
+    padding: 7px 0px 10px 9px;
+    color: #005165;
+    font-size: 14px;
+    font-family: 'Trebuchet MS';
+    font-weight: bold;
+    font-style: italic;
+}
+
+div.noisew div.cntnn .reddi .infor .hints2 h5{
+    padding: 7px 9px 10px 9px;
+    text-align: center;
+}
+
+div.noisew div.cntnn .reddi .infor .hints .nice{
+    text-align: left;
+    padding: 0px 5px 10px 5px;
+    color: #286a7a;
+    font-size: 14px;
+}
+
+div.noisew div.cntnn .reddi .infor .hints .nice span{
+	display: block;
+}
+
+div.noisew div.cntnn .reddi .infor .hints h6{
+    padding: 10px 0px 13px 21px;
+    color: #343434;
+    font-size: 13px;
+    font-family: 'Trebuchet MS';
+    font-weight: normal;
+}
+
+div.noisew div.cntnn .reddi .infor .hints .progress{
+    margin: 0px 0px 0px 15px;
+    position: relative;
+    width: 158px;
+    height: 15px;
+}
+
+div.noisew div.cntnn .reddi .infor .hints .progress .fon{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 156px;
+    height: 13px;
+    background: url(../images/user/progressfon.png) top left no-repeat;
+}
+
+div.noisew div.cntnn .reddi .infor .hints .progress .pright{
+    position: absolute;
+    top: 0px;
+    left: 5px;
+    width: 6px; /*14*/
+    height: 15px;
+    max-width: 14px;
+    background: url(../images/user/progright.png) top right no-repeat;
+}
+
+div.noisew div.cntnn .reddi .infor .hints .progress .pleft{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 5px;
+    height: 15px;
+    background: url(../images/user/progleft.png) top left no-repeat;
+}
+
+div.noisew div.cntnn .reddi .infor .hints .progress .pmain{
+    position: absolute;
+    top: 0px;
+    left: 5px;
+    width: 0px;
+    height: 15px;
+    background: url(../images/user/progmain.png) top left repeat-x;
+}
+
+div.noisew div.cntnn .reddi .infor .hints .progress .perc{
+    position: absolute;
+    top: -2px;
+    right: 7px;
+    color: #343434;
+    font-size: 12px;
+    font-family: 'Trebuchet MS';
+}
+
+div.noisew div.cntnn .reddi .infor .infolist {
+    margin: 0px 225px 0px 213px;
+    height: 200px;
+}
+
+
+div.noisew div.cntnn .reddi .infor .infolist .reqphone {
+    width: 200px;
+    height: 25px;
+    float: left;
+    margin: 0px 16px 0px 0px;
+    background: url(../images/for_eventor/bphone.png) 0px 0px no-repeat;
+    padding-left: 33px;
+    overflow-y: hidden;
+    color: #474747;
+    font-size: 11px;
+    font-family: 'Trebuchet MS';
+    line-height: 12px;
+    cursor: pointer;
+}
+
+div.noisew div.cntnn .reddi .infor .infolist .reqphone2 {
+    width: 200px;
+    height: 25px;
+    float: left;
+    margin: 0px 16px 0px 0px;
+    background: url(../images/for_eventor/bphone.png) 0px -25px no-repeat;
+    padding-left: 33px;
+    overflow-y: hidden;
+    color: #474747;
+    font-size: 11px;
+    font-family: 'Trebuchet MS';
+    line-height: 12px;
+}
+
+div.noisew div.cntnn .reddi .infor .infolist .reqstar{
+    height: 25px;
+    float: left;
+    background: url(../images/for_eventor/bstarred.png) 0px 0px no-repeat;
+    padding-left: 35px;
+    overflow-y: hidden;
+    color: #474747;
+    font-size: 11px;
+    font-family: 'Trebuchet MS';
+    line-height: 12px;
+    width: 200px;
+    cursor: pointer;
+}
+
+div.noisew div.cntnn .reddi .infor .infolist .reqstar2{
+    height: 25px;
+    float: left;
+    background: url(../images/for_eventor/bstarred.png) 0px -25px no-repeat;
+    padding-left: 35px;
+    color: #474747;
+    font-size: 11px;
+    font-family: 'Trebuchet MS';
+    line-height: 12px;
+    width: 200px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+
+div.noisew div.cntnn .reddi .infor .infolist .ivname{
+    height: 44px;
+    color: #343434;
+    font-size: 21px;
+    font-family: 'Trebuchet MS';
+    font-weight: bold;
+    font-style: italic;
+}
+
+h1 .ivname{
+    height: 44px;
+    color: #343434;
+    font-size: 21px;
+    font-family: 'Trebuchet MS';
+    font-weight: bold;
+    font-style: italic;
+}
+
+div.noisew div.cntnn .reddi .infor .infolist .ivinfo{
+    height: 21px;
+    line-height: 21px;
+    margin-bottom: 15px;
+    color: #232323;
+    font-size: 19px;
+    font-family: 'Trebuchet MS';
+    white-space: nowrap;
+}
+
+div.noisew div.cntnn .reddi .infor .infolist .ivinforeadonly {
+    margin-bottom: 12px;
+}
+
+div.noisew div.cntnn .reddi .infor .infolist .ivinfolast{
+    margin-bottom: 3px;
+}
+
+div.noisew div.cntnn .reddi .infor .infolist .ivinfo a.changephone {
+    color: #682485;
+    font-size: 13px;
+    font-family: 'Trebuchet MS';
+    text-decoration: none;
+    cursor: pointer;
+}
+
+div.noisew div.cntnn .reddi .infor .infolist .ivinfo div.skypew {
+    float: right;
+    margin-right: -20px;
+    color: #707070;
+    font-size: 16px;
+    font-family: 'Trebuchet MS';
+    font-style: italic;
+    margin-top: -6px;
+}
+
+div.noisew div.cntnn .reddi .infor .infolist .ivinfo div.skypew a img{
+    margin-bottom: -15px;
+}
+
+div.noisew div.cntnn .reddi .infor .infolist .ivinfo .address{
+    width: 510px; overflow: hidden;
+}
+
+div.noisew div.cntnn .reddi .infor .infolist .ivinfo .address a{
+    font-size: 19px;
+    color: #682485;
+    text-decoration: none;
+    /*cursor: pointer;*/
+}
+
+div.noisew div.cntnn .reddi .infor .infolist .ivinfo span{
+    display: inline-block;
+    width: 80px;
+    height: 21px;
+    line-height: 21px;
+    color: #707070;
+    font-size: 16px;
+    font-family: 'Trebuchet MS';
+    font-style: italic;
+}
+
+div.noisew div.cntnn .reddi .description{
+}
+
+div.noisew div.cntnn .reddi .description h5{
+    padding: 7px 0px;
+    height: 18px;
+    line-height: 18px;
+    color: #545454;
+    font-size: 17px;
+    font-family: 'Trebuchet MS';
+    font-style: italic;
+}
+
+div.noisew div.cntnn .reddi .description .dtext{
+    line-height: 18px;
+    color: #232323;
+    font-size: 15px;
+    font-family: 'Trebuchet MS';
+    padding: 0px 0px 12px 0px;
+    word-wrap: break-word;
+    text-align: justify;
+}
+
+div.noisew div.cntnn .reddi .buttons{
+    height: 45px;
+    text-align: center;
+}
+
+div.noisew div.cntnn .reddi .buttons a{
+    display: inline-block;
+    width: 149px;
+    height: 35px;
+    margin: 0px 14px;
+    background: url(../images/user/greenbutton2.png) top left no-repeat;
+    line-height: 32px;
+    text-align: center;
+    color: #FFF;
+    font-size: 15px;
+    font-family: 'Trebuchet MS';
+    text-shadow: 1px 1px #000;
+    cursor: pointer;
+}
+
+div.noisew div.cntnn .reddi .buttons div.addf{
+    padding: 0px 388px;
+}
+
+div.noisew div.cntnn .reddi div.addfsub{
+    text-align: center;
+    color: #4f4f4f;
+    font-size: 12px;
+    font-family: 'Trebuchet MS';
+}
+
+div.noisew div.cntnn .reddi .serviceline{
+    height: 18px;
+    line-height: 18px;
+    margin: 0px 0px 9px 0px;
+    color: #682485;
+    font-size: 15px;
+    font-family: 'Trebuchet MS';
+    display: block;
+}
+
+div.noisew div.cntnn .reddi .serviceline a{
+    color: #682485;
+    font-size: 15px;
+    font-family: 'Trebuchet MS';
+}
+
+div.noisew div.cntnn .reddi .serviceline .stitle{
+    width: 500px;
+    float: left;
+    height: 18px;
+    line-height: 18px;
+    margin-right: 0px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+div.noisew div.cntnn .reddi .serviceline .scity{
+    width: 230px;
+    float: left;
+    height: 18px;
+    line-height: 18px;
+    overflow: hidden;
+}
+
+div.noisew div.cntnn .reddi .serviceline .smoney{
+    width: 155px;
+    float: left;
+    height: 18px;
+    line-height: 18px;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+div.noisew div.cntnn .reddi .serviceline .sdelete{
+    width: 20px;
+    float: right;
+    height: 18px;
+    line-height: 18px;
+}
+div.noisew div.cntnn .reddi .serviceline .sdelete a{
+    display: block;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background: url(../images/user/delete.png) center center no-repeat;
+}
+
+div.noisew div.cntnn .reddi .serviceline .sedit{
+    width: 20px;
+    float: right;
+    height: 18px;
+    line-height: 18px;
+    margin-right: 1px;
+}
+div.noisew div.cntnn .reddi .serviceline .sedit a{
+    display: block;
+    width: 20px;
+    height: 18px;
+    cursor: pointer;
+    background: url(../images/for_eventor/editserv.png) center center no-repeat;
+}
+
+
+div.noisew div.cntnn .reddi .shead .stitle{
+    width: 498px;
+    float: left;
+    height: 18px;
+    line-height: 18px;
+    margin-right: 0px;
+    overflow: hidden;
+    padding-left: 2px;
+    color: #707070;
+    font-style: italic;
+    font-size: 13px;
+    font-family: 'Trebuchet MS';
+}
+
+div.noisew div.cntnn .reddi .shead .scity{
+    width: 230px;
+    float: left;
+    height: 18px;
+    line-height: 18px;
+    overflow: hidden;
+    color: #707070;
+    font-style: italic;
+    font-size: 13px;
+    font-family: 'Trebuchet MS';
+}
+
+div.noisew div.cntnn .reddi .shead .smoney{
+    width: 190px;
+    float: left;
+    height: 18px;
+    line-height: 18px;
+    overflow: hidden;
+    color: #707070;
+    font-style: italic;
+    font-size: 13px;
+    font-family: 'Trebuchet MS';
+}
+
+div.noisew div.cntnn .reddi .video{
+    position: relative;
+    width: 307px;
+    height: 173px;
+    float: left;
+    margin: 0px 0px 5px 7px;
+}
+
+div.noisew div.cntnn .reddi .video .vclicker {
+    cursor: pointer;
+    width: 307px;
+    height: 173px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: #FFF; opacity:0.1; filter:alpha(opacity=10);
+}
+
+div.noisew div.cntnn .reddi .video .vdel {
+    width: 19px;
+    height: 20px;
+    position: absolute;
+    top: 2px;
+    right: 3px;
+}
+
+div.noisew div.cntnn .reddi .video .vdel a{
+    width: 19px;
+    height: 20px;
+    display: block;
+    cursor: pointer;
+    background: url(../images/for_eventor/vdel.png) 0px 0px no-repeat;
+}
+
+
+
+div.noisew div.cntnn .reddi .pphoto{
+    position: relative;
+    width: 185px;
+    height: 150px;
+    float: left;
+    border: 1px solid #c3c3bd;
+    margin: 0px 2px 5px 1px;
+}
+
+div.noisew div.cntnn .reddi .pphoto img{
+    width: 185px;
+    height: 150px;
+}
+
+div.noisew div.cntnn .reddi .preloader{
+    background: url(../images/ajax-loader.gif) center center no-repeat;
+}
+
+
+div.noisew div.cntnn .reddi .pphoto .delete{
+    position: absolute;
+    top: 7px;
+    right: 7px;
+}
+
+div.noisew div.cntnn .reddi .pphoto .delete a{
+    display: block;
+    width: 11px;
+    height: 12px;
+    cursor: pointer;
+    background: url(../images/user/delete.png) center center no-repeat;
+    z-index: 99999;
+}
+
+div.noisew div.cntnn .reddi .photobuttons{
+    position: relative;
+}
+
+div.noisew div.cntnn .reddi .photobuttons .pager {
+    position: absolute;
+    right: 14px;
+    top: 0px;
+}
+div.noisew div.cntnn .reddi .photobuttons .pager a{
+    display: block;
+    float: left;
+    width: 31px;
+    margin: 0px 1px 0px 0px;
+    padding-right: 1px;
+    height: 31px;
+    background: url(../images/user/ppage.png) center center no-repeat;
+    line-height: 31px;
+    text-align: center;
+    color: #555555;
+    font-size: 21px;
+    font-family: 'Trebuchet MS';
+    text-decoration: none;
+    cursor: pointer;
+    text-shadow: none;
+}
+
+div.noisew div.cntnn .reddi .photobuttons .pager a.current{
+    background: url(../images/user/ppagea.png) center center no-repeat;
+    color: #FFF;
+}
+
+
+ul.searchlist {
+    margin: 0;
+    padding: 0;
+}
+
+ul.searchlist li {
+    list-style: none;
+    padding: 0;
+    border-bottom: 1px solid #fcfbf7;
+}
+
+ul.searchlist li .border{
+    padding: 9px 0px 5px 0px;
+    border-bottom: 1px solid #c8c8c3;
+}
+
+ul.searchlist li .border .titler{
+    height: 24px;
+    display: block;
+    overflow: hidden;
+    text-align: left;
+    color: #232323;
+    font-size: 15px;
+    font-family: 'Trebuchet MS';
+    font-weight: bold;
+}
+
+ul.searchlist li .border .titler2{
+    height: 25px;
+    display: block;
+    overflow: hidden;
+    text-align: left;
+    color: #343434;
+    font-size: 16px;
+    font-family: 'Trebuchet MS';
+    font-style: italic;
+}
+
+ul.searchlist li .border .address{
+    display: block;
+    overflow: hidden;
+    text-align: left;
+    color: #232323;
+    font-size: 13px;
+    font-family: 'Trebuchet MS';
+    float: left;
+    width: 500px;
+    margin-right: 12px;
+}
+
+ul.searchlist li .border .address span{
+    color: #707070;
+}
+
+ul.searchlist li .border .titler .l1 {
+    float: left;
+    width: 258px;
+    margin-right: 10px;
+}
+ul.searchlist li .border .titler .l2 {
+    float: left;
+    width: 400px;
+    margin-right: 10px;
+}
+
+ul.searchlist li .border .titler .l3 {
+    float: left;
+    width: 85px;
+}
+
+ul.searchlist li .border .titler .l4 {
+    float: right;
+}
+
+
+ul.searchlist li .border .phone{
+    display: block;
+    overflow: hidden;
+    text-align: center;
+    color: #232323;
+    font-size: 16px;
+    font-family: 'Trebuchet MS';
+    float: left;
+    width: 273px;
+    height: 28px;
+    line-height: 28px;
+    background: url(../images/user/phone1px.png);
+}
+
+ul.searchlist li .border .phone span{
+    color: #707070;
+    font-style: italic;
+}
+
+ul.searchlist li .border .phone a{
+    color: #002990;
+    font-style: italic;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+ul.searchlist li .border .starit{
+    display: block;
+    float: right;
+    margin: 1px -1px 0px 0px;
+}
+
+ul.searchlist li .border .starit a{
+    display: block;
+    text-align: center;
+    color: #FFF;
+    font-size: 12px;
+    font-family: 'Trebuchet MS';
+    width: 109px;
+    height: 28px;
+    line-height: 26px;
+    background: url(../images/user/greenbutton3.png) top left no-repeat;
+    text-shadow: 0px 0px #CCC;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+
+ul.searchlist li .border .description{
+    display: block;
+    float: left;
+    color: #000;
+    font-size: 13px;
+    font-family: 'Trebuchet MS';
+    width: 785px;
+    line-height: 18px;
+    word-wrap: break-word;
+}
+
+ul.searchlist li .border .email{
+    display: block;
+    float: right;
+    margin: 10px 0px 0px 0px;
+}
+
+ul.searchlist li .border .email2{
+    margin: 2px 0px 0px 0px;
+}
+
+ul.searchlist li .border .email a{
+    color: #002990;
+    font-size: 13px;
+    font-family: 'Trebuchet MS';
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+div.reddi div.paging {
+    padding: 20px 0px 0px 0px;
+    text-align: center;
+}
+
+div.reddi div.paging a{
+    display: inline-block;
+    width: 38px;
+    height: 38px;
+    background: url(../images/user/paging.png) 0px -38px;
+    background-repeat: no-repeat;
+    color: #555555;
+    font-size: 21px;
+    font-family: 'Trebuchet MS';
+    text-decoration: none;
+    line-height: 38px;
+    margin: 0px;
+}
+
+div.reddi div.paging a:hover, div.reddi div.paging a:visited{
+    text-decoration: none;
+}
+
+div.reddi div.paging a.prev{
+    background-position: 0px 0px;
+    margin-right: 14px;
+}
+
+div.reddi div.paging a.next{
+    background-position: -38px 0px;
+    margin-left: 14px;
+}
+
+div.reddi div.paging a.active{
+    background-position: -38px -38px;
+    color: #FFF;
+}
+
+.reddi .reddispace1 {
+    padding: 17px 20px 0px 28px;
+}
+
+.reddi .reddispace1 .ucalendar {
+    width: 313px;
+    display: block;
+    float: left;
+    border: 1px solid #9e9e9e;
+    border-radius: 4px;
+    behavior: url(../PIE.php);
+    overflow: hidden;
+}
+
+.reddi .reddispace1 .ucalendar .uheader{
+    height: 49px;
+    margin: 0px;
+    padding: 0px;
+    background: url(../images/user/ucalheader.png) top left repeat-x;
+    border-bottom: 1px solid #dde5d6;
+}
+
+.reddi .reddispace1 .ucalendar .uheader .monthyear{
+    margin: 0px 32px 0px 36px;
+    height: 49px;
+    color: #FFF;
+    font-size: 27px;
+    font-family: 'Trebuchet MS';
+    text-shadow: -1px -1px #a6a6a6;
+    line-height: 49px;
+    text-align: center;
+}
+
+.reddi .reddispace1 .ucalendar .uheader .prevmonth{
+    width: 36px;
+    background: url(../images/user/ucalprevb.png) right top repeat-y;
+    height: 49px;
+    float: left;
+}
+
+.reddi .reddispace1 .ucalendar .uheader .prevmonth a{
+    display: block;
+    background: url(../images/user/ucalprev.png) center center no-repeat;
+    height: 49px;
+    cursor: pointer;
+}
+
+.reddi .reddispace1 .ucalendar .uheader .nextmonth{
+    width: 32px;
+    background: url(../images/user/ucalnextb.png) left top repeat-y;
+    height: 49px;
+    float: right;
+}
+
+.reddi .reddispace1 .ucalendar .uheader .nextmonth a{
+    display: block;
+    background: url(../images/user/ucalnext.png) center center no-repeat;
+    height: 49px;
+    cursor: pointer;
+}
+
+.reddi .reddispace1 .ucalendar .ucalbody {
+    background: #FFF;
+}
+
+.reddi .reddispace1 .ucalendar .ucalbody .d1{
+    width: 43px;
+}
+
+.reddi .reddispace1 .ucalendar .ucalbody .d2{
+    width: 44px;
+    border-left: 1px solid #8b8b8b;
+    border-right: 1px solid #8b8b8b;
+}
+
+.reddi .reddispace1 .ucalendar .ucalbody .d3{
+    width: 44px;
+}
+
+.reddi .reddispace1 .ucalendar .ucalbody .d4{
+    width: 44px;
+    border-left: 1px solid #8b8b8b;
+    border-right: 1px solid #8b8b8b;
+}
+
+.reddi .reddispace1 .ucalendar .ucalbody .d5{
+    width: 44px;
+}
+
+.reddi .reddispace1 .ucalendar .ucalbody .d6{
+    width: 44px;
+    border-left: 1px solid #8b8b8b;
+    border-right: 1px solid #8b8b8b;
+}
+
+.reddi .reddispace1 .ucalendar .ucalbody .d7{
+    width: 44px;
+}
+
+.reddi .reddispace1 .ucalendar .ucalbody .dnames {
+    height: 36px;
+    padding: 0;
+    margin: 0;
+}
+
+.reddi .reddispace1 .ucalendar .ucalbody .dnames span {
+    height: 36px;
+    text-align: center;
+    line-height: 36px;
+    color: #2b2b2b;
+    font-size: 18px;
+    font-family: 'Trebuchet MS';
+    text-decoration: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border-color: #FFF;
+}
+
+.reddi .reddispace1 .ucalendar .ucalbody .ddates {
+    height: 44px;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid #8b8b8b;
+}
+
+.reddi .reddispace1 .ucalendar .ucalbody .ddates span {
+    height: 44px;
+    text-align: center;
+    line-height: 44px;
+    color: #2b2b2b;
+    font-size: 24px;
+    font-family: 'Trebuchet MS';
+    text-decoration: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.reddi .reddispace1 .ucalendar .ucalbody .ddates span.busy {
+    background: url(../images/user/ucalbusy.png) top left repeat-x;
+    color: #FFF;
+}
+
+.reddi .reddispace1 .udescription{
+    float: right;
+    width: 540px;
+}
+
+.reddi .reddispace1 .udescription .t1{
+    color: #232323;
+    font-size: 15px;
+    font-family: 'Trebuchet MS';
+    padding-bottom: 5px;
+    line-height: 19px;
+}
+
+.reddi .reddispace1 .udescription .t1 span{
+    color: #ad0000;
+}
+
+.reddi .reddispace1 .udescription .t1 b{
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+}
+
+.reddi .reddispace1 .udescription .activity{
+    border-top: 1px solid #acacac;
+    border-bottom: 1px solid #FFF;
+}
+
+.reddi .reddispace1 .udescription .activity div{
+    color: #232323;
+    font-size: 20px;
+    font-family: 'Trebuchet MS';
+    height: 34px;
+    line-height: 32px;
+    border-top: 1px solid #FFF;
+    border-bottom: 1px solid #acacac;
+}
+
+.reddi .reddispace1 .udescription .activity div span{
+    font-size: 23px;
+    color: #3d7b00;
+}
+
+.reddi .reddispace1 .udescription .activity div span i{
+    font-style: normal;
+    color: #ad0000;
+}
+
+.reddi .reddispace1 .udescription .activity2 {
+    padding: 5px 0px 0px 0px;
+    color: #232323;
+    font-size: 20px;
+    font-family: 'Trebuchet MS';
+}
+
+.reddi .reddispace1 .udescription .activity2 div{
+    padding-top: 8px;
+}
+
+.reddi .reddispace1 .udescription .activity2 div span{
+    color: #707070;
+    font-size: 17px;
+    font-family: 'Trebuchet MS';
+    display: block;
+    line-height: 25px;
+}
+
+.reddi .reddispace1 .actdeact1{
+    margin-top: 13px;
+    border-top: 1px solid #acacac;
+}
+
+.reddi .reddispace1 .actdeact2{
+    border-top: 1px solid #FFF;
+}
+
+.reddi .reddispace1 .actdeact2 .t{
+    float: left;
+    margin: 8px 0px 0px 16px;
+    width: 560px;
+    color: #232323;
+    font-size: 17px;
+    font-family: 'Trebuchet MS';
+}
+
+.reddi .reddispace1 .actdeact2 .t i{
+    font-style: normal;
+    color: #3e7f00;
+}
+
+.reddi .reddispace1 .actdeact2 .t i i{
+    font-style: normal;
+    color: #ad0000;
+}
+
+.reddi .reddispace1 .actdeact2 .rb{
+    float: right;
+    margin: 9px 60px 0px 0px;
+}
+
+.reddi .reddispace1 .actdeact2 .rb a{
+    display: block;
+    width: 201px;
+    height: 55px;
+    background: url(../images/user/actdeact.png) 0px 0px no-repeat;
+    cursor: pointer;
+}
+
+.reddi .reddispace1 .actdeact2 .rb a.a{
+    display: block;
+    width: 201px;
+    height: 55px;
+    background: url(../images/user/actdeact.png) 0px -55px no-repeat;
+    cursor: pointer;
+}
+
+.reddi .reddispace1 .actdeact2 .rb a.b{
+    display: block;
+    width: 201px;
+    height: 55px;
+    background: url(../images/user/actdeact.png) 0px -110px no-repeat;
+    cursor: pointer;
+}
+
+.reddi .selects{
+}
+
+.reddi .selects .selmonth {
+    float: left;
+    padding-left: 225px;
+}
+
+.reddi .selects .selyear {
+    float: left;
+    padding-left: 75px;
+}
+
+.reddi .plistheader {
+    border-bottom: 1px solid #acacac;
+    margin-bottom: 4px;
+}
+
+.reddi .plistheader .plistheader2 {
+    border-bottom: 1px solid #FFF;
+    padding-bottom: 4px;
+    font-size: 13px;
+    color: #707070;
+    font-family: 'Trebuchet MS';
+    font-style: italic;
+}
+
+.reddi .plistheader .plistheader2 .l1{
+    float: left;
+    padding-left: 5px;
+    width: 108px;
+    overflow: hidden;
+}
+
+.reddi .plistheader .plistheader2 .l2{
+    float: left;
+    width: 728px;
+    padding-right: 9px;
+    overflow: hidden;
+}
+
+.reddi .plistheader .plistheader2 .l3{
+    float: left;
+    width: 380px;
+    padding-right: 16px;
+    overflow: hidden;
+}
+
+.reddi .plistheader .plistheader2 .l4{
+    float: left;
+    width: 60px;
+    overflow: hidden;
+}
+
+.reddi .plistrow {
+    background: #dedede;
+    height: 21px;
+}
+
+.reddi .white {
+    background: #FFF;
+}
+
+.reddi .green {
+    background: #dedede;
+}
+
+.reddi .plistrow .l1{
+    float: left;
+    padding-left: 5px;
+    width: 108px;
+    overflow: hidden;
+    height: 21px;
+    line-height: 21px;
+    font-family: Arial;
+    color: #232323;
+    font-size: 14px;
+}
+
+.reddi .plistrow .l2{
+    float: left;
+    width: 728px;
+    padding-right: 9px;
+    overflow: hidden;
+    height: 21px;
+    line-height: 21px;
+    font-family: Arial;
+    color: #232323;
+    font-size: 14px;
+}
+
+.reddi .plistrow .l3{
+    float: left;
+    width: 380px;
+    padding-right: 16px;
+    overflow: hidden;
+    height: 21px;
+    line-height: 21px;
+    font-family: Arial;
+    color: #232323;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.reddi .plistrow .l4{
+    float: left;
+    width: 60px;
+    overflow: hidden;
+    height: 21px;
+    line-height: 21px;
+    font-family: Arial;
+    color: #232323;
+    font-size: 14px;
+}
+
+.reddi .green .l1, .reddi .green .l2, .reddi .green .l4{
+    font-weight: bold;
+}
+
+.reddi .payintro {
+    color: #343434;
+    font-family: Arial;
+    font-size: 17px;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+.reddi .payleft {
+    float: left;
+    margin: 0px 0px 0px 60px;
+    width: 244px;
+    height: 81px;
+    background: url(../images/user/liqpay.png) 0px 0px no-repeat;
+}
+
+.reddi .paybutton {
+    float: left;
+    margin: 0;
+    width: 210px;
+    height: 80px;
+    background: #c7d1d3;
+    text-align: center;
+}
+
+.reddi .paybutton .t1{
+    text-align: center;
+    color: #343434;
+    font-size: 12px;
+    font-family: 'Trebuchet MS';
+    padding: 5px 0px 0px 0px;
+}
+
+.reddi .paybutton .t1 span{
+    font-weight: bold;
+}
+
+.reddi .paybutton .t2{
+    text-align: center;
+    color: #343434;
+    font-size: 12px;
+    font-family: 'Trebuchet MS';
+    padding: 0;
+}
+
+.reddi .paybutton .t2 span{
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.reddi .paybutton a.paybutton{
+    display: inline-block;
+    width: 149px;
+    height: 35px;
+    margin: 0px 30px 0px 30px;
+    background: url(../images/user/greenbutton2.png) top left no-repeat;
+    line-height: 32px;
+    text-align: center;
+    color: #FFF;
+    font-size: 15px;
+    font-family: 'Trebuchet MS';
+    text-shadow: 1px 1px #000;
+    cursor: pointer;
+}
+
+.reddi .payinput {
+    float: left;
+    margin: 15px 60px 0px 40px;
+    width: 290px;
+    height: 50px;
+    background: url(../images/user/payinput.png) 0px 0px no-repeat;
+    position: relative;
+}
+
+.reddi .payinput input{
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 16px;
+    color: #ad0000;
+    font-family: 'Trebuchet MS';
+    background: none;
+    border: none;
+    width: 150px;
+}
+.reddi div.not_ug{
+	font-family: 'Trebuchet MS';
+	font-size: 15px;
+	font-style: italic;
+	color: #343434;
+	text-align: center;
+}
+object#swftest {
+    display: none;
+}
+
+
+div.popupservices {
+    width: 387px;
+    margin: 0px auto;
+}
+
+
+.user_popup .delimline {
+    height: 2px;
+    background: url(../images/bw_delim.png) 0px 0px repeat-x;
+}
+
+
+.user_popup .selectpriceh {
+    line-height: 38px;
+    font-size: 15px;
+    font-style: italic;
+    color: #707070;
+    display: block;
+    height: 38px;
+    width: 551px;
+    margin: 5px 0px;
+}
+
+.user_popup .selectpriceh span {
+    color: #d21e2d;
+}
+
+.user_popup .selectpriceh .pricesliderh {
+    float: right;
+    display: block;
+    height: 38px;
+    width: 551px;
+    background: url(../images/cat_pslider.png) left top no-repeat;
+}
+
+.user_popup .selectpriceh .pricesliderh .priceslider {
+    width: 323px;
+    height: 15px;
+    background: url(../images/slider_bg2.png) left top no-repeat;
+    margin: 12px 0px 0px 105px;
+	border: 0px;
+}
+
+.user_popup .selectpriceh .pricesliderh .lowprice{
+    float: left;
+    display: block;
+    height: 38px;
+    line-height: 38px;
+    margin: 0px 0px 0px 16px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #363636;
+    font-family: Tahoma;
+    font-style: normal;
+    width: 80px;
+}
+.user_popup .selectpriceh .pricesliderh .lowprice span{
+    font-size: 13px;
+    color: #363636;
+    padding: 0px 0px 0px 5px;
+}
+
+.user_popup .selectpriceh .pricesliderh .highprice{
+    float: right;
+    display: block;
+    height: 38px;
+    line-height: 38px;
+    margin: 0;
+    font-size: 15px;
+    font-weight: bold;
+    color: #363636;
+    font-family: Tahoma;
+    font-style: normal;
+    width: 105px;
+}
+.user_popup .selectpriceh .pricesliderh .highprice span{
+    font-size: 13px;
+    color: #363636;
+    padding: 0px 0px 0px 5px;
+}
+
+.reddi .complexevd {
+    height: 7px;
+    background: url(../images/bw_delim.png) left bottom repeat-x;
+}
+.reddi .complexevd div{
+    height: 7px;
+    background: url(../images/bw_delim.png) left top repeat-x;
+}
+
+.complexev {
+    padding: 8px 0px;
+    width: 930px;
+    margin: 0px auto;
+}
+
+
+.complexev .name {
+    float: left;
+    height: 18px;
+    width: 215px;
+    font-size: 14px;
+    color: #232323;
+    font-weight: bold;
+    font-style: italic;
+    overflow: hidden;
+}
+
+.complexev .evname {
+    float: left;
+    height: 18px;
+    width: 490px;
+    font-size: 14px;
+    color: #232323;
+    font-weight: bold;
+    font-style: italic;
+    overflow: hidden;
+}
+
+.complexev .evname span{
+    color: #636363;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 13px;
+}
+
+.complexev .date {
+    float: right;
+    height: 18px;
+    font-size: 14px;
+    color: #232323;
+    font-style: italic;
+    overflow: hidden;
+}
+
+.complexev .date span{
+    color: #636363;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 13px;
+}
+
+.complexev .date2 {
+    float: left;
+    height: 18px;
+    font-size: 14px;
+    color: #232323;
+    font-style: italic;
+    overflow: hidden;
+}
+
+.complexev .date2 span{
+    color: #636363;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 13px;
+}
+
+.complexev .cat {
+    float: left;
+    height: 18px;
+    width: 700px;
+    font-size: 13px;
+    color: #232323;
+    font-weight: bold;
+    font-style: italic;
+    overflow: hidden;
+}
+
+.complexev .money {
+    float: right;
+    height: 18px;
+    font-size: 14px;
+    color: #232323;
+    font-style: italic;
+    overflow: hidden;
+}
+
+.complexev .money span{
+    color: #636363;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 13px;
+}
+
+
+.complexev .city {
+    float: left;
+    height: 22px;
+    width: 250px;
+    font-size: 13px;
+    color: #232323;
+    font-weight: bold;
+    overflow: hidden;
+    line-height: 26px;
+}
+
+.complexev .city span{
+    color: #636363;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 13px;
+}
+
+
+.complexev .phone {
+    float: left;
+    height: 22px;
+    font-size: 14px;
+    color: #636363;
+    font-style: italic;
+    line-height: 22px;
+    padding: 0px 8px 0px 10px;
+    background: url(../images/for_eventor/phoneb.png);
+}
+
+.complexev .phone span{
+    color: #232323;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    padding: 0px 13px;
+}
+
+.complexev .phone a{
+    color: #682485;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+.complexev .descr {
+    padding-top: 6px;
+    float: left;
+    width: 870px;
+    font-size: 13px;
+    color: #000000;
+    min-height: 50px;
+}
+
+.complexev .butts {
+    float: left;
+    position: relative;
+}
+
+.complexev .butts a.delete{
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    cursor: pointer;
+    background: url(../images/user/delete.png) 0px 0px no-repeat;
+    width: 11px;
+    height: 12px;
+}
+
+.complexev .butts .deletep{
+    position: absolute;
+    top: -12px;
+    left: -8px;
+    background: url(../images/for_eventor/writesave.png) -23px -27px no-repeat;
+    width: 66px;
+    height: 27px;
+    display: none;
+}
+
+.complexev .butts .emailp{
+    position: absolute;
+    top: 8px;
+    left: -31px;
+    background: url(../images/for_eventor/writesave.png) 0px 0px no-repeat;
+    width: 112px;
+    height: 27px;
+    display: none;
+}
+
+.complexev .butts a.email{
+    position: absolute;
+    top: 35px;
+    left: 16px;
+    cursor: pointer;
+    background: url(../images/for_eventor/email.png) 0px 0px no-repeat;
+    width: 19px;
+    height: 19px;
+}
+
+.cevd {
+    background: url(../images/for_eventor/ctrowo.png);
+}
+
+.cevdpast {
+    background: url(../images/for_eventor/cevdpast.png);
+}
+
+.cevdpast .date, .cevdpast .date span{
+    color: #ed1c24;
+}
+
+.complexev .butts2 {
+    float: right;
+    position: relative;
+}
+
+.complexev .butts2 a.delete{
+    position: absolute;
+    top: -33px;
+    left: -30px;
+    cursor: pointer;
+    background: url(../images/user/delete.png) 0px 0px no-repeat;
+    width: 11px;
+    height: 12px;
+}
+
+.complexev .butts2 .deletep{
+    position: absolute;
+    top: -60px;
+    left: -58px;
+    background: url(../images/for_eventor/writesave.png) -23px -27px no-repeat;
+    width: 66px;
+    height: 27px;
+    display: none;
+}
+
+
+
+.portfolio_shadow {
+    width: 947px;
+    background: #FFF;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 10000;
+    opacity: 0.5;
+    filter: alpha(opacity = 50);
+}
+
+
+.portfolio_shadow_text {
+    width: 100px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 10001;
+}
+.portfolio_shadow_text img{
+    display: block;
+    width: 80px;
+    height: 80px;
+    margin: 0px auto 10px auto;
+}
+
+.portfolio_shadow_text p {
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+    color: #414140;
+    font-family: 'Trebuchet MS';
+    font-size: 15px;
+}

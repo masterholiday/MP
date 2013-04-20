@@ -1,0 +1,11 @@
+<?php 
+	$cat = new Obj_DBTable_ServiceCategories();
+	$price = new Obj_DBTable_ServicesPrices();
+	$cat_row = $cat->getCategories($this->sea['CategoriesId']);
+	$price_row = $price->getServicesPrices($this->sea['ServicesPricesId']);
+	
+	echo '<span>'.$cat_row['CategoryName'].'</span>
+	<span>'.$this->sea['Time'].'</span>
+	<span>'.$price_row['LowPrice'].' - '.$price_row['HightPrice'].'</span>
+	<span>'.$this->sea['Info'].'</span>';
+?>

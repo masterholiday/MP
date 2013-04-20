@@ -1,0 +1,171 @@
+<?php
+    $this->headScript()->appendFile($this->baseUrl().'/js/search.js');
+    $this->headScript()->appendFile($this->baseUrl().'/js/catalog.js');
+    $this->headScript()->appendFile($this->baseUrl().'/js/popup.js');
+    $this->headScript()->appendFile($this->baseUrl().'/js/auth.js');
+
+    $this->headScript()->appendFile($this->baseUrl().'/js/jq/jquery.autocomplete.js');
+    $this->headScript()->appendFile($this->baseUrl().'/js/jq/jquery.simpledatepicker.js');
+    $this->headScript()->appendFile($this->baseUrl().'/js/jq/jquery.selectbox.js');
+    $this->headScript()->appendFile($this->baseUrl().'/js/jq/jquery-ui.js');
+
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/jquery.autocomplete.css');
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/popup.css');
+    $this->headScript()->captureStart();
+?>
+    topCategories = <?=json_encode($this->topCategories)?>;
+    searchParams.canSearch = <?=(Zend_Auth::getInstance()->hasIdentity() && Zend_Auth::getInstance()->getIdentity()->UserType == USER_TYPE_INVENTOR) ? 'false' : 'true'?>;
+    searchParams.authorized = <?=(Zend_Auth::getInstance()->hasIdentity() && Zend_Auth::getInstance()->getIdentity()->UserType == USER_TYPE_USER) ? 'true' : 'false'?>;
+<?php
+    $this->headScript()->captureEnd();
+?>
+
+<div class="search-box">
+    <div class="top"></div>
+    <div class="center">
+        <div class="step1">
+            <div class="city">
+                <input type="text" maxlength="200" value="Город">
+            </div>
+            <div class="date">
+                <a>Далее</a>
+                <input type="text" maxlength="100" value="Дата">
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="step2">
+            <div class="addressline">
+                <div class="date">
+                    <div class="inbox">
+                        <input type="text" maxlength="100" disabled="disabled">
+                    </div>
+                    Дата:
+                </div>
+                <div class="city">
+                    <div class="inbox">
+                        <input type="text" maxlength="200" disabled="disabled">
+                    </div>
+                    Город:
+                </div>
+                <div class="button">
+                    <a class="edit"></a>
+                </div>
+            </div>
+            <div class="clear h23"></div>
+            <div class="step2line"></div>
+            <div class="clear h26"></div>
+            <div class="nameline">
+                <div class="name">
+                    <div class="inbox">
+                        <input type="text" maxlength="44" value="">
+                    </div>
+                    Название мероприятия<span>*</span>:
+                </div>
+            </div>
+            <div class="clear h45"></div>
+            <div class="listservices">
+                <div class="relpos">
+                    <div class="title">Выбранные услуги</div>
+                </div>
+                <div id="addedlist"></div>
+            </div>
+            <div class="clear h10"></div>
+            <div class="addservice">
+                <div class="relpos">
+                    <div class="title">Добавить услугу</div>
+                </div>
+                <div class="selectcategoryh"><select name="category" class="selectcategory"><option disabled selected value="0">Категория услуги*</option></select></div>
+                <div class="selectsubcategoryh"><select name="category" class="selectsubcategory"><option disabled selected value="0">Подкатегория*</option></select></div>
+                <div class="clear h8"></div>
+                <div class="selectpriceh">
+                    <div class="pricesliderh">
+                        <div class="lowprice">100<span>грн</span></div>
+                        <div class="highprice">10000<span>грн</span></div>
+                        <div class="priceslider"></div>
+                    </div>
+                    Бюджет<span>*</span>:
+                </div>
+                <div class="clear h19"></div>
+                <div class="servdescription">
+                    <div class="description">
+                        <textarea>Укажите детали вашего мероприятия</textarea>
+                    </div>
+                    Описание<span>*</span>:
+                </div>
+                <div class="clear h10"></div>
+                <div class="addservicebutton">
+                    <a class="add"></a>
+                    <a class="save"></a>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="step3">
+            <div class="summary">
+                <div class="info">
+                    <div class="pinfo">Название мероприятия:<span></span></div>
+                    <div class="clear h14"></div>
+                    <div class="pinfo w190">Дата:<span></span></div>
+                    <div class="pinfo">Город:<span></span></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="button">
+                    <a class="edit"></a>
+                </div>
+            </div>
+            <h3 class="title">Выбранные услуги</h3>
+            <div id="servlist"></div>
+
+        </div>
+    </div>
+    <div class="bottom"></div>
+    <div class="topleft"></div>
+    <div class="bottomright"></div>
+    <ul class="steps">
+        <li class="yellow"><span>1</span> этап</li>
+        <li class="t"></li>
+        <li class="grey"><span>2</span> этап</li>
+        <li class="t"></li>
+        <li class="grey"><span>3</span> этап</li>
+    </ul>
+    <div class="step1-title1">Комплексный поиск ивенторов.</div>
+    <div class="step1-title2">У вас нет времени на поиски? Три простых шага и ивенторы сами свяжутся с вами.</div>
+    <div class="step2-title1">Уточните детали</div>
+    <div class="step3-title1">Приятного мероприятия</div>
+    <div class="step2-next"></div>
+    <div class="step3-next"></div>
+    <div class="step3-login"></div>
+    <div class="step3-register">Регистрация</div>
+</div>
+<div class="clear"></div>
+
+
+<?php echo $this->catalog($this->shortCatalogList);?>
+
+<?php if (count($this->articles) > 0) { ?>
+    <div class="articles">
+        <h3>Последние статьи</h3>
+        <ul>
+        <?php
+		$translit = new Zend_Filter_Translit();
+            foreach ($this->articles as $a) {
+                ?>
+                <li>
+                    <?php if (trim($a['Image']) != '') { ?>
+                        <img src="<?=$this->baseUrl()?>/img/articles/100x100_<?=$a['Image']?>" width="100" height="100" alt="" />
+                    <?php } ?>
+                    <div class="text">
+					<a class="title" href="<?=$this->url(array('id' => $a['Id'],'title' => $translit->filter($a['Title'])), 'entity_page'); ?>" class="all_post_title"><?=$a['Title']?></a>
+                       
+                        <?=$this->shortText(strip_tags($a['IntroText']), 230)?>
+                    </div>
+                </li>
+                <?php
+            }
+        ?>
+        </ul>
+        <div class="clear" style="height: 15px;"></div>
+        <a class="all" href="<?=$this->url(array('module' => 'default', 'controller' => 'index', 'action' => 'all-post'), null, true)?>">все статьи</a>
+    </div>
+<?php }?>
+

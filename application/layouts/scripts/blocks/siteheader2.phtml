@@ -1,0 +1,124 @@
+<!--<div id="header">
+    <a href="<?=$this->url(array('module' => 'default', 'controller' => 'index', 'action' => 'index'), NULL, true) ?>" id="logo"></a>
+    <div id="headRight">
+
+        <?php
+        $user = null;
+        if (Zend_Registry::isRegistered('user')) {
+            $user = Zend_Registry::get('user');
+
+            if($user->UserType == USER_TYPE_USER){
+                echo '<map id="map" NAME="map">
+   <area href="'.$this->url(array('controller' => 'index','action' => 'exit'),NULL,true).'" return false;" alt="" title="" shape="circle" coords="31,84,30"/>
+   <area href="'.$this->url(array('controller' => 'client','action' => 'index'),NULL,true).'" alt="" title="" shape="circle" coords="88,45,47" style="outline: none; border:0;"/>
+   </map>
+   <img id="reg" src="'.$this->baseUrl().'/images/profile_btn.png" width="132" height="116" alt="" usemap="#map"/>
+   ';
+            }
+            if($user->UserType == USER_TYPE_INVENTOR){
+                $Objiveninfo = new Obj_DBTable_InventorInfo();
+                $iveninfo = $Objiveninfo->getInventorInfoByUserId($user->Id);
+
+                echo '<map id="map" NAME="map">
+       <area href="'.$this->url(array('controller' => 'index','action' => 'exit'),NULL,true).'" return false;" alt="" title="" shape="circle" coords="31,84,30"/>
+       <area href="'.$this->url(array('controller' => 'iventor','action' => 'index'),NULL,true).'" alt="" title="" shape="circle" coords="88,45,47" style="outline: none; border:0;"/>
+       </map>
+       <img id="reg" src="'.$this->baseUrl().'/images/profile_btn.png" width="132" height="116" alt="" usemap="#map"/>
+       ';
+            }
+
+        }
+
+        else {
+
+            echo '<map id="map" NAME="map">
+    	
+    	<area href="#" onclick="formAuth(); return false;" alt="" title="" shape="circle" coords="31,84,30"/>
+    	<area href="#" onclick="this.blur(); formReg(2); return false;" alt="" title="" shape="circle" coords="88,45,47" style="outline: none; border:0;"/>
+    </map>
+    <img id="reg" src="'.$this->baseUrl().'/images/circle_btn.png" width="132" height="116" alt="" usemap="#map"/>
+    ';
+            echo '<div id="for_ivent" onclick="window.location.href=\''.$this->url(array('module' => 'default', 'controller' => 'faq', 'action' => 'iventor'), NULL, true).'\';">
+    <a href="#" onclick="window.location.href=\''.$this->url(array('module' => 'default', 'controller' => 'faq', 'action' => 'iventor'), NULL, true).'\'; return false;"></a>
+    </div>';
+        }
+
+
+        ?>
+
+    </div>
+    <div id="head_center">
+        <div id="menu">
+            <a class="mmenuf menu_1" href="<?=$this->baseUrl();?>/">Главная</a>
+            <a href="<?=$this->url(array('module' => 'default', 'controller' => 'index', 'action' => 'all-post'),NULL, true) ?>" class="menu_2">Статьи</a>
+            <a href="<?=$this->url(array('module' => 'default', 'controller' => 'faq', 'action' => 'index'),NULL, true) ?>" class="menu_3">FAQ</a>
+            <a href="<?=$this->url(array('module' => 'default', 'controller' => 'static', 'action' => 'how-this-work'),NULL, true) ?>" class="menu_4">Как это работает?</a>
+        </div>
+        <div id="head_text">
+            <?php if ($user) {?>
+            <?php if ($user->UserType == USER_TYPE_INVENTOR) { ?>
+                <div class="title">Приветствуем вас!</div>
+                <div class="iventorheadinfo">
+                    <div class="infoleft">
+                        <?php
+                        $invinfo = new Obj_DBTable_InventorInfo();
+                        $info = $invinfo->getIventorInformation($user->Id);
+                        $transactions = new Obj_DBTable_Transaction();
+                        ?>
+                        <div><span>На вашем счету: </span><b><?=intval($info->Balance)?> <?=($info->CountryID == 9908) ? 'грн' : 'руб'?>.</b></div>
+                        <div><span>Новых сделок: </span><b><?=$transactions->getIventorTransactionsCount($user->Id)->c?></b></div>
+                        <div><span>Активность услуги: </span><i id="curactive"><?=($info->Active == 0) ? '<i>неактивна</i>' : 'активна'?></i></div>
+                    </div>
+                    <div class="inforight">
+                        <a href="<?=$this->url(array('controller' => 'iventor', 'action' => 'account'), null, true)?>">пополнить счет</a>
+                        <a href="<?=$this->url(array('controller' => 'iventor', 'action' => 'account'), null, true)?>#paymenthist">история платежей</a>
+                    </div>
+                </div>
+                <?php } else { ?>
+                <div class="title">Приветствуем вас!</div>
+                <div class="text">
+                    Чтобы найти интересующее вас ивент-агенство, достаточно осуществить
+                    поиск по нашему сату - удобная форма ниже позволит вам найти все что
+                    пожелает ваша искушенная душа. Желаем вам удачи в поиске!<a name="toppopup"></a>
+                </div>
+                <?php } ?>
+            <?php } else { ?>
+            <div class="title">Поиск ивент-агенства</div>
+            <div class="text">
+                Чтобы найти интересующее вас ивент-агенство, достаточно осуществить
+                поиск по нашему сату - удобная форма ниже позволит вам найти все что
+                пожелает ваша искушенная душа. Желаем вам удачи в поиске!<a name="toppopup"></a>
+            </div>
+            <?php } ?>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>--><!-- #header-->
+<div id="header">
+    <a href="<?=$this->baseUrl()?>/" class="logo" title="Мастерская праздников"></a>
+    <?=$this->authArea()?>
+    <div class="foriventor">
+        <div><a>Для ивенторов!</a></div>
+    </div>
+    <div class="topmenu">
+        <a href="<?=$this->baseUrl()?>/catalog/">Каталог</a>
+        <a href="<?=$this->baseUrl()?>/">Комплексный поиск</a>
+        <a href="<?=$this->baseUrl()?>/index/all-post/">Статьи</a>
+        <a href="<?=$this->baseUrl()?>/static/how-this-work">Как это работает?</a>
+    </div>
+	
+	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-31785938-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    <?=$this->topInfo()?>
+</div>

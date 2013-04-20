@@ -1,0 +1,28 @@
+<div id="header">
+    <a href="<?=$this->baseUrl()?>/" class="logo" title="Мастерская праздников"></a>
+    <?=$this->authArea()?>
+    <div class="foriventor">
+        <div><a href="<?=$this->baseUrl()?>/faq/iventor">Для ивенторов!</a></div>
+    </div>
+    <div class="topmenu">
+        <a href="<?=$this->baseUrl()?>/catalog?main=1">Каталог</a>
+        <a href="<?=$this->baseUrl()?>/">Комплексный поиск</a>
+        <a href="<?=$this->baseUrl()?>/index/all-post/">Статьи</a>
+        <a href="<?=$this->baseUrl()?>/static/how-this-work">Как это работает?</a>
+    </div>
+	
+	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-31785938-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    <?=$this->topInfo()?>
+</div>

@@ -1,0 +1,15 @@
+
+<?php	
+		if($this->post['SeoTitle']!=''){$title = $this->post['SeoTitle']; }
+		else {$title = $this->post['Title']." – Мастерская Праздников";}
+		
+		if($this->post['SeoDescription']!=''){$desc = $this->post['SeoDescription']; }
+		else {$desc = $this->post['Title'].". Каталог статей на сайте Мастерская Праздников";}
+		
+		$this->headTitle($title);
+		$this->headMeta()->appendName('description', $desc);
+?>
+
+<div class="post_cat_title"><a href="/index/all-post/">Статьи</a>/<span> <?=$this->cat['CategoryName'] ?></span></div>
+<h1 class="post_title_text"><?=$this->post['Title'] ?></h1>
+<div class="justify"><?=$this->post['FullText'];?></div>

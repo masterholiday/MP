@@ -1,0 +1,63 @@
+<?php 
+$category = new Obj_DBTable_ServiceCategories();
+?>
+
+  <?php
+  $selN = $this->seln * 2 + 1; 
+	
+  ?>
+  
+
+	<div class="desc_title">Добавить услугу</div>
+	<div class="desc_text">
+	<div id="notbtn">
+	<div id="group">
+	<div class="lineForm leftselect">
+	<select class="sel80" id="sel<?=$selN ?>" name="<?=$selN ?>" onchange="activityshowSelectCategoty(this, <?=$selN ?>)">
+	<?php 
+		$categ_row = $category->getAllCategoriesByParent();
+		echo '<option disabled selected value="error">Категория услуги*</option>';
+		foreach ($categ_row as $row_cat){
+		echo '<option value="'.$row_cat['Id'].'">'.$row_cat['CategoryName'].'</option>';
+		}
+	?>
+	</select>
+	</div>
+	<div class="lineForm rightselect">
+			<select class="sel80" id="sel<?=$selN + 1?>" name="">
+				<option disabled selected value="error">Подкатегория*</option>
+			</select>		
+	</div>
+	</div>
+	<!-- <div>Время</div>
+	<input style="color:#000;" class="colortext" type="text" name="time<?=$this->n?>" id="time<?=$this->n?>" /> -->
+	<div class="clear"></div>
+	<select class="styled" name="price<?=$this->n?>" id="price<?=$this->n?>">
+		<?php 
+		echo '<option disabled selected value="error">Бюджет*</option>';
+		$i = 0;
+		foreach ($this->price as $pr_row){
+		    if($i == 0){
+		    	echo '<option value="'.$pr_row['Id'].'">до '.$pr_row['HightPrice'].' '.$this->val.'</option>';
+		    }
+		    if($i == 1){
+				echo '<option value="'.$pr_row['Id'].'">'.$pr_row['LowPrice'].' - '.$pr_row['HightPrice'].' '.$this->val.'</option>';
+		    }
+		    if($i == 2){
+		    	echo '<option value="'.$pr_row['Id'].'">от '.$pr_row['LowPrice'].' '.$this->val.'</option>';
+		    }
+			$i++;
+		}
+	?>
+	</select>
+	<div>
+	<span class="left">Описание<span class="error">*</span>: </span>
+	<textarea class="text_arr right" name="info<?=$this->n?>" id="info<?=$this->n?>" cols="55" rows="5" onblur="if ($(this).text()==''){$(this).text('Укажите детали вашего мероприятия');}" onfocus="if($(this).text()=='Укажите детали вашего мероприятия'){$(this).text('')}">Укажите детали вашего мероприятия</textarea>
+	<div class="clear"></div>
+	</div>
+	</div>
+	<div><input class="next_btn" name="addactivity<?=$this->n?>" id="addactivity<?=$this->n?>" type="button" onclick="addActivity(<?=$this->n?>)" value="Добавить" /></div>
+	<div class="clear"></div>
+	</div>
+	<div class="cat_desc_bott_bg"></div>
+

@@ -1,0 +1,202 @@
+<?php
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/iventor.css');
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/popup.css');
+    $this->headScript()->appendFile($this->baseUrl().'/js/iventor.js');
+    $this->headScript()->appendFile($this->baseUrl().'/js/jq/jquery.selectbox.js');
+    $this->headScript()->appendFile($this->baseUrl().'/js/popup.js');
+    $this->headScript()->appendFile($this->baseUrl().'/js/auth.js');
+    $this->headScript()->captureStart();
+?>
+    var BURL = '<?=$this->burl?>';
+    var paystring = '<?=$this->info->CountryID == 9908 ? 'не менее 10 грн' : 'не менее 20 руб'?>';
+    var paystringc = <?=$this->info->CountryID == 9908 ? 10 : 20 ?>;
+    var oPrices = <?=json_encode($this->prices)?>;
+    $(document).ready(function(){
+        initPayInput();
+        <?php
+            foreach ($this->dates as $d) {
+                $t = strtotime($d->Date);
+                $s = intval(date("Y", $t)).",".(intval(date("m", $t)) - 1).",".intval(date("d", $t)).",0,0,0,0";
+                ?>
+                busydays[(new Date(<?=$s?>)).getTime()] = true;
+                <?php
+            }
+        ?>
+
+        selectSmal('selectprem');
+        selectSmal('hmonth');
+        selectSmal('hyear');
+        buildCalendar(<?=(intval(date("m")) - 1)?>, <?=intval(date("Y"))?>);
+    });
+<?php
+    $this->headScript()->captureEnd();
+?>
+
+<div class="iventor_cabinet">
+    <div class="noiseb">
+        <div class="noisew">
+            <?php if ($this->info->Premium == 1) { ?>
+            <div class="bholder">
+                <a class="cabinet" href="<?=$this->url(array('controller' => 'iventor', 'action' => 'index'), null, true, true)?>">Личный кабинет</a>
+                <a class="events" href="<?=$this->url(array('controller' => 'iventor', 'action' => 'searches'), null, true, true)?>">Запросы на услуги</a>
+                <a class="account active" href="<?=$this->url(array('controller' => 'iventor', 'action' => 'account'), null, true, true)?>">Управление счетом</a>
+            </div>
+            <?php } else { ?>
+            <div class="bholder" style="width: 485px;">
+                <a class="cabinet" href="<?=$this->url(array('controller' => 'iventor', 'action' => 'index'), null, true, true)?>">Личный кабинет</a>
+                <a class="account active" href="<?=$this->url(array('controller' => 'iventor', 'action' => 'account'), null, true, true)?>">Управление счетом</a>
+            </div>
+            <?php } ?>
+            <div class="topspace"></div>
+            <div class="cntnn">
+                <a name="dopay"></a>
+                <h4>Купить “<span>Премиум</span>” аккаунт</h4>
+                <div class="reddi">
+                    <div class="payintro">Оплата производится с помощью платежной системы LiqPay.</div>
+                    <div class="payleft"></div>
+                    <div class="payinput">
+                        <select class="selectprem" onchange="getPremPrice(this.value);">
+                            <option value="30">Премиум на 1 месяц</option>
+                            <option value="90">Премиум на 3 месяца</option>
+                            <option value="180">Премиум на 6 месяцев</option>
+                            <option value="360">Премиум на 12 месяцев</option>
+                        </select>
+
+                        <!--<div><input type="text" name="payamount" id="payamount" value="не менее 10 грн" /></div>-->
+                    </div>
+                    <div class="paybutton">
+                        <div class="t1">Валюта: <span id="countrymoney"><?=$this->info->CountryID == 9908 ? 'украинская гривна' : 'русский рубль'?></span></div>
+                        <div class="t2">Итого: <span id="selectedsum"><?=$this->prices[30]?></span> <?=$this->info->CountryID == 9908 ? 'ГРН.' : 'РУБ.'?></div>
+                        <a class="paybutton" onclick="getPaymentForm();">Оплатить</a>
+                        <form id="clickandbuy" action="https://www.liqpay.com/?do=clickNbuy" method="post"><input type='hidden' name='operation_xml' value='' /><input type='hidden' name='signature' value='' /></form>
+                    </div>
+
+                    <div class="clear h12"></div>
+                </div>
+                <?php if ($this->info->Premium == 1) { ?>
+                <h4>Календарь</h4>
+                <div class="reddi">
+                    <div class="reddispace1">
+                        <div class="ucalendar">
+                            <div class="uheader">
+                                <div class="prevmonth">
+                                    <a></a>
+                                </div>
+                                <div class="nextmonth">
+                                    <a></a>
+                                </div>
+                                <div class="monthyear"></div>
+                            </div>
+                            <div class="ucalbody">
+                                <div class="dnames">
+                                    <span class="d1">ПН</span><span class="d2">ВТ</span><span class="d3">СР</span><span class="d4">ЧТ</span><span class="d5">ПТ</span><span class="d6">СБ</span><span class="d7">ВС</span>
+                                </div>
+                                <div id="ddates"></div>
+                            </div>
+                        </div>
+                        <div class="udescription">
+                            <div class="t1">
+                                Вы можете выбрать дни, когда вы заняты и не можете предоставить услугу. Пользователи будут видеть выбраные даты на вашей странице.
+                                <b>Для выбора даты, щелкните левой кнопкой мыши, для отмены щелкните ету же дату еще раз.</b>
+                            </div>
+                            <div class="activity">
+                            </div>
+                            <div class="activity2">
+                                Вы будете заняты:
+                                <div id="deactivlist">
+                                    <?=$this->nice?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear h19"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <a name="paymenthist"></a>
+                <h4>История платежей</h4>
+                <?php
+                    $monthes = array('Месяц', 'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь');
+                    $years = array(0 => "Год");
+                    $curryear = intval(date("Y"));
+                    for ($i = 2012; $i <= $curryear; $i++) {
+                        $years[$i] = $i;
+                    }
+                ?>
+                <div class="reddi">
+                    <div class="selects">
+                        <div class="selmonth">
+                            <select id="hmonth" name="hmonth" class="hmonth" onchange="historyShow();">
+                                <?php
+                                    foreach ($monthes as $k => $m) {
+                                        if (!in_array($k, $this->monthesss) && $k != 0) continue;
+                                        ?>
+                                        <option value="<?=$k?>"<?=($this->month == $k) ? 'selected="selected"' : ''?>><?=$m?></option>
+                                        <?php
+                                    }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="selyear">
+                            <select id="hyear" name="hyear" class="hyear" onchange="historyShow();">
+                                <?php
+                                    foreach ($years as $k => $m) {
+                                        ?>
+                                        <option value="<?=$k?>"<?=($this->year == $k) ? 'selected="selected"' : ''?>><?=$m?></option>
+                                        <?php
+                                    }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="plistheader">
+                            <div class="plistheader2">
+                                <div class="l1">Дата</div>
+                                <div class="l2">Операция / Категория</div>
+                                <div class="l4">Платеж</div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        <?php
+                            foreach ($this->list as $k => $l) {
+                                switch ($l->Days) {
+                                    case 90: $categname = "Покупка “Премиум” аккаунта на три месяца"; break;
+                                    case 180: $categname = "Покупка “Премиум” аккаунта на шесть месяцев"; break;
+                                    case 360: $categname = "Покупка “Премиум” аккаунта на двенадцать месяцев"; break;
+                                    case 30:
+                                    default: $categname = "Покупка “Премиум” аккаунта на один месяц"; break;
+                                }
+                                $classname = $k % 2 == 0 ? "green": "white";
+                                $curr = $l->CountryID == 9908 ? " грн." : " руб.";
+                                $date = date("d.m.Y", strtotime($l->Date));
+                                ?>
+                                    <div class="plistrow <?=$classname?>">
+                                        <div class="l1"><?=$date?></div>
+                                        <div class="l2"><?=$categname?></div>
+                                        <div class="l4"><?=$l->Sum?><?=$curr?></div>
+                                        <div class="clear"></div>
+                                    </div>
+                                <?php
+                            }
+                        ?>
+                        <?php if ($this->pages && count($this->pages) > 1) { ?>
+                        <div class="paging">
+                            <?php
+                            foreach ($this->pages as $p) {
+                                ?>
+                                <a class="<?=$p['class']?>" href="<?=$p['href']?>#paymenthist"><?=$p['html']?></a>
+                                <?php
+                            }
+                            ?>
+                        </div>
+                            <div class="clear h8"></div>
+                        <?php } ?>
+                    </div>
+                </div>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

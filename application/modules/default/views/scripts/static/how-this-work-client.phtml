@@ -1,0 +1,73 @@
+<?php
+    $this->headScript()->appendFile($this->baseUrl().'/js/popup.js');
+    $this->headScript()->appendFile($this->baseUrl().'/js/auth.js');
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/popup.css');
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/client.css');
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/static.css');
+		$this->headTitle("Как это работает для пользователя? – MasterHoliday");
+		$this->headMeta()->appendName('description', "Как это работает для пользователя? – MasterHoliday");
+?>
+<div class="client_search_requests">
+    <div class="noiseb">
+        <div class="noisew">
+            <div class="bholder" style="width: 483px;">
+                <a href="" class="requests active" style="left: 0px;">Для пользователя</a>
+                <a href="<?=$this->url(array('module' => 'default', 'controller' => 'static', 'action' => 'how-this-work-iventor'), NULL, true) ?>" class="settings">Для ивентора</a>
+            </div>
+            <div class="topspace"></div>
+            	<div class="reddi" style="width: 950px;">
+					<p class="title"><span>“Мастерская праздников”</span> - от идеи до воплощения!<br/>Сервис поможет спланировать и организовать любое ваше мероприятие!</p>
+					<p class="des">
+							День рождение, корпоратив или свадьба? Вы сможете найти любого ивентора для ваших безумных и ярких идей. Ведущие, фотографы, музыканты и многие другие ивенторы, сами найдут вас и реализуют все ваши мечты! У вас появится возможность сохранить свое время!
+					</p>
+					<p class="des_2">
+						Вот несколько шагов как устроить свой лучший праздник:
+					</p>
+					<div class="block">
+						<div class="reg">
+							<div class="num1"></div>
+							<div class="reg_title">Войдите или зарегистрируйтесь.</div>
+							<div class="clear"></div>
+							<p>a) Проще не бывает, вы можете сразу войти с помощью социальных сетей или создать себе аккаунт.</p>
+							<p>б) E-mail - ваш будущий логин.</p>
+							<p>в) Придумайте интересный пароль, который можно повторить, ставьте галочку (Согласие с правилами сервиса) и жмите кнопку “Зарегистрироваться”</p>
+						</div>
+						<img alt="" src="<?=$this->baseUrl().'/images/reg_img.png';?>">
+					</div>
+					<div class="block">
+						<div class="reg">
+							<div class="num2"></div>
+							<div class="reg_title">Сделайте комплексный или воспользуйтесь простым и удобным каталогом.</div>
+							<div class="clear"></div>
+							<p>a) Комплексный запрос позволит вам не тратить время на поиски, ивенторы сами свяжуться с вами.</p>
+							<p>б) Вы любите планировать и подбирать сами, тогда вам в Каталог, все очень просто и легко.</p>
+							<p>в) Если у вас нет времени на разговоры, воспользуйтесь кнопкой "Перезвонить мне".</p>
+						</div>
+						<img alt="" src="<?=$this->baseUrl().'/images/serch_img.png';?>">
+					</div>
+					<div class="block">
+						<div class="reg">
+							<div class="num3"></div>
+							<div class="reg_title">Личный кабинет - позволит все спланировать лучшим образом.</div>
+							<div class="clear"></div>
+							<p>a) Добавляйте понравившихся ивенторов себе в "Избранное".</p>
+							<p>б) На вкладке "Запросы на услуги" просматривайте ваши комплексные запросы и запросы из каталога.</p>
+							<p>в) Выбирайте лучших и наслаждайтесь вашим мероприятием.</p>
+						</div>
+						<img alt="" src="<?=$this->baseUrl().'/images/rez_img.png';?>">
+					</div>
+					<div class="block">
+						<div class="bot">
+							<span>“Мастерская праздников”</span> желает вам, что бы все ваши мероприятия и праздники были незабываемы. 
+							<div>А мы постараемся вам в этом помочь!</div>
+						</div>
+						<?php 
+						if(!Zend_Auth::getInstance()->hasIdentity()) {?>
+						<a onclick="showRegisterPopup();"></a>
+						<?php } ?>
+					</div>
+					
+				</div>
+		</div>
+    </div>
+</div>

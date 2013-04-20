@@ -1,0 +1,117 @@
+<?php
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/iventor.css');
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/popup.css');
+    $this->headScript()->appendFile($this->baseUrl().'/js/iventor.js');
+    $this->headScript()->appendFile($this->baseUrl().'/js/popup.js');
+    $this->headScript()->appendFile($this->baseUrl().'/js/auth.js');
+    $this->headScript()->captureStart();
+?>
+    $('.complexev .phone a').live('click', function(){
+        $('span', $(this).parent()).html($('span', $(this).parent()).html().replace('...', $(this).attr('rel')));
+        $(this).remove();
+    });
+    $('.complexev .butts a.delete').live('mouseover', function(){
+        $('.deletep', $(this).parent()).show();
+    });
+    $('.complexev .butts a.delete').live('mouseout', function(){
+        $('.deletep', $(this).parent()).hide();
+    });
+    $('.complexev .butts a.email').live('mouseover', function(){
+        $('.emailp', $(this).parent()).show();
+    });
+    $('.complexev .butts a.email').live('mouseout', function(){
+        $('.emailp', $(this).parent()).hide();
+    });
+    var currPage = '<?=$this->url($this->cpage, null, true)?>';
+<?php
+    $this->headScript()->captureEnd();
+?>
+
+<div class="iventor_cabinet">
+    <div class="noiseb">
+        <div class="noisew">
+            <div class="bholder">
+                <a class="cabinet" href="<?=$this->url(array('controller' => 'iventor', 'action' => 'index'), null, true, true)?>">Личный кабинет</a>
+                <a class="events active" href="<?=$this->url(array('controller' => 'iventor', 'action' => 'searches'), null, true, true)?>">Запросы на услуги</a>
+                <a class="account" href="<?=$this->url(array('controller' => 'iventor', 'action' => 'account'), null, true, true)?>">Управление счетом</a>
+            </div>
+            <div class="topspace2" style="height: 45px;"></div>
+            <div class="bholder2">
+                <a href="<?=$this->url(array('module' => 'default', 'controller' => 'iventor', 'action' => 'searches', 'type' => 'complex'), NULL, true) ?>" class="complex<?=$this->stype == 'complex' ? ' active' : ''?>">Комплексные</a>
+                <a href="<?=$this->url(array('module' => 'default', 'controller' => 'iventor', 'action' => 'searches', 'type' => 'catalog'), NULL, true) ?>" class="catalog<?=$this->stype == 'catalog' ? ' active' : ''?>">Каталог</a>
+            </div>
+            <div class="topspace3" style="height: 45px;"></div>
+            <div class="cntnn">
+            <?php
+            if (count($this->list) < 1) {
+                ?>
+                <div class="reddi">
+                    <div class="not_ug">
+                        <?php if($this->stype == 'complex') { ?>
+                        К сожалению, пока никто из пользователей не сделал запрос на ваши услуги.
+                        <br /><br />
+                        Мы советуем вам, как можно детально заполнить ваш профиль, добавьте ваши услуги и поделитесь вашим портфолио.
+                        <br />
+                        <br />
+                        <?php } else { ?>
+                        К сожалению, пока никто из пользователей не сделал запрос на звонок.
+                        <br /><br />
+                        Мы советуем вам, как можно детально заполнить ваш профиль, добавьте ваши услуги и поделитесь вашим портфолио.
+                        <br />
+                        <br />
+                        <?php }?>
+                    </div>
+                </div>
+                <?php
+            }
+            else {
+                ?>
+
+                <?php
+                if ($this->stype == 'complex') {
+                    if (count($this->list) > 0) echo $this->eventorComplexSearchResult($this->list);
+
+                    if ($this->pages && count($this->pages) > 1) { ?>
+                        <div class="reddi" style="padding: 0px; margin: 0px; background: none;">
+                            <div class="paging" style="padding-top: 0px;">
+                                <?php
+                                foreach ($this->pages as $p) {
+                                    ?>
+                                    <a class="<?=$p['class']?>" href="<?=$p['href']?>"><?=$p['html']?></a>
+                                    <?php
+                                }
+                                ?>
+                            </div>
+                        </div>
+                        <div class='clear h19'></div>
+                        <?php
+                    }
+                }
+                else {
+                    if (count($this->list) > 0) echo $this->eventorCatalogSearchResult($this->list);
+
+                    if ($this->pages && count($this->pages) > 1) { ?>
+                        <div class="reddi" style="padding: 0px; margin: 0px; background: none;">
+                            <div class="paging" style="padding-top: 0px;">
+                                <?php
+                                foreach ($this->pages as $p) {
+                                    ?>
+                                    <a class="<?=$p['class']?>" href="<?=$p['href']?>"><?=$p['html']?></a>
+                                    <?php
+                                }
+                                ?>
+                            </div>
+                        </div>
+                        <div class='clear h19'></div>
+                        <?php
+                    }
+                }
+            }
+            ?>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+

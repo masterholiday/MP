@@ -1,0 +1,51 @@
+
+<div id="register">
+	<div class="topbuttons">
+		<input type="button" value="" class="clientactive"/>
+		<input type="button" value="" onclick="formReg(2)" class="iventorinactive"/>
+	</div>
+	<!--<input type="button" class="reg_head_btn ok" value="Для клиента" /><input type="button" onclick="formReg(2)" class="reg_head_btn" value="Для инвентора" />-->
+	
+	<form class="form" action="<?=$this->url(array('controller' => 'index','action' => 'do-register'),NULL,true);?>" method="post">
+	<div class="title_reg">Регистрация пользователя.</div>
+	<a class="close_pop" onclick="CloseModalWindow();"></a>
+	   		<div class="inp_reg_big"><input class="" type="text" name="name" value="Инициалы*" onblur="if (this.value==''){this.value='Инициалы*';}" onfocus="if(this.value=='Инициалы*'){this.value='';}"/></div>
+            <div class="inp_reg_big" id="city_btn_2"><input id="city_2" class="" type="text" name="city" value="Город*" onblur="if (this.value==''){this.value='Город*';}" onfocus="if(this.value=='Город*'){this.value='';}" />
+            <input id="cityid_2" type="hidden" value="" name="cityid">
+            </div>
+            <div class="inp_reg_big"><input class="" type="text" id="email" name="email" value="E-mail*" onblur="if (this.value==''){this.value='E-mail*';}" onfocus="if(this.value=='E-mail*'){this.value='';}" /></div>
+            <?php if($this->block == 0) {?>
+            <div id="block_block">
+        		<div class="inp_reg"><input class="" type="text" name="phone" value="Телефон*" onblur="if (this.value==''){this.value='Телефон*';}" onfocus="if(this.value=='Телефон*'){this.value='';}" /></div> <input type="button" class="get_btn" value="" />
+        		<div class="inp_reg"><input class="" type="text" name="code" value="Подтвердить код*" onblur="if (this.value==''){this.value='Подтвердить код*';}" onfocus="if(this.value=='Подтвердить код*'){this.value='';}" /></div> <input type="button" class="get_pidtv" value="" />
+
+        		<div class="inp_reg">
+                    <input class="" type="text" name="pass" value="Пароль*" onfocus="if(this.value=='Пароль*'){$('input[name=pass2]').show().focus(); $(this).hide();}" />
+                    <input class="" type="password" name="pass2" value="" onblur="if (this.value==''){$(this).hide(); $('input[name=pass]').show();}" style="display: none;"/>
+        		</div>
+        		<div class="inp_reg">
+                    <input class="" type="text" name="pass_two" value="Подтверждение пароля*" onfocus="if(this.value=='Подтверждение пароля*'){$('input[name=pass_two2]').show().focus(); $(this).hide();}" />
+                    <input class="" style="display: none;" type="password" name="pass_two2" value="" onblur="if (this.value==''){$(this).hide(); $('input[name=pass_two]').show();}" />
+        		</div>
+
+        		<div class="clear"></div>
+        		<div id="check" class="left">
+       				<input id="rem" type="checkbox" class="check" value="0" name="con" />
+       				<a class="check_off"></a>
+       			</div>
+       			<div class="check_text">Я согласен с <a href="<?=$this->url(array('module' => 'default', 'controller' => 'static', 'action' => 'rules'), NULL, true)?>" class="pass_now margin0">Правилами сервиса</a></div>
+       		</div>
+       		<input type="button" onclick="doRegister()" class="reg_btn" value="" />
+       		<?php }else{?>
+       			<div id="block_block" class="block_block">
+        			<div class="mess">Внимание! Вы три раза допустили ошибку.</div>
+        			<div class="text">Следующая попытка регистрации через:</div>
+        			<div class="time">&nbsp;</div>
+        			<div class="text">Ознакомтесь пока с <a href="<?=$this->url(array('module' => 'default', 'controller' => 'static', 'action' => 'rules'), NULL, true)?>">Правилами сервиса</a> и <a href="<?=$this->url(array('module' => 'default', 'controller' => 'faq', 'action' => 'index'),NULL, true)?>">FAQ</a></div>
+       			</div>
+       			<input type="button" onclick="" class="reg_btn reg_btn_disabled" value="" />
+       		<?php }?>
+       			
+       		
+   </form>
+</div>

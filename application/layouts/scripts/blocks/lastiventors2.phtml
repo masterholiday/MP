@@ -1,0 +1,18 @@
+<?php
+if (count($this->lastiventors) > 0) { ?>
+<div class="lastiventors">
+    <h3>Недавно присоединившиеся</h3>
+    <?php
+    foreach ($this->lastiventors as $i) {
+        ?>
+        <div>
+            <img src="<?=$this->baseUrl()?>/img/users/<?=$i['UserId']?>/150x150_<?=$i['Image']?>" width="150" height="150" alt="" />
+            <a href="<?=$this->url(array('module' => 'default', 'controller' => 'iventor', 'action' => 'index', 'ID' => $i['Id']), null, true)?>"><?=$i['CompanyName']?></a>
+        </div>
+        <?php
+    }
+    ?>
+    <div class="clear" style="height: 25px;"></div>
+</div>
+<div class="clear"></div>
+<?php }?>

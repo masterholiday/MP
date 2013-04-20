@@ -1,0 +1,77 @@
+<?php
+    $this->headScript()->appendFile($this->baseUrl().'/js/popup.js');
+    $this->headScript()->appendFile($this->baseUrl().'/js/auth.js');
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/popup.css');
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/client.css');
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/static.css');
+    $this->headScript()->appendFile($this->baseUrl().'/js/jq/jquery.autocomplete.js');
+    $this->headScript()->appendFile($this->baseUrl().'/js/jq/jquery.maskedinput-1.3.min.js');
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/jquery.autocomplete.css');
+	$this->headTitle("Как это работает для ивентора? – MasterHoliday");
+	$this->headMeta()->appendName('description', "Как это работает для ивентора? – MasterHoliday");
+?>
+<div class="client_search_requests">
+    <div class="noiseb">
+        <div class="noisew">
+            <div class="bholder" style="width: 483px;">
+                <a href="<?=$this->url(array('module' => 'default', 'controller' => 'static', 'action' => 'how-this-work-client'), NULL, true) ?>" class="requests" style="left: 0px;">Для пользователя</a>
+                <a href="" class="settings active">Для ивентора</a>
+            </div>
+            <div class="topspace"></div>
+            	<div class="reddi" style="width: 950px;">
+					<p class="title"><span>“Мастерская праздников”</span> - от идеи до воплощения!<br/>Сервис, который поможет приумножить ваш бизнес.</p>
+					<p class="des">
+						<span style="color:#a00608;"><i><b>“Мастерская праздников”</b></i></span> поможет вам в поиске целевого клиента. Для этого надо просто зарегистрироваться, заполнить информацию о компании и следить за запросами клиентов на сервисе. В случае запроса по вашей услуге, Вы получаете прямой контакт клиента. Никаких посредников, только прямые контакты!
+					</p>
+					<p class="des_2">
+						Более подробно о том, как найти своих потенциальных клиентов:
+					</p>
+					<div class="block">
+						<div class="reg">
+							<div class="num1"></div>
+							<div class="reg_title">Зарегистрируйтесь и создайте свой профиль.</div>
+							<div class="clear"></div>
+							<p>a) Впишите название вашей компании, e-mail и город, в котором вы находитесь.</p>
+							<p>б) Впишите ваш контактный телефон, вам нужно будет подтвердить его смс кодом.</p>
+							<p>в) Впишите пароль, ставьте галочку "Я согласен с Правилами сервиса" и жмите кнопку "Зарегистрироваться".</p>
+						</div>
+						<img alt="" src="<?=$this->baseUrl().'/images/reg_ivent_img.png';?>">
+					</div>
+					<div class="block">
+						<div class="reg">
+							<div class="num2"></div>
+							<div class="reg_title">Максимально подробно заполните свой профиль.</div>
+							<div class="clear"></div>
+							<p>a) Напишите краткий текст “О компании”, чтобы ваш будущий клиент смог больше о вас узнать.</p>
+							<p>б) Добавьте все услуги, которые вы предоставляете с указанием города и бюджета.</p>
+							<p>в) Не забудьте показать свои лучшие работы в вашем портфолио.</p>
+						</div>
+						<img alt="" src="<?=$this->baseUrl().'/images/prof_img.png';?>">
+					</div>
+					<div class="block">
+						<div class="reg">
+							<div class="num3"></div>
+							<div class="reg_title">Связывайтесь с вашим клиентом напрямую и управляйте вашими сделками.</div>
+							<div class="clear"></div>
+							<p>a) В своем “Личном кабинете” вы сможете увидеть все запросы на ваши услуги от клиентов.</p>
+							<p>б) Связывайтесь с клиентом напрямую с помощью проверенного телефона и e-mail адреса.</p>
+							<p>в) Планируйте свое бизнес время.</p>
+						</div>
+						<img alt="" src="<?=$this->baseUrl().'/images/trans_img.png';?>">
+					</div>
+					<div class="block">
+						<div class="bot">
+						Зарегистрируйтесь и <span>“Мастерская Праздников”</span> подарит Вам приятный бонус, для того что бы вы смогли попробовать все возможности сервиса.
+						<img alt="" src="http://masterholiday.net/images/how_it_works_eventor2.png">
+							<span>“Мастерская праздников”</span> желает вам потрясающих мероприятий, благодарных клиентов и финансовых успехов! 
+							<div>А мы постараемся вам в этом помочь!</div>
+						</div>
+						<?php if(!Zend_Auth::getInstance()->hasIdentity()) {?>
+						<a onclick="showRegisterEventorPopup();"></a>
+						<?php } ?>
+					</div>
+					
+				</div>
+		</div>
+    </div>
+</div>

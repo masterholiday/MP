@@ -1,0 +1,208 @@
+<?php
+	
+    $this->headScript()->appendFile($this->baseUrl().'/js/catalog.js');
+    $this->headScript()->appendFile($this->baseUrl().'/js/popup.js');
+    $this->headScript()->appendFile($this->baseUrl().'/js/auth.js');
+
+    $this->headScript()->appendFile($this->baseUrl().'/js/jq/jquery.autocomplete.js');
+    //$this->headScript()->appendFile($this->baseUrl().'/js/jq/jquery.simpledatepicker.js');
+    $this->headScript()->appendFile($this->baseUrl().'/js/jq/jquery.selectbox.js');
+    $this->headScript()->appendFile($this->baseUrl().'/js/jq/jquery-ui.js');
+
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/jquery.autocomplete.css');
+    $this->headLink()->appendStylesheet($this->baseUrl().'/css/popup.css');
+		
+    $this->headScript()->captureStart();
+
+?>
+    topCategories = <?=json_encode($this->topCategories)?>;
+    var currURL = '<?=$this->url(array('controller' => 'catalog', 'module' => 'default', 'action' => 'index'), null, true)?>';
+    scatParams.city.id = <?=$this->cityinfo->id?>;
+    scatParams.city.country = <?=$this->cityinfo->country?>;
+    scatParams.city.name = '<?=$this->cityinfo->name?>';
+    scatParams.city.prevcountry = <?=$this->cityinfo->prevcountry?>;
+
+    secCategories["<?=$this->categoryID?>"] = <?=json_encode($this->secCategories)?>;
+    scatParams.category = <?=intval($this->categoryID)?>;
+    scatParams.category2 = <?=intval($this->categoryID2)?>;
+    scatParams.min = <?=intval($this->min)?>;
+    scatParams.max = <?=intval($this->max)?>;
+
+	
+
+    $(document).ready(function(){
+        initCatalogForm();
+    });
+	
+<?php
+    $this->headScript()->captureEnd();
+?>
+
+
+<div class="search-box catalog-box">
+    <div class="top"></div>
+    <div class="center">
+        <div class="form">
+            <div class="delimline"></div>
+            <div class="clear h10"></div>
+            <div class="selectcategoryh"><select name="category" class="selectcategory"><option disabled selected value="0">Категория услуги*</option></select></div>
+            <div class="selectsubcategoryh"><select name="category" class="selectsubcategory"><option disabled selected value="0">Подкатегория*</option></select></div>
+            <div class="clear h10"></div>
+            <div class="city">
+                <input type="text" maxlength="200" value="Город">
+            </div>
+            <div class="selectpriceh">
+                <div class="pricesliderh">
+                    <div class="lowprice">100<span>грн</span></div>
+                    <div class="highprice">10000<span>грн</span></div>
+                    <div class="priceslider"></div>
+                </div>
+            </div>
+            <div class="clear h6"></div>
+            <a class="searchbutton">Показать</a>
+
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="catbottom">
+            <div class="clear h6"></div>
+            <div class="delimline"></div>
+            <div class="clear h8"></div>
+            <div class="phone">Нажмите, если хотите, что бы ивентор сам связался с вами.</div>
+            <div class="starred">Нажмите, если хотите добавить ивентора<br />себе в избранное.</div>
+        </div>
+    </div>
+    <div class="topleft"></div>
+    <div class="bottomright"></div>
+    <div class="step1-title1">Каталог ивенторов.</div>
+    <div class="step1-title2">Выберите категорию, подкатегорию, укажите город и приблизительный бюджет.</div>
+</div>
+<form method="post" id="hform">
+			<input type="hidden" name="city" id="hcity"/>
+			<input type="hidden" name="cityname" id="hcityname"/>
+			<input type="hidden" name="category" id="hcat"/>
+			<input type="hidden" name="title" id="hcatname"/>
+			<input type="hidden" name="min" id="hmin">
+			<input type="hidden" name="max" id="hmax">
+</form>
+<div class="clear"></div>
+<?php if (count($this->list) > 0) { ?>
+<script>
+/*$(window).load(function(){
+  $("html, body").animate({ scrollTop: 550 }, "slow");
+});*/
+
+ </script>
+<div class="catalogresult">
+    <?php
+
+        foreach ($this->list as $l) {
+            if ($l->Premium == 1) {
+                echo $this->premiumCatalog($l, $this->showButtons);
+            }
+            else
+                echo $this->basicCatalog($l);
+        }
+
+    ?>
+</div>
+<?php } elseif (!$this->showLastIventors) { ?>
+    <div class="catalogresult_none">
+        К сожалению, по данным условиям поиска нет ивенторов.</br> Попробуйте ввести другие параметры.
+    </div>
+<?php } ?>
+<div class="clear h8"></div>
+
+<?php if ($this->pages && count($this->pages) > 1) { ?>
+<div class="reggi">
+    <div class="paging">
+        <?php
+        foreach ($this->pages as $p) {
+            ?>
+            <a class="<?=$p['class']?>" href="<?=$p['href']?>"><?=$p['html']?></a>
+            <?php
+        }
+        ?>
+    </div>
+</div>
+<div class="clear h14"></div>
+<?php } ?>
+
+
+<?php
+    if (($this->categorySEO['text'] != "") && !$this->showLastIventors) {
+	
+        ?>
+            <div class="catalog-short-list">
+                <div class="box-out">
+                    <div class="box-in" style="height: auto;">
+                        <h1><?=$this->categorySEO['title']?></h1>
+                        <div class="seo"><?=trim($this->categorySEO['text'])?></div>
+                    </div>
+                </div>
+            </div>
+        <?php
+    }
+?>
+
+<?php
+    //if ($this->categorySEO && !$this->showLastIventors) {
+        ?>
+            <div class="catalog-short-list2">
+                <div class="box-out">
+                    <div class="box-in" style="height: auto;">
+					<?
+					$Obj_city = new Obj_DBTable_Citys();
+					$Obj_cat = new Obj_DBTable_ServiceCategories();
+					foreach ($this->ivent_service as $service){
+					$city = $Obj_city->getCity($service['CityId']);
+					$alias = $Obj_city->getAlias($service['CityId']);
+					$cat = $Obj_cat->getAlias($this->catalogid);
+					echo '<a href="/catalog/'.$cat.'/'.$alias.'/">'.$city['name'].'</a> | ';			
+					}
+					
+					?>
+                    </div>
+                </div>
+            </div>
+        <?php
+    //}
+?>
+
+<?php if (count($this->articles) > 0) { ?>
+<div class="articles">
+    <h3>Последние статьи</h3>
+    <ul>
+        <?php
+        foreach ($this->articles as $a) {
+		$translit = new Zend_Filter_Translit();
+            ?>
+            <li>
+                <?php if (trim($a['Image']) != '') { ?>
+                <img src="<?=$this->baseUrl()?>/img/articles/100x100_<?=$a['Image']?>" width="100" height="100" alt="" />
+                <?php } ?>
+                <div class="text">
+					<? echo '<a class="title" href="'.$this->url(array('id' => $a['Id'],'title' => $translit->filter($a['Title'])), 'entity_page').'" class="all_post_title">'.$a['Title'].'</a>'; ?>
+                    
+                   
+					 <?=$this->shortText(strip_tags($a['IntroText']), 230)?>
+                </div>
+            </li>
+            <?php
+        }
+        ?>
+    </ul>
+    <div class="clear" style="height: 15px;"></div>
+    <a class="all" href="http://masterholiday.net/index/all-post/">все статьи</a>
+</div>
+<?php }
+
+
+
+?>
+
+
+
+<?php if (!$this->showLastIventors) echo $this->catalog($this->shortCatalogList, true);?>
+
+

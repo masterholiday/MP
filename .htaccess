@@ -1,0 +1,31 @@
+AddType application/vnd.ms-fontobject .eot
+AddType font/ttf .ttf
+AddType font/otf .otf
+
+
+RewriteEngine On
+
+
+RewriteCond %{HTTP_HOST} ^www.masterholiday.net$ [NC]
+RewriteRule ^(.*)$ http://masterholiday.net/$1 [R=301,L]
+
+RewriteRule ^\.htaccess$ - [F]
+ 
+RewriteCond %{REQUEST_METHOD} GET [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !\..+$
+RewriteCond %{REQUEST_URI} !/$
+RewriteRule (.*) http://masterholiday.net/$1/ [R=301,L] 
+ 
+RewriteCond %{REQUEST_URI} =""
+RewriteRule ^.*$ /public/index.php [NC,L]
+ 
+RewriteCond %{REQUEST_URI} !^/public/.*$
+RewriteRule ^(.*)$ /public/$1
+
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^.*$ - [NC,L]
+
+
+ 
+RewriteRule ^public/.*$ /public/index.php [NC,L]
