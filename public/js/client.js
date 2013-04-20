@@ -1,5 +1,34 @@
 $('.phonec a.del').live('click', function(){
-    if (confirm("Удалить телефон?")) {
+    noty({
+        text: 'Удалить телефон?',
+        layout: 'center',
+        buttons: [
+            {
+                addClass: 'btn btn-primary',
+                text: 'Да',
+                onClick: function($noty) {
+                    $noty.close();
+                    $.ajax({
+                        type: 'POST',
+                        url: HTTP_HOST + '/client/remove-phone/',
+                        data: {},
+                        success: function(data){
+                            window.location.reload();
+                        },
+                        dataType: 'json'
+                    });
+                }
+            },
+            {
+                addClass: 'btn btn-danger',
+                text: 'Нет',
+                onClick: function($noty) {
+                    $noty.close();
+                }
+            }
+        ]
+    });
+/*    if (confirm("Удалить телефон?")) {
         $.ajax({
             type: 'POST',
             url: HTTP_HOST + '/client/remove-phone/',
@@ -9,7 +38,7 @@ $('.phonec a.del').live('click', function(){
             },
             dataType: 'json'
         });
-    }
+    }*/
 });
 
 function addEditInfoPopup() {
