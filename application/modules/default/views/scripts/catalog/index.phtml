@@ -131,7 +131,7 @@
 
 <?php
     if (($this->categorySEO['text'] != "") && !$this->showLastIventors) {
-	
+
         ?>
             <div class="catalog-short-list">
                 <div class="box-out">
@@ -146,7 +146,10 @@
 ?>
 
 <?php
-    //if ($this->categorySEO && !$this->showLastIventors) {
+$Obj_city = new Obj_DBTable_Citys();
+$Obj_cat = new Obj_DBTable_ServiceCategories();
+$services = $this->ivent_service;
+    if (count($services)>0) {
         ?>
             <div class="catalog-short-list2">
                 <div class="box-out">
@@ -154,7 +157,7 @@
 					<?
 					$Obj_city = new Obj_DBTable_Citys();
 					$Obj_cat = new Obj_DBTable_ServiceCategories();
-					foreach ($this->ivent_service as $service){
+					foreach ($services as $service){
 					$city = $Obj_city->getCity($service['CityId']);
 					$alias = $Obj_city->getAlias($service['CityId']);
 					$cat = $Obj_cat->getAlias($this->catalogid);
@@ -166,7 +169,7 @@
                 </div>
             </div>
         <?php
-    //}
+    }
 ?>
 
 <?php if (count($this->articles) > 0) { ?>
